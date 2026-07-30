@@ -1,0 +1,24 @@
+{
+  "id": "react/core-hooks/use-state",
+  "title": "⚛️ useState: Deep Mechanics, Real-World Use Cases & Senior Edge Cases",
+  "description": "1. Under-The-Hood Fiber Mechanics",
+  "source": "@site/docs/react/01-core-hooks/01-use-state.md",
+  "sourceDirName": "react/01-core-hooks",
+  "slug": "/react/core-hooks/use-state",
+  "permalink": "/react/core-hooks/use-state",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "⚛️ React Bible Overview",
+    "permalink": "/"
+  },
+  "next": {
+    "title": "⚛️ useEffect: Deep Mechanics, Real-World Use Cases & Senior Edge Cases",
+    "permalink": "/react/core-hooks/use-effect"
+  }
+}

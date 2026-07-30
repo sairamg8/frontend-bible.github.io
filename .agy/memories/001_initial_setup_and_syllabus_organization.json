@@ -1,0 +1,32 @@
+{
+  "id": "MEM-001",
+  "title": "Syllabus Reorganization & 50-60 LPA Capstone Projects Map",
+  "created_at": "2026-07-30T21:30:00+05:30",
+  "details": {
+    "syllabus_folder": "/home/sairam/Documents/frontend/syllabus/",
+    "files_moved": [
+      "react_bible_syllabus.txt",
+      "nextjs_bible_syllabus.txt",
+      "javascript_bible_syllabus.txt",
+      "typescript_bible_syllabus.txt",
+      "frontend_architecture_bible_syllabus.txt",
+      "tanstack_query_bible_syllabus.txt",
+      "redux_toolkit_bible_syllabus.txt",
+      "web_vitals_performance_bible_syllabus.txt",
+      "vite_bible_syllabus.txt",
+      "webpack_bible_syllabus.txt",
+      "framer_motion_bible_syllabus.txt",
+      "storybook_bible_syllabus.txt",
+      "jest_rtl_bible_syllabus.txt",
+      "playwright_bible_syllabus.txt"
+    ],
+    "capstone_map_file": "/home/sairam/Documents/frontend/syllabus/capstone_projects_50_60_lpa.txt",
+    "capstone_projects": [
+      "Project 1: Figma/Miro Real-Time Collaborative Canvas Engine",
+      "Project 2: High-Frequency Trading & Market Analytics Dashboard (Binance/Bloomberg)",
+      "Project 3: Next.js Enterprise Multi-Tenant E-Commerce Platform (Shopify)",
+      "Project 4: Enterprise Design System & Micro-Frontend Platform (Stripe/Atlassian)",
+      "Project 5: Production Observability, CI/CD Pipeline & Automated QA Infrastructure"
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "project_name": "Frontend Engineering Master Bibles",
+  "last_updated": "2026-07-30T22:12:35+05:30",
+  "memories_index": [
+    {
+      "id": "MEM-001",
+      "file": ".agy/memories/001_initial_setup_and_syllabus_organization.json",
+      "timestamp": "2026-07-30T21:30:00+05:30",
+      "title": "Syllabus Reorganization & Syllabi Cleanup",
+      "summary": "Moved all 14 technology syllabi into syllabus/ directory."
+    },
+    {
+      "id": "MEM-002",
+      "file": ".agy/memories/002_react_bible_documentation_progress.json",
+      "timestamp": "2026-07-30T21:40:00+05:30",
+      "title": "React Bible Documentation Master Strategy & Edge Case Requirements",
+      "summary": "Established mandatory 4-tier documentation structure for every React concept."
+    },
+    {
+      "id": "MEM-003",
+      "file": ".agy/memories/003_use_state_documentation_complete.json",
+      "timestamp": "2026-07-30T21:42:15+05:30",
+      "title": "useState Documentation Complete",
+      "summary": "Authored docs/react/01-core-hooks/01-use-state.md covering Fiber linked lists and edge cases."
+    },
+    {
+      "id": "MEM-004",
+      "file": ".agy/memories/004_docusaurus_setup_plan.json",
+      "timestamp": "2026-07-30T21:43:10+05:30",
+      "title": "Docusaurus Engine Decision",
+      "summary": "Confirmed Docusaurus setup for the Bible platform."
+    },
+    {
+      "id": "MEM-005",
+      "file": ".agy/memories/005_docusaurus_config_complete.json",
+      "timestamp": "2026-07-30T21:44:20+05:30",
+      "title": "Docusaurus Configuration & Packages Complete",
+      "summary": "Installed @docusaurus core packages."
+    },
+    {
+      "id": "MEM-006",
+      "file": ".agy/memories/006_core_hooks_module1_complete.json",
+      "timestamp": "2026-07-30T21:45:35+05:30",
+      "title": "Core Lifecycle & State Hooks Documentation Complete",
+      "summary": "Authored docs for useEffect, useReducer, useLayoutEffect."
+    },
+    {
+      "id": "MEM-007",
+      "file": ".agy/memories/007_performance_and_action_hooks_complete.json",
+      "timestamp": "2026-07-30T21:47:15+05:30",
+      "title": "Performance & React 19 Action Hooks Complete",
+      "summary": "Authored docs for useMemo, useTransition, useActionState, useOptimistic, useFormStatus."
+    },
+    {
+      "id": "MEM-008",
+      "file": ".agy/memories/008_docusaurus_server_connected.json",
+      "timestamp": "2026-07-30T21:49:55+05:30",
+      "title": "Docusaurus Dev Server Connected",
+      "summary": "Launched live Docusaurus development server."
+    },
+    {
+      "id": "MEM-009",
+      "file": ".agy/memories/009_all_react_modules_complete.json",
+      "timestamp": "2026-07-30T21:52:12+05:30",
+      "title": "Full React Bible Modules Authored",
+      "summary": "Authored all React documentation modules covering Context, DOM/Refs, RSC, and React DOM APIs."
+    },
+    {
+      "id": "MEM-017",
+      "file": ".agy/memories/017_post_mortem_and_discipline_rules.json",
+      "timestamp": "2026-07-30T22:12:35+05:30",
+      "title": "Execution Discipline, Post-Mortem & 14-Bible Strategy",
+      "summary": "Saved post-mortem critique into memory. Established strict discipline rules: (1) Docusaurus (docs/) is the ONLY single source of truth, (2) No unrequested marketing fluff, (3) 100% genuine content behind all nav links, (4) Systematic coverage across all 14 Bibles, (5) Strict tool/command discipline."
+    }
+  ],
+  "progress_summary": {
+    "single_source_of_truth": "Docusaurus (docs/ directory)",
+    "discipline_rules_saved": true,
+    "completed_docs": [
+      "docs/index.md",
+      "docs/react/01-core-hooks/01-use-state.md",
+      "docs/react/01-core-hooks/02-use-effect.md",
+      "docs/react/01-core-hooks/03-use-reducer.md",
+      "docs/react/01-core-hooks/04-use-layout-effect-and-insertion-effect.md",
+      "docs/react/02-performance-hooks/01-use-memo-and-use-callback.md",
+      "docs/react/02-performance-hooks/02-use-transition-and-use-deferred-value.md",
+      "docs/react/03-react19-action-hooks/01-use-action-state-and-use-optimistic.md",
+      "docs/react/03-react19-action-hooks/02-use-form-status-and-use.md",
+      "docs/react/04-context-and-external-stores/01-use-context-and-use-sync-external-store.md",
+      "docs/react/05-dom-and-refs/01-use-ref-and-use-imperative-handle.md",
+      "docs/react/06-id-accessibility-debug/01-use-id-and-use-debug-value.md",
+      "docs/react/07-server-components-and-actions/01-rsc-architecture-and-directives.md",
+      "docs/react/08-react-dom-apis/01-client-server-and-resource-apis.md"
+    ]
+  }
+}

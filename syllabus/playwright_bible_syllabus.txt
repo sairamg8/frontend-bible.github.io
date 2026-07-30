@@ -1,0 +1,148 @@
+================================================================================
+                             THE ULTIMATE PLAYWRIGHT BIBLE
+                Complete Master Syllabus for Playwright E2E Testing & APIs
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE ARCHITECTURE
+--------------------------------------------------------------------------------
+1.1 Browser Automation Model
+    - Multi-browser engine support        - Chromium, Firefox, WebKit from a single API.
+    - Browser -> BrowserContext -> Page hierarchy - Isolation levels (contexts = incognito-like sessions).
+    - Out-of-process browser drivers        - Communicating over a WebSocket protocol for speed/reliability.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: TEST RUNNER
+--------------------------------------------------------------------------------
+2.1 @playwright/test
+    - test() / test.describe()               - Test and suite definition.
+    - test.beforeEach / afterEach / beforeAll / afterAll - Setup/teardown scoping.
+    - Fixtures                                  - Built-in (page, context, browser, request) and custom fixtures via test.extend().
+    - projects config                             - Running the same suite across multiple browsers/devices/viewports.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: LOCATORS
+--------------------------------------------------------------------------------
+3.1 Locator API (Preferred over ElementHandle)
+    - getByRole()                            - Accessibility-tree-based targeting (primary recommendation).
+    - getByText / getByLabel / getByPlaceholder / getByAltText / getByTitle - Semantic targeting alternatives.
+    - getByTestId()                             - Escape hatch for elements without semantic identifiers.
+    - Chaining & filtering                        - locator.filter({ hasText }), .first()/.last()/.nth().
+    - Strictness mode                               - Locators throw if they resolve to more than one element unexpectedly.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: ACTIONS & INTERACTIONS
+--------------------------------------------------------------------------------
+4.1 Interaction Primitives
+    - click / dblclick / fill / type / press           - Core interaction methods.
+    - hover / dragTo / setInputFiles                       - Advanced interactions.
+    - Keyboard/Mouse low-level APIs                          - page.keyboard.press(), page.mouse.move()/down()/up() for custom gestures.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: AUTO-WAITING & ASSERTIONS
+--------------------------------------------------------------------------------
+5.1 Web-First Assertions
+    - expect(locator).toBeVisible() / toHaveText() / toBeEnabled() - Retry-until-pass assertions (no manual waits needed).
+    - Actionability checks                        - Playwright auto-waits for visible, stable, enabled, receives-events before acting.
+    - soft assertions                                - expect.soft() to continue a test after a failed assertion.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: NAVIGATION & NETWORK
+--------------------------------------------------------------------------------
+6.1 Navigation
+    - page.goto() / waitForURL() / waitForLoadState() - Navigation and readiness signals.
+
+6.2 Network Interception
+    - page.route()                             - Intercepting and mocking/modifying requests and responses.
+    - page.waitForResponse() / waitForRequest()  - Asserting/awaiting specific network activity.
+    - HAR replay                                    - Recording and replaying network traffic for deterministic tests.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: AUTHENTICATION & STATE
+--------------------------------------------------------------------------------
+7.1 Session Reuse
+    - storageState                             - Serializing cookies/localStorage after login, reusing across tests.
+    - Global setup projects                       - Dedicated auth-setup project that runs once and shares state via storageState.
+    - Per-role authentication files for testing multiple user types.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: FIXTURES & TEST ISOLATION
+--------------------------------------------------------------------------------
+8.1 Fixture System
+    - Test-scoped vs worker-scoped fixtures      - Lifecycle and performance implications.
+    - Custom fixtures via test.extend()             - Injecting page objects, authenticated pages, test data.
+    - Automatic fixtures                              - auto: true fixtures that run without explicit destructuring.
+    - Fresh BrowserContext per test                     - Guarantees test isolation (no shared cookies/storage by default).
+
+
+--------------------------------------------------------------------------------
+SECTION 9: VISUAL & SCREENSHOT TESTING
+--------------------------------------------------------------------------------
+9.1 Visual Regression
+    - expect(page).toHaveScreenshot()            - Pixel-diffing against a baseline image, threshold/maxDiffPixels tuning.
+    - page.screenshot() / element.screenshot()      - Manual capture for debugging or reporting.
+    - Updating baselines                              - --update-snapshots workflow.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: DEBUGGING TOOLS
+--------------------------------------------------------------------------------
+10.1 Diagnostic Tooling
+    - Trace Viewer                              - Post-mortem timeline with DOM snapshots, network, console per action.
+    - Playwright Inspector                        - Step-through debugging (PWDEBUG=1), live selector picking.
+    - codegen                                       - Recording browser interactions into generated test code.
+    - UI Mode                                         - Interactive test runner with watch mode and time-travel debugging.
+    - Automatic video/screenshot/trace capture on failure (retain-on-failure config).
+
+
+--------------------------------------------------------------------------------
+SECTION 11: PARALLELISM & SHARDING
+--------------------------------------------------------------------------------
+11.1 Scaling Test Runs
+    - workers config                             - Parallel worker processes, isolated browser instances per worker.
+    - test.describe.parallel() / test.describe.serial() - Fine-grained parallelism control within a file.
+    - Sharding (--shard=1/3)                        - Splitting the suite across multiple CI machines.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: COMPONENT TESTING
+--------------------------------------------------------------------------------
+12.1 Experimental CT Runner
+    - Mounting individual React/Vue/Svelte components in a real browser (not jsdom).
+    - mount() API                              - Rendering with props/slots, distinct from full E2E page navigation.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: API TESTING
+--------------------------------------------------------------------------------
+13.1 request Fixture
+    - APIRequestContext                        - Making HTTP calls directly without a browser (backend/contract testing).
+    - Combining API setup with UI verification    - Seeding data via API, verifying via UI (or vice versa) for speed.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: CI INTEGRATION
+--------------------------------------------------------------------------------
+14.1 playwright.config.ts
+    - reporters                              - list, dot, html, junit, and custom reporters.
+    - retries                                   - Automatic re-run of flaky failed tests in CI.
+    - projects matrix                             - Cross-browser/device configuration for CI pipelines.
+    - Official Docker image                          - Pre-installed browsers for consistent CI environments.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: ADVANCED PATTERNS
+--------------------------------------------------------------------------------
+15.1 Scalable Test Architecture
+    - Page Object Model (POM)                 - Encapsulating locators/actions per page/component for reuse and maintainability.
+    - Custom matchers                            - Extending expect with domain-specific assertions.
+    - Accessibility testing integration              - @axe-core/playwright for automated a11y scans within E2E flows.
+    - Test tagging & filtering                         - @smoke/@regression tag conventions with --grep.
+================================================================================

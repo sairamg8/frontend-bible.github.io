@@ -1,0 +1,160 @@
+================================================================================
+                             THE ULTIMATE JAVASCRIPT BIBLE
+                Complete Master Syllabus for Core JavaScript Language & Runtime
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE LANGUAGE FUNDAMENTALS
+--------------------------------------------------------------------------------
+1.1 Variables & Types
+    - var vs let vs const                  - Function-scoping vs block-scoping, reassignment vs mutation rules.
+    - Hoisting & the Temporal Dead Zone       - Why let/const are "hoisted but unusable" before declaration.
+    - Primitive types                            - string, number, boolean, null, undefined, symbol, bigint.
+    - Type coercion                                - Implicit conversion rules, == vs === and the abstract equality algorithm.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: EXECUTION CONTEXT & SCOPE
+--------------------------------------------------------------------------------
+2.1 How Code Actually Runs
+    - Global/function/block execution contexts  - Creation phase (hoisting) vs execution phase.
+    - Scope chain                                  - Lexical scoping and identifier resolution up the chain.
+    - Closures                                        - Functions retaining access to their defining scope; practical uses (private state, memoization, factories).
+    - The call stack                                    - Stack frames, stack overflow, and how it relates to recursion limits.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: THE `this` KEYWORD
+--------------------------------------------------------------------------------
+3.1 Binding Rules
+    - Implicit binding                        - `this` as the object a method is called on.
+    - Explicit binding                           - call(), apply(), bind() forcing a specific `this`.
+    - new binding                                  - `this` as the newly constructed object.
+    - Arrow function binding                         - Lexical `this` inherited from the enclosing scope, no own `this`.
+    - Precedence order among the four rules when multiple could apply.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: FUNCTIONS IN-DEPTH
+--------------------------------------------------------------------------------
+4.1 Function Forms & Patterns
+    - Declarations vs expressions                - Hoisting differences, named function expressions.
+    - Arrow functions                               - Conciseness, no arguments object, no prototype property.
+    - Default & rest parameters                       - function(a = 1, ...rest) semantics.
+    - IIFE (Immediately Invoked Function Expression)   - Historical scoping/isolation pattern.
+    - Higher-order functions                             - Functions accepting/returning functions.
+    - Currying & partial application                       - Transforming multi-arg functions into chained single-arg calls.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: PROTOTYPES & OOP
+--------------------------------------------------------------------------------
+5.1 The Prototype System
+    - Prototype chain                        - How property lookup walks up via [[Prototype]].
+    - Object.create()                           - Manual prototype linking without a constructor.
+    - class syntax                                - Syntactic sugar over prototypal inheritance, constructor/extends/super.
+    - Static members                                - Class-level (not instance-level) properties/methods.
+    - Private fields (#field)                         - True encapsulation enforced by the engine, not convention.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: ASYNCHRONOUS JAVASCRIPT
+--------------------------------------------------------------------------------
+6.1 Handling Async Operations
+    - Callbacks                              - The original async pattern and "callback hell."
+    - Promises                                  - States (pending/fulfilled/rejected), chaining, .then/.catch/.finally.
+    - async/await                                 - Syntactic sugar over Promises for synchronous-looking async code.
+    - Promise combinators                            - Promise.all (fail-fast), allSettled (never rejects), race, any (first success).
+
+
+--------------------------------------------------------------------------------
+SECTION 7: THE EVENT LOOP DEEP DIVE
+--------------------------------------------------------------------------------
+7.1 Concurrency Model
+    - Call stack, Web APIs, callback queue, microtask queue - The four moving pieces of the browser runtime.
+    - Macrotasks vs microtasks                  - setTimeout/setInterval (macro) vs Promise callbacks/queueMicrotask (micro), and why microtasks always drain first.
+    - Rendering pipeline timing                    - Where requestAnimationFrame fits relative to microtasks and paint.
+    - Node.js event loop phases                     - timers, pending callbacks, poll, check (setImmediate), close callbacks, plus process.nextTick priority.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: ITERABLES & GENERATORS
+--------------------------------------------------------------------------------
+8.1 Custom Iteration Protocols
+    - Symbol.iterator                        - Making any object usable with for...of/spread.
+    - Generator functions                       - function*, yield, pausable/resumable execution.
+    - Async generators                             - async function*, for await...of for streaming async sequences.
+    - Practical uses                                 - Lazy sequences, infinite ranges, custom data structure traversal.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: MEMORY MANAGEMENT
+--------------------------------------------------------------------------------
+9.1 Garbage Collection
+    - Mark-and-sweep algorithm                - How the engine identifies and reclaims unreachable memory.
+    - Common memory leaks                        - Forgotten timers/listeners, detached DOM references, unbounded closures over large scopes.
+    - WeakMap / WeakSet / WeakRef                  - Weakly-held references that don't prevent garbage collection, used for metadata/caches keyed by objects.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: MODULES
+--------------------------------------------------------------------------------
+10.1 Module Systems
+    - ES Modules                             - import/export syntax, static analyzability, live bindings.
+    - CommonJS                                  - require()/module.exports, synchronous loading, Node's historical default.
+    - Dynamic import()                            - Returns a Promise, enables code-splitting/lazy loading.
+    - Module resolution & tree-shaking                - Why static ESM imports enable dead-code elimination that CJS cannot.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: MODERN ES FEATURES
+--------------------------------------------------------------------------------
+11.1 Syntax Sugar That Matters
+    - Destructuring                          - Array/object pattern extraction, nested/default destructuring.
+    - Spread & rest                             - Expanding/collecting values in arrays, objects, and function args.
+    - Optional chaining (?.)                       - Safe nested property/method access without manual null checks.
+    - Nullish coalescing (??)                        - Defaulting only on null/undefined (vs || which triggers on any falsy).
+    - Tagged template literals                         - Custom string-processing functions attached to template strings.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: COLLECTIONS & DATA STRUCTURES
+--------------------------------------------------------------------------------
+12.1 Built-in Structures
+    - Map / Set                              - Keyed/unique-value collections with guaranteed insertion order, any-type keys.
+    - WeakMap / WeakSet                          - Garbage-collectable counterparts for object-keyed data.
+    - Array methods deep dive                       - map/filter/reduce/flatMap/find/some/every and their functional composition.
+    - TypedArrays & ArrayBuffer                       - Fixed-size binary data buffers for performance-critical/binary work.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: BROWSER APIS & THE DOM
+--------------------------------------------------------------------------------
+13.1 Interacting with the Page
+    - Event delegation, bubbling & capturing    - Efficient event handling via a single ancestor listener.
+    - MutationObserver                             - Reacting to DOM tree changes programmatically.
+    - IntersectionObserver                           - Efficient viewport-visibility detection (lazy loading, infinite scroll).
+    - Web Workers                                      - Off-main-thread JS execution for CPU-heavy tasks.
+    - fetch() & AbortController                          - Modern networking with cancellable requests.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: ERROR HANDLING
+--------------------------------------------------------------------------------
+14.1 Managing Failure
+    - try/catch/finally                       - Synchronous error handling and guaranteed cleanup.
+    - Custom Error classes                       - Extending Error for domain-specific error types with extra context.
+    - Promise rejection handling                   - .catch placement, error propagation through async/await chains.
+    - unhandledrejection event                       - Catching Promise rejections that escaped all .catch handlers.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: ADVANCED / META PROGRAMMING
+--------------------------------------------------------------------------------
+15.1 Reflective & Low-Level APIs
+    - Proxy                                   - Intercepting fundamental object operations (get/set/has/deleteProperty).
+    - Reflect                                    - Standardized, functional counterparts to the operations Proxy intercepts.
+    - Symbol                                        - Unique, collision-free property keys; well-known symbols (Symbol.iterator, Symbol.toPrimitive).
+    - structuredClone()                               - Native deep-cloning supporting complex types (unlike JSON.parse/stringify).
+    - 'use strict' semantics                            - Eliminating silent errors, disallowing unsafe legacy behaviors.
+================================================================================

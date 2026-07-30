@@ -1,0 +1,155 @@
+================================================================================
+                             THE ULTIMATE TYPESCRIPT BIBLE
+                Complete Master Syllabus for TypeScript Type System & APIs
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE TYPE SYSTEM
+--------------------------------------------------------------------------------
+1.1 Foundations
+    - Primitives                          - string, number, boolean, null, undefined, symbol, bigint.
+    - Literal types                          - Narrowing a primitive to an exact value ('left' | 'right').
+    - Union & Intersection types                - A | B (either shape) vs A & B (combined shape).
+    - Type inference                              - contextual typing, best-common-type inference in arrays/returns.
+    - type vs interface                             - Declaration merging, extends vs &, when each is idiomatic.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: STRUCTURAL TYPING & COMPATIBILITY
+--------------------------------------------------------------------------------
+2.1 Duck Typing Semantics
+    - Structural (shape-based) vs nominal typing - why two unrelated types can be assignment-compatible.
+    - Excess property checks                        - Why object literals are checked stricter than variables.
+    - Variance                                         - Covariance/contravariance in function parameters and generics.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: INTERFACES & TYPE ALIASES
+--------------------------------------------------------------------------------
+3.1 Object Shape Definitions
+    - Declaration merging                    - Interfaces with the same name automatically combine (useful for augmentation).
+    - readonly properties                       - Immutability at the type level (compile-time only).
+    - Optional properties (?)                     - Distinguishing missing vs undefined.
+    - Index signatures                              - [key: string]: T for dynamic-keyed objects.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: FUNCTIONS & GENERICS
+--------------------------------------------------------------------------------
+4.1 Typing Functions
+    - Function type expressions & call signatures.
+    - Generic functions                        - <T>(arg: T): T, constrained generics (T extends X).
+    - Default generic parameters                  - <T = DefaultType>.
+    - Function overloads                            - Multiple call signatures resolving to one implementation.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: ADVANCED GENERICS
+--------------------------------------------------------------------------------
+5.1 Conditional Types
+    - T extends U ? X : Y                    - Type-level branching.
+    - infer keyword                              - Extracting a type from within a conditional (e.g. unwrapping Promise<T>).
+    - Distributive conditional types                - How unions distribute over conditional type branches automatically.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: UTILITY TYPES
+--------------------------------------------------------------------------------
+6.1 Built-in Transformations
+    - Partial<T> / Required<T> / Readonly<T>    - Modifying optionality/mutability of all properties.
+    - Pick<T, K> / Omit<T, K>                     - Selecting/excluding a subset of properties.
+    - Record<K, T>                                  - Constructing an object type from a key union and value type.
+    - Exclude<T, U> / Extract<T, U>                   - Union filtering.
+    - NonNullable<T>                                    - Stripping null/undefined from a type.
+    - ReturnType<T> / Parameters<T>                       - Extracting function signature pieces.
+    - Awaited<T>                                            - Unwrapping nested Promise types (mirrors await).
+
+
+--------------------------------------------------------------------------------
+SECTION 7: MAPPED TYPES
+--------------------------------------------------------------------------------
+7.1 Transforming Types Programmatically
+    - keyof / in                              - Iterating over a type's keys to build a new type.
+    - as clause remapping                        - Renaming/filtering keys during mapping (e.g. prefixing, removing).
+    - +/- modifiers                                - Explicitly adding/removing readonly and optional.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: TEMPLATE LITERAL TYPES
+--------------------------------------------------------------------------------
+8.1 String Pattern Types
+    - Combining literal unions into string patterns (`on${Capitalize<Event>}`).
+    - Intrinsic string manipulation types      - Uppercase, Lowercase, Capitalize, Uncapitalize.
+    - Pattern-matching API strings (route params, CSS properties) at the type level.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: TYPE NARROWING & GUARDS
+--------------------------------------------------------------------------------
+9.1 Refining Types at Runtime Boundaries
+    - typeof / instanceof / in operator narrowing.
+    - User-defined type guards                  - function isX(v): v is X pattern.
+    - Discriminated unions                        - Tagged union narrowing via a common literal 'kind'/'type' field.
+    - Exhaustiveness checking                       - Using `never` in a switch default to catch unhandled union cases at compile time.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: CLASSES & OOP
+--------------------------------------------------------------------------------
+10.1 Class-Based Typing
+    - Access modifiers                        - public/private/protected, and true runtime privacy with #field.
+    - abstract classes & methods                 - Enforcing subclass contracts.
+    - implements                                    - Structural contract enforcement against an interface.
+    - Parameter properties                            - Shorthand constructor(private x: T) field declaration.
+    - Decorators                                        - Class/method/property decorators (stable as of TS 5+, standard proposal alignment).
+
+
+--------------------------------------------------------------------------------
+SECTION 11: ENUMS & CONST ASSERTIONS
+--------------------------------------------------------------------------------
+11.1 Fixed Value Sets
+    - Numeric vs string enums                  - Compiled output differences and reverse mapping (numeric only).
+    - const enum                                  - Inlined at compile time, no runtime object emitted.
+    - as const                                      - Freezing literal types/arrays/objects, often preferred over enums in modern codebases.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: MODULES & DECLARATIONS
+--------------------------------------------------------------------------------
+12.1 Cross-File & Cross-Library Typing
+    - import type / export type                - Type-only imports erased at compile time (verbatimModuleSyntax).
+    - declare module                              - Typing untyped/CSS/asset imports.
+    - Ambient declarations (.d.ts)                  - Providing types for plain JS libraries.
+    - Namespace vs ES module organization (namespaces largely legacy in modern TS).
+
+
+--------------------------------------------------------------------------------
+SECTION 13: CONFIGURATION (tsconfig.json)
+--------------------------------------------------------------------------------
+13.1 Compiler Options
+    - strict mode family                       - strictNullChecks, noImplicitAny, strictFunctionTypes, and the `strict` umbrella flag.
+    - target / module / moduleResolution          - Output JS version and module interop strategy (bundler, node16, nodenext).
+    - paths / baseUrl                               - Path alias resolution matching bundler config.
+    - skipLibCheck / isolatedModules                  - Build performance and single-file-transpile safety.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: REACT + TYPESCRIPT INTEGRATION
+--------------------------------------------------------------------------------
+14.1 Typing Component Patterns
+    - Typing props                             - interface Props, React.PropsWithChildren, discriminated prop unions.
+    - Typing hooks                                - useState<T>() generics, useRef<T>() null-initialized refs.
+    - Generic components                            - <T,>(props: Props<T>) for reusable list/table components.
+    - Event typing                                    - React.ChangeEvent<HTMLInputElement>, React.MouseEvent, etc.
+    - ComponentProps<typeof X> for extracting prop types from existing components.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: ADVANCED PATTERNS
+--------------------------------------------------------------------------------
+15.1 Real-World Type Engineering
+    - Branded/nominal types                    - Simulating nominal typing for IDs (UserId vs string) via intersection tricks.
+    - Type-safe builder patterns                  - Fluent APIs with progressively narrowing generic state.
+    - Schema-inferred types                         - Deriving static types from runtime validators (zod's z.infer<typeof schema>) for a single source of truth.
+    - satisfies operator                              - Validating a value against a type without widening/losing literal inference.
+================================================================================

@@ -1,0 +1,24 @@
+{
+  "id": "react/performance-hooks/use-memo-and-use-callback",
+  "title": "⚛️ useMemo & useCallback: Performance Tuning & Referential Equality",
+  "description": "1. Under-The-Hood Mechanics",
+  "source": "@site/docs/react/02-performance-hooks/01-use-memo-and-use-callback.md",
+  "sourceDirName": "react/02-performance-hooks",
+  "slug": "/react/performance-hooks/use-memo-and-use-callback",
+  "permalink": "/react/performance-hooks/use-memo-and-use-callback",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "⚛️ useLayoutEffect & useInsertionEffect: Synchronous Render Pipeline Mechanics",
+    "permalink": "/react/core-hooks/use-layout-effect-and-insertion-effect"
+  },
+  "next": {
+    "title": "⚛️ useTransition & useDeferredValue: Non-Blocking Concurrent Rendering",
+    "permalink": "/react/performance-hooks/use-transition-and-use-deferred-value"
+  }
+}

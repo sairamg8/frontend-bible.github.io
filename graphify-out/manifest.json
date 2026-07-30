@@ -1,0 +1,167 @@
+{
+  ".oxlintrc.json": {
+    "mtime": 1785424717.8870277,
+    "ast_hash": "029f4905006c1fffd96bc863e2d98d3e",
+    "semantic_hash": "029f4905006c1fffd96bc863e2d98d3e"
+  },
+  ".pnp.cjs": {
+    "mtime": 1785425068.595844,
+    "ast_hash": "05dd5330c76e41ba38f3ec88cfed3690",
+    "semantic_hash": "05dd5330c76e41ba38f3ec88cfed3690"
+  },
+  ".pnp.loader.mjs": {
+    "mtime": 1785424759.635153,
+    "ast_hash": "e34230e6aed8220cb1947ae6c7103695",
+    "semantic_hash": "e34230e6aed8220cb1947ae6c7103695"
+  },
+  "package.json": {
+    "mtime": 1785425068.0078065,
+    "ast_hash": "22fead7dd10e48990bd316cd23c5ca79",
+    "semantic_hash": "22fead7dd10e48990bd316cd23c5ca79"
+  },
+  "src/App.tsx": {
+    "mtime": 1785424717.884988,
+    "ast_hash": "c5e44a49ac2a44373fba5d1a7fe35be4",
+    "semantic_hash": "c5e44a49ac2a44373fba5d1a7fe35be4"
+  },
+  "src/main.tsx": {
+    "mtime": 1785424717.8859537,
+    "ast_hash": "787e5a07efeb2bf6209d5937195f2f68",
+    "semantic_hash": "787e5a07efeb2bf6209d5937195f2f68"
+  },
+  "tsconfig.app.json": {
+    "mtime": 1785424717.8873599,
+    "ast_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a",
+    "semantic_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a"
+  },
+  "tsconfig.json": {
+    "mtime": 1785424717.887615,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": "a3d39fa780ebff65444de257f291ce6c"
+  },
+  "tsconfig.node.json": {
+    "mtime": 1785424717.8878756,
+    "ast_hash": "f9cb81ddcea69ffdab672fc8c48dca66",
+    "semantic_hash": "f9cb81ddcea69ffdab672fc8c48dca66"
+  },
+  "vite.config.ts": {
+    "mtime": 1785424717.890019,
+    "ast_hash": "d1bc84d991228ada9b2918b3425aed96",
+    "semantic_hash": "d1bc84d991228ada9b2918b3425aed96"
+  },
+  "README.md": {
+    "mtime": 1785424717.890019,
+    "ast_hash": "52a1bab912f53a2e94456ebe55783977",
+    "semantic_hash": "52a1bab912f53a2e94456ebe55783977"
+  },
+  "index.html": {
+    "mtime": 1785424717.885987,
+    "ast_hash": "33bd262affcefea92f1509cda449a19c",
+    "semantic_hash": "33bd262affcefea92f1509cda449a19c"
+  },
+  "syllabus/MASTER_FRONTEND_ECOSYSTEM_MAP.txt": {
+    "mtime": 1785427174.6670263,
+    "ast_hash": "14ad6e444b4793fbbf7e33ede7097ab2",
+    "semantic_hash": "14ad6e444b4793fbbf7e33ede7097ab2"
+  },
+  "syllabus/capstone_projects_50_60_lpa.txt": {
+    "mtime": 1785427280.2216496,
+    "ast_hash": "f6e5292351de0fa835aef215bff6c008",
+    "semantic_hash": "f6e5292351de0fa835aef215bff6c008"
+  },
+  "syllabus/framer_motion_bible_syllabus.txt": {
+    "mtime": 1785426252.7609546,
+    "ast_hash": "d246a744fe0d38e452b242e51e333490",
+    "semantic_hash": "d246a744fe0d38e452b242e51e333490"
+  },
+  "syllabus/frontend_architecture_bible_syllabus.txt": {
+    "mtime": 1785426696.9220364,
+    "ast_hash": "e96ced14111c5ab1d630de6065366472",
+    "semantic_hash": "e96ced14111c5ab1d630de6065366472"
+  },
+  "syllabus/javascript_bible_syllabus.txt": {
+    "mtime": 1785426631.2983658,
+    "ast_hash": "76b05254b6b1335ec09c9287d908d23b",
+    "semantic_hash": "76b05254b6b1335ec09c9287d908d23b"
+  },
+  "syllabus/jest_rtl_bible_syllabus.txt": {
+    "mtime": 1785425867.0441315,
+    "ast_hash": "6ef96ca6cfe2bfaa9231b6f7fb0f3910",
+    "semantic_hash": "6ef96ca6cfe2bfaa9231b6f7fb0f3910"
+  },
+  "syllabus/nextjs_bible_syllabus.txt": {
+    "mtime": 1785425801.841556,
+    "ast_hash": "3d7b19a6e040d96818e782190eb0b04f",
+    "semantic_hash": "3d7b19a6e040d96818e782190eb0b04f"
+  },
+  "syllabus/playwright_bible_syllabus.txt": {
+    "mtime": 1785425898.2743616,
+    "ast_hash": "0362c7119f049438fdc0dd80fda24d6f",
+    "semantic_hash": "0362c7119f049438fdc0dd80fda24d6f"
+  },
+  "syllabus/react_bible_syllabus.txt": {
+    "mtime": 1785427926.1474006,
+    "ast_hash": "007cd4c4a558ea44b8820c874769eab5",
+    "semantic_hash": "007cd4c4a558ea44b8820c874769eab5"
+  },
+  "syllabus/redux_toolkit_bible_syllabus.txt": {
+    "mtime": 1785425835.798923,
+    "ast_hash": "ff80cb2d19f06505e731813dc6ca7d26",
+    "semantic_hash": "ff80cb2d19f06505e731813dc6ca7d26"
+  },
+  "syllabus/storybook_bible_syllabus.txt": {
+    "mtime": 1785426190.8072414,
+    "ast_hash": "b4d1a25290e51fd86b725e0bcb56da16",
+    "semantic_hash": "b4d1a25290e51fd86b725e0bcb56da16"
+  },
+  "syllabus/tanstack_query_bible_syllabus.txt": {
+    "mtime": 1785426163.4360147,
+    "ast_hash": "bf60975cd5f559b60553b4ae95adfc66",
+    "semantic_hash": "bf60975cd5f559b60553b4ae95adfc66"
+  },
+  "syllabus/typescript_bible_syllabus.txt": {
+    "mtime": 1785426133.4747596,
+    "ast_hash": "e622e26343c9ee09863a5a6dcd8823f9",
+    "semantic_hash": "e622e26343c9ee09863a5a6dcd8823f9"
+  },
+  "syllabus/vite_bible_syllabus.txt": {
+    "mtime": 1785425767.5092084,
+    "ast_hash": "4584ad8b8a2dbb86c2048bb6f78839d3",
+    "semantic_hash": "4584ad8b8a2dbb86c2048bb6f78839d3"
+  },
+  "syllabus/web_vitals_performance_bible_syllabus.txt": {
+    "mtime": 1785426223.5799627,
+    "ast_hash": "537cd789e1f256d137bd8e7f8f677949",
+    "semantic_hash": "537cd789e1f256d137bd8e7f8f677949"
+  },
+  "syllabus/webpack_bible_syllabus.txt": {
+    "mtime": 1785425734.9510374,
+    "ast_hash": "472022b75e0e2f5da593ac182ac41555",
+    "semantic_hash": "472022b75e0e2f5da593ac182ac41555"
+  },
+  "public/favicon.svg": {
+    "mtime": 1785424717.888364,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  "public/icons.svg": {
+    "mtime": 1785424717.8889132,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  },
+  "src/assets/hero.png": {
+    "mtime": 1785424717.883989,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": "aead493361b27e7510691c5d7072dfc1"
+  },
+  "src/assets/react.svg": {
+    "mtime": 1785424717.88493,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": "f0402b67b6ce880f65666bb49e841696"
+  },
+  "src/assets/vite.svg": {
+    "mtime": 1785424717.884988,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  }
+}

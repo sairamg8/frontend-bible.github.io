@@ -1,0 +1,24 @@
+{
+  "id": "react/core-hooks/use-layout-effect-and-insertion-effect",
+  "title": "⚛️ useLayoutEffect & useInsertionEffect: Synchronous Render Pipeline Mechanics",
+  "description": "1. Under-The-Hood Mechanics",
+  "source": "@site/docs/react/01-core-hooks/04-use-layout-effect-and-insertion-effect.md",
+  "sourceDirName": "react/01-core-hooks",
+  "slug": "/react/core-hooks/use-layout-effect-and-insertion-effect",
+  "permalink": "/react/core-hooks/use-layout-effect-and-insertion-effect",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "⚛️ useReducer: Deep Mechanics, Real-World Use Cases & Senior Edge Cases",
+    "permalink": "/react/core-hooks/use-reducer"
+  },
+  "next": {
+    "title": "⚛️ useMemo & useCallback: Performance Tuning & Referential Equality",
+    "permalink": "/react/performance-hooks/use-memo-and-use-callback"
+  }
+}

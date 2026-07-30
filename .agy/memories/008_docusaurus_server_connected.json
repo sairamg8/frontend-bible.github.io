@@ -1,0 +1,10 @@
+{
+  "id": "MEM-008",
+  "title": "Docusaurus Dev Server Connected & Live UI Active",
+  "created_at": "2026-07-30T21:49:55+05:30",
+  "details": {
+    "server_url": "http://localhost:3000/",
+    "status": "Running in background task",
+    "hot_reload_enabled": true
+  }
+}

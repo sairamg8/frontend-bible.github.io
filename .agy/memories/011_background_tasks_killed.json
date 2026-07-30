@@ -1,0 +1,12 @@
+{
+  "id": "MEM-011",
+  "title": "All Background Terminal Processes Terminated",
+  "created_at": "2026-07-30T21:54:20+05:30",
+  "details": {
+    "killed_tasks": [
+      "task-126 (Docusaurus dev server on port 3000)",
+      "task-166 (Vite dev server on port 5173)"
+    ],
+    "active_background_tasks_count": 0
+  }
+}

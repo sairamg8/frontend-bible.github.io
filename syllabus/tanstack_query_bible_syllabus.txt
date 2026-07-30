@@ -1,0 +1,143 @@
+================================================================================
+                           THE ULTIMATE TANSTACK QUERY BIBLE
+              Complete Master Syllabus for TanStack Query (React Query) & APIs
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE CONCEPTS
+--------------------------------------------------------------------------------
+1.1 The Server-State Model
+    - Queries vs Mutations                  - Reading async data vs creating/updating/deleting it.
+    - QueryClient                              - The central cache and configuration store.
+    - QueryClientProvider                        - Making the client available via context to the component tree.
+    - Why server state is different from client state - staleness, ownership outside the app, shared/cached across components.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: useQuery DEEP DIVE
+--------------------------------------------------------------------------------
+2.1 Core Options
+    - queryKey                              - Unique, serializable cache identifier; array-based, hierarchical by convention.
+    - queryFn                                 - The async function returning data (must return, not throw silently).
+    - enabled                                   - Conditionally/lazily triggering a query.
+    - staleTime vs gcTime (formerly cacheTime) - When data is considered stale (refetch-eligible) vs when it's garbage collected from cache.
+    - select                                       - Transforming/subselecting cached data without affecting the underlying cache.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: QUERY STATES
+--------------------------------------------------------------------------------
+3.1 Status Flags
+    - status: 'pending' | 'error' | 'success'   - Data-availability lifecycle.
+    - fetchStatus: 'fetching' | 'paused' | 'idle' - Network-activity lifecycle (independent of status).
+    - isLoading vs isPending vs isFetching         - First-load-with-no-data vs any-fetch-in-progress distinctions.
+    - isPlaceholderData / isStale                    - Flags for UI treatment of interim/aging data.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: CACHING & INVALIDATION
+--------------------------------------------------------------------------------
+4.1 Cache Management APIs
+    - Query key structure                     - Hierarchical keys (['todos', 'list', {filters}]) enabling partial matching.
+    - invalidateQueries()                        - Marking matched queries stale and triggering refetch of active ones.
+    - refetchQueries()                             - Forcing an immediate refetch regardless of staleness.
+    - setQueryData() / getQueryData()                - Direct, synchronous cache reads/writes (used heavily for optimistic updates).
+
+
+--------------------------------------------------------------------------------
+SECTION 5: useMutation
+--------------------------------------------------------------------------------
+5.1 Mutation Lifecycle
+    - mutationFn                              - The async write operation.
+    - onMutate / onSuccess / onError / onSettled - Lifecycle callbacks for optimistic updates, cache sync, and cleanup.
+    - Optimistic updates pattern                  - onMutate snapshots previous cache state, applies optimistic change, onError rolls back using the snapshot.
+    - mutate() vs mutateAsync()                      - Fire-and-forget callback style vs awaitable promise style.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: BACKGROUND REFETCHING
+--------------------------------------------------------------------------------
+6.1 Automatic Freshness
+    - refetchOnWindowFocus                    - Refetching when the user returns to the tab (default: true).
+    - refetchOnReconnect                         - Refetching after network reconnection.
+    - refetchInterval                              - Polling on a fixed interval, including conditional/dynamic intervals via a function.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: PAGINATION & INFINITE QUERIES
+--------------------------------------------------------------------------------
+7.1 Paged Data Patterns
+    - useInfiniteQuery                        - Accumulating pages, fetchNextPage/fetchPreviousPage, hasNextPage.
+    - getNextPageParam / getPreviousPageParam    - Deriving the next cursor/page from the last response.
+    - placeholderData: keepPreviousData          - Avoiding loading flicker when paginating (replaces old keepPreviousData option).
+
+
+--------------------------------------------------------------------------------
+SECTION 8: DEPENDENT & PARALLEL QUERIES
+--------------------------------------------------------------------------------
+8.1 Query Composition
+    - Dependent queries                       - Chaining via enabled: !!previousResult.
+    - Parallel queries                           - Multiple independent useQuery calls firing concurrently.
+    - useQueries()                                 - Dynamic, variable-length parallel query arrays (e.g. one query per item in a list).
+
+
+--------------------------------------------------------------------------------
+SECTION 9: PREFETCHING & SSR
+--------------------------------------------------------------------------------
+9.1 Server-Rendered Data Flow
+    - prefetchQuery()                         - Populating the cache ahead of render (on hover, on route load, on the server).
+    - dehydrate() / HydrationBoundary            - Serializing server-fetched cache state and rehydrating it on the client.
+    - Next.js integration                          - Prefetching in Server Components and hydrating into Client Component query hooks.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: SUSPENSE INTEGRATION
+--------------------------------------------------------------------------------
+10.1 Suspense-Driven Data Fetching
+    - useSuspenseQuery                        - Guaranteed-defined data, throws to the nearest Suspense boundary while loading.
+    - throwOnError                               - Propagating errors to the nearest Error Boundary instead of returning an error state.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: DEVTOOLS
+--------------------------------------------------------------------------------
+11.1 ReactQueryDevtools
+    - Live cache inspection                   - Viewing every query's key, status, staleness, and data.
+    - Manually triggering refetch/invalidate/reset from the devtools panel during development.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: QUERY CANCELLATION
+--------------------------------------------------------------------------------
+12.1 AbortSignal Integration
+    - Automatic cancellation                  - In-flight requests cancelled when a component unmounts or the query key changes.
+    - Manual signal usage                        - queryFn receiving { signal } to pass into fetch() for cooperative cancellation.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: GLOBAL CONFIGURATION
+--------------------------------------------------------------------------------
+13.1 QueryClient defaultOptions
+    - Global staleTime/gcTime defaults across the app.
+    - retry                                   - Default retry count, retryDelay backoff function.
+    - Per-query overrides                        - Local options merging over/overriding global defaults.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: OPTIMISTIC UPDATES PATTERNS
+--------------------------------------------------------------------------------
+14.1 Advanced Rollback Strategies
+    - Snapshot-and-restore pattern for list vs single-item optimistic edits.
+    - Handling race conditions between optimistic mutation and concurrent background refetch.
+    - Combining onMutate context typing with TypeScript for safe rollback data.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: TESTING TANSTACK QUERY
+--------------------------------------------------------------------------------
+15.1 Isolated & Integration Testing
+    - Creating a fresh QueryClient per test        - Avoiding cross-test cache pollution.
+    - Disabling retries in test environment          - retry: false to fail fast instead of waiting on backoff.
+    - MSW integration                                  - Mocking network responses at the boundary for realistic query/mutation tests.
+    - Wrapping components under test in a test-scoped QueryClientProvider.
+================================================================================

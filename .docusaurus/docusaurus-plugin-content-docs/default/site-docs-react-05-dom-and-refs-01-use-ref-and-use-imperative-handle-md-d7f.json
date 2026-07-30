@@ -1,0 +1,24 @@
+{
+  "id": "react/dom-and-refs/use-ref-and-use-imperative-handle",
+  "title": "⚛️ useRef & useImperativeHandle: Escape Hatches & Imperative APIs",
+  "description": "1. Under-The-Hood Mechanics",
+  "source": "@site/docs/react/05-dom-and-refs/01-use-ref-and-use-imperative-handle.md",
+  "sourceDirName": "react/05-dom-and-refs",
+  "slug": "/react/dom-and-refs/use-ref-and-use-imperative-handle",
+  "permalink": "/react/dom-and-refs/use-ref-and-use-imperative-handle",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "⚛️ useContext & useSyncExternalStore: State Sharing & Tearing Prevention",
+    "permalink": "/react/context-and-external-stores/use-context-and-use-sync-external-store"
+  },
+  "next": {
+    "title": "⚛️ React Server Components (RSC) & Server Actions Architecture",
+    "permalink": "/react/server-components-and-actions/rsc-architecture-and-directives"
+  }
+}

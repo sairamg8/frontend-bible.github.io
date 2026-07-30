@@ -1,0 +1,18 @@
+{
+  "id": "MEM-010",
+  "title": "React Bible Integrated into Vite App (Port 5173 / 5174)",
+  "created_at": "2026-07-30T21:53:45+05:30",
+  "details": {
+    "files_created": [
+      "/home/sairam/Documents/frontend/src/data/reactBibleData.ts",
+      "/home/sairam/Documents/frontend/src/components/ReactBibleExplorer.tsx"
+    ],
+    "app_entry": "/home/sairam/Documents/frontend/src/App.tsx",
+    "features": [
+      "Real-time search across 19 Hooks, RSC, and DOM APIs",
+      "Interactive 4-tab breakdown (Under-the-Hood Mechanics, Real-World Scenario, Production Code, Edge Cases)",
+      "Category module sidebar",
+      "Hot-reloading enabled for port 5173"
+    ]
+  }
+}

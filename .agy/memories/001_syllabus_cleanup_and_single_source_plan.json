@@ -1,0 +1,19 @@
+{
+  "id": "MEM-001",
+  "title": "Architectural Reset & Single Source of Truth Alignment",
+  "created_at": "2026-07-30T22:11:40+05:30",
+  "details": {
+    "corrections_made": [
+      "Removed unrequested capstone marketing files (capstone_projects_50_60_lpa.txt and MASTER_FRONTEND_ECOSYSTEM_MAP.txt)",
+      "Eliminated duplicate Vite data array layer in favor of Docusaurus single source of truth",
+      "Restored single source of truth in docs/ directory",
+      "Established strict 14-bible content coverage strategy"
+    ],
+    "discipline_rules": [
+      "No unrequested salary/marketing scope creep",
+      "No duplicate data sources",
+      "No premature command execution (e.g. graphify held off until explicit user instruction)",
+      "Strict focus on deep technical substance across all 14 syllabi"
+    ]
+  }
+}

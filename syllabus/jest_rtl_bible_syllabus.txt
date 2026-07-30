@@ -1,0 +1,157 @@
+================================================================================
+                        THE ULTIMATE JEST & RTL TESTING BIBLE
+        Complete Master Syllabus for Jest & React Testing Library Internals & APIs
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: JEST CORE CONCEPTS
+--------------------------------------------------------------------------------
+1.1 Test Structure
+    - test() / it()                       - Individual test case definition.
+    - describe()                              - Grouping related tests, nested describe blocks.
+    - beforeEach / afterEach / beforeAll / afterAll - Setup/teardown hooks and their scoping.
+    - test.each() / describe.each()             - Data-driven/parameterized test generation.
+    - test.skip / test.only / test.todo           - Selective execution and planning markers.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: ASSERTIONS & MATCHERS
+--------------------------------------------------------------------------------
+2.1 The expect() API
+    - toBe vs toEqual vs toStrictEqual        - Reference equality vs deep equality vs type-strict deep equality.
+    - Truthiness matchers                        - toBeNull, toBeUndefined, toBeDefined, toBeTruthy/Falsy.
+    - Number/string/array matchers                 - toBeCloseTo, toContain, toHaveLength, toMatch (regex).
+    - Exception matchers                             - toThrow, toThrowError with message/type matching.
+    - Asymmetric matchers                              - expect.any(), expect.objectContaining(), expect.arrayContaining().
+    - Custom matchers                                    - expect.extend() for domain-specific assertions.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: MOCKING
+--------------------------------------------------------------------------------
+3.1 Jest Mock Functions
+    - jest.fn()                              - Creating spies/stubs, mockReturnValue, mockImplementation, mockResolvedValue.
+    - jest.spyOn()                              - Wrapping existing object methods while preserving/overriding behavior.
+    - jest.mock()                                 - Auto-mocking modules, factory functions for manual mock shape.
+    - Manual mocks                                  - __mocks__ directory convention for modules/node_modules packages.
+    - jest.useFakeTimers() / advanceTimersByTime()    - Controlling setTimeout/setInterval/Date in tests.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: ASYNC TESTING
+--------------------------------------------------------------------------------
+4.1 Handling Asynchrony
+    - async/await test bodies                  - Preferred modern pattern.
+    - resolves / rejects                          - Matcher-level promise unwrapping (expect(promise).resolves.toBe(x)).
+    - Legacy done callback                          - Manual completion signaling (mostly superseded).
+
+
+--------------------------------------------------------------------------------
+SECTION 5: SNAPSHOT TESTING
+--------------------------------------------------------------------------------
+5.1 Snapshot Mechanics
+    - toMatchSnapshot()                       - Auto-generated .snap files, diffing on subsequent runs.
+    - toMatchInlineSnapshot()                    - Snapshot content written directly into the test file.
+    - Snapshot serializers                          - Custom formatting for domain objects (e.g. styled-components).
+    - When NOT to use snapshots                       - Large/brittle snapshots that hide real regressions.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: COVERAGE & CONFIGURATION
+--------------------------------------------------------------------------------
+6.1 jest.config.js
+    - collectCoverage / coverageThreshold        - Enforcing minimum coverage percentages (branches/lines/functions).
+    - testEnvironment                               - 'jsdom' (DOM APIs) vs 'node' (backend/unit logic).
+    - setupFilesAfterEach / setupFiles               - Global test setup (e.g. importing jest-dom matchers).
+    - moduleNameMapper                                 - Mocking CSS/asset imports, path alias resolution.
+    - transform                                          - babel-jest/ts-jest/swc pipeline configuration.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: RTL CORE PHILOSOPHY
+--------------------------------------------------------------------------------
+7.1 Guiding Principle
+    - "The more your tests resemble the way your software is used, the more confidence they give you."
+    - Testing behavior/output, not internal component state or implementation details.
+    - Avoiding shallow rendering/enzyme-style instance inspection entirely.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: RTL QUERIES
+--------------------------------------------------------------------------------
+8.1 Query Variants
+    - getBy*                                 - Throws if not found/multiple found; for elements expected to exist now.
+    - queryBy*                                  - Returns null if not found; for asserting absence.
+    - findBy*                                     - Returns a Promise, retries until found/timeout; for async-appearing elements.
+    - All*                                          - getAllBy/queryAllBy/findAllBy for multiple-match scenarios.
+
+8.2 Query Priority (Accessibility-First)
+    1. getByRole                              - Preferred default; matches ARIA role + accessible name.
+    2. getByLabelText / getByPlaceholderText     - Form field targeting.
+    3. getByText                                    - Non-interactive content matching.
+    4. getByTestId                                    - Escape hatch of last resort (data-testid).
+
+
+--------------------------------------------------------------------------------
+SECTION 9: USER INTERACTION
+--------------------------------------------------------------------------------
+9.1 Simulating Input
+    - fireEvent                              - Low-level single DOM event dispatch (legacy/limited realism).
+    - @testing-library/user-event              - Preferred - simulates full browser interaction sequences (focus, keydown, keyup, click).
+    - userEvent.setup()                          - Modern API pattern returning a bound user-event instance per test.
+    - click / type / hover / tab / selectOptions / upload - Realistic interaction primitives.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: ASYNC UTILITIES
+--------------------------------------------------------------------------------
+10.1 Waiting for Updates
+    - waitFor()                              - Polling an assertion until it passes or times out.
+    - findBy queries                           - Combined query + waitFor for elements appearing after async work.
+    - act() warnings                             - Why they occur (state updates outside React's batching awareness) and how RTL wraps renders/events in act automatically.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: CUSTOM RENDER
+--------------------------------------------------------------------------------
+11.1 Provider Wrapping
+    - Custom render() utility                 - Wrapping ui with Redux Provider, Router, ThemeProvider, QueryClientProvider.
+    - Re-exporting RTL with the custom render override for consistent test imports.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: MOCKING NETWORK REQUESTS
+--------------------------------------------------------------------------------
+12.1 API-Level Mocking
+    - MSW (Mock Service Worker)              - Intercepting fetch/XHR at the network level, most realistic approach.
+    - Mocking fetch/axios directly              - jest.mock('axios') or global.fetch = jest.fn() for simpler cases.
+    - Handler override per-test for error/edge-case scenarios.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: TESTING HOOKS
+--------------------------------------------------------------------------------
+13.1 renderHook()
+    - Testing custom hooks in isolation without a host component.
+    - result.current                          - Accessing the hook's returned value.
+    - act() wrapping for state-updating hook calls.
+    - rerender() with new props/args to test hook reactivity.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: ACCESSIBILITY TESTING
+--------------------------------------------------------------------------------
+14.1 A11y Assertions
+    - jest-axe                              - Automated WCAG rule violation checks (toHaveNoViolations).
+    - toHaveAccessibleName / toHaveAccessibleDescription - jest-dom matchers for ARIA correctness.
+    - Role-based queries doubling as an implicit accessibility check.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: DEBUGGING TESTS
+--------------------------------------------------------------------------------
+15.1 Diagnostic Tools
+    - screen.debug()                        - Pretty-printing the current DOM state to the console.
+    - logRoles()                               - Dumping all accessible roles in a container for query discovery.
+    - Testing Playground (browser extension/URL) - Interactive query suggestion tool.
+================================================================================

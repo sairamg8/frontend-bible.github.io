@@ -1,0 +1,142 @@
+================================================================================
+                              THE ULTIMATE STORYBOOK BIBLE
+              Complete Master Syllabus for Storybook & Component-Driven Dev
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE CONCEPTS
+--------------------------------------------------------------------------------
+1.1 Component-Driven Development
+    - Stories                              - Isolated, reproducible renders of a component in a specific state.
+    - Component Story Format (CSF3)           - The modern, object-based story authoring convention.
+    - Why isolation matters                     - Building/testing UI bottom-up, independent of app routing/data/backend.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: STORY ANATOMY
+--------------------------------------------------------------------------------
+2.1 File Structure
+    - Meta (default export)                - component reference, title, tags, shared parameters/argTypes.
+    - Named story exports                     - Each export is one story/state of the component.
+    - args                                       - Declarative prop values driving the rendered story.
+    - argTypes                                     - Controlling how args are displayed/edited in the Controls panel.
+    - render function                                - Custom rendering logic when args alone can't express a story.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: ADDONS ECOSYSTEM
+--------------------------------------------------------------------------------
+3.1 Essential Addons
+    - @storybook/addon-essentials          - Bundles Controls, Actions, Viewport, Backgrounds, Docs, Toolbars.
+    - Controls                                - Live prop editing UI generated from argTypes.
+    - Actions                                    - Logging callback prop invocations (onClick, onChange) in a panel.
+    - Viewport                                     - Simulating device/responsive breakpoints.
+    - Backgrounds                                    - Toggling background colors/themes behind a story.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: CONTROLS & ARGS
+--------------------------------------------------------------------------------
+4.1 Dynamic Prop Editing
+    - Auto-generated controls               - Inferred from TypeScript prop types / PropTypes via docgen.
+    - Args composition/inheritance             - Story-level args overriding/extending meta-level args.
+    - args in play functions                     - Reading current args for interaction assertions.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: INTERACTION TESTING
+--------------------------------------------------------------------------------
+5.1 play Functions
+    - Simulating user behavior inside a story  - @storybook/test's userEvent + within() + expect().
+    - Interaction panel                           - Step-by-step visual playback of the play function in the Storybook UI.
+    - Combining play functions with assertions for behavior-level (not just visual) verification.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: VISUAL TESTING
+--------------------------------------------------------------------------------
+6.1 Chromatic Integration
+    - Per-story visual snapshots               - Pixel-diffing every story on every PR.
+    - UI review workflow                          - Approving/rejecting visual changes as part of code review.
+    - TurboSnap                                     - Only re-snapshotting stories affected by a given diff for speed.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: ACCESSIBILITY TESTING
+--------------------------------------------------------------------------------
+7.1 a11y Addon
+    - Automated axe-core scans per story        - Surfacing WCAG violations directly in the Storybook UI.
+    - Highlighting violating elements visually in the canvas.
+    - Combining with CI to fail builds on new a11y regressions.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: DOCUMENTATION
+--------------------------------------------------------------------------------
+8.1 Docs Generation
+    - Autodocs (tags: ['autodocs'])            - Auto-generated documentation page per component.
+    - MDX docs pages                              - Hand-authored long-form documentation mixed with live story embeds.
+    - Docgen comments                                - JSDoc/TSDoc comments surfaced automatically in the props table.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: DECORATORS
+--------------------------------------------------------------------------------
+9.1 Wrapping Stories
+    - Global decorators                        - Applied to every story (e.g. theme provider, i18n provider).
+    - Story-level decorators                       - Scoped wrapping for specific stories (e.g. router context, Redux store).
+    - Decorator composition order and parameter passing.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: COMPOSITION & DESIGN SYSTEMS
+--------------------------------------------------------------------------------
+10.1 Storybook as a Design System Hub
+    - Design token integration                 - Documenting colors/spacing/typography as their own stories.
+    - Variant matrices                            - Systematically covering every prop combination (size x variant x state).
+    - Storybook Composition                         - Combining multiple team/project Storybooks into one shared instance.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: TESTING INTEGRATION
+--------------------------------------------------------------------------------
+11.1 Test Runner
+    - @storybook/test-runner                  - Executes every story's play function as a Playwright-backed test in CI.
+    - Reusing stories as the single source of truth for both visual documentation and automated interaction tests.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: MULTI-FRAMEWORK SUPPORT
+--------------------------------------------------------------------------------
+12.1 Renderer Architecture
+    - Framework-agnostic CSF                  - Same story format concepts across React, Vue, Svelte, Angular, Web Components.
+    - Builder options                            - Vite builder vs Webpack builder for the Storybook dev server itself.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: BUILD & CONFIGURATION
+--------------------------------------------------------------------------------
+13.1 .storybook/main.js
+    - stories glob patterns                    - Which files are discovered as stories.
+    - addons array                               - Registering installed addons.
+    - framework config                             - Selecting the renderer + builder pairing.
+    - staticDirs                                     - Serving static assets (fonts, images) inside Storybook.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: PUBLISHING & DEPLOYMENT
+--------------------------------------------------------------------------------
+14.1 Shipping a Static Storybook
+    - build-storybook                          - Producing a static, deployable Storybook build.
+    - Static hosting                              - Deploying to Vercel/Netlify/S3/GitHub Pages for team-wide review.
+    - Chromatic publish                             - Hosted, versioned Storybook snapshots tied to commits/PRs.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: ADVANCED PATTERNS
+--------------------------------------------------------------------------------
+15.1 Component-Driven Workflow
+    - Storybook as a living style guide           - Source of truth for what components exist and their valid states.
+    - PR-based visual review loop                    - Chromatic/test-runner gating merges on visual + interaction regressions.
+    - Building components in isolation before wiring them into real app data/routing (outside-in vs inside-out development).
+================================================================================

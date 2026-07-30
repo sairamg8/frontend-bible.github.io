@@ -1,0 +1,15 @@
+{
+  "id": "MEM-004",
+  "title": "Docusaurus Documentation Engine Setup Decision",
+  "created_at": "2026-07-30T21:43:10+05:30",
+  "details": {
+    "framework": "Docusaurus 3",
+    "features": [
+      "Sidebar auto-generation for docs/ directory",
+      "Interactive live code runner (@docusaurus/theme-live-codeblock)",
+      "Dark mode theme customization",
+      "Search & callout alerts",
+      "Markdown/MDX support"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "react/react19-action-hooks/use-form-status-and-use",
+  "title": "⚛️ React 19 useFormStatus & React.use(): Modular Forms & Resource Unwrapping",
+  "description": "1. Under-The-Hood Mechanics",
+  "source": "@site/docs/react/03-react19-action-hooks/02-use-form-status-and-use.md",
+  "sourceDirName": "react/03-react19-action-hooks",
+  "slug": "/react/react19-action-hooks/use-form-status-and-use",
+  "permalink": "/react/react19-action-hooks/use-form-status-and-use",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "⚛️ React 19 useActionState & useOptimistic: Modern Async Mutations",
+    "permalink": "/react/react19-action-hooks/use-action-state-and-use-optimistic"
+  },
+  "next": {
+    "title": "⚛️ useContext & useSyncExternalStore: State Sharing & Tearing Prevention",
+    "permalink": "/react/context-and-external-stores/use-context-and-use-sync-external-store"
+  }
+}

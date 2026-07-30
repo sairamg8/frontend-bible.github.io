@@ -1,0 +1,168 @@
+================================================================================
+                              THE ULTIMATE WEBPACK BIBLE
+                   Complete Master Syllabus for Webpack Internals & APIs
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE CONCEPTS
+--------------------------------------------------------------------------------
+1.1 The Five Core Concepts
+    1. Entry               - Starting point(s) of the dependency graph, single/multi-entry objects.
+    2. Output               - Bundle emission target: filename, path, publicPath, chunkFilename.
+    3. Loaders               - Transform non-JS files into modules Webpack can add to the graph.
+    4. Plugins               - Tap into the compiler lifecycle to extend build behavior beyond loaders.
+    5. Mode                  - 'development' | 'production' | 'none' - toggles built-in optimizations.
+
+1.2 The Module Graph
+    - How Webpack resolves, parses (AST via acorn), and builds a dependency graph from entry points.
+    - Module types: javascript/auto, javascript/esm, javascript/commonjs, json, webassembly.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: CONFIGURATION DEEP DIVE
+--------------------------------------------------------------------------------
+2.1 Entry Configuration
+    - Single string/array entry, object entry (multi-page apps), dynamic entry via functions returning Promises.
+    - dependOn - sharing modules between entry points without duplication.
+
+2.2 Output Configuration
+    - filename vs chunkFilename vs assetModuleFilename - naming for initial, async, and asset outputs.
+    - publicPath - 'auto' vs explicit, runtime-computed publicPath for CDN deployments.
+    - library / libraryTarget - exposing bundles as UMD/CommonJS/ESM for package authoring.
+    - clean - replacing clean-webpack-plugin natively.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: MODULE RESOLUTION
+--------------------------------------------------------------------------------
+3.1 The `resolve` Object
+    - alias                - Remapping import paths (e.g. '@/' to 'src/').
+    - extensions            - Implicit extension resolution order and its performance cost.
+    - modules                - Directories searched for bare imports (node_modules chain).
+    - mainFields             - Package.json field priority (browser, module, main).
+    - symlinks                - Resolving through vs preserving symlinked packages (monorepos).
+    - fallback                - Polyfilling/disabling Node core modules for browser targets.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: LOADERS IN-DEPTH
+--------------------------------------------------------------------------------
+4.1 Transpilation Loaders
+    - babel-loader          - JS/JSX/TS transpilation, cacheDirectory, babel.config.js integration.
+    - ts-loader / fork-ts-checker-webpack-plugin - Type checking strategies (blocking vs parallel).
+
+4.2 Style Loaders
+    - style-loader          - Injecting CSS into <style> tags at runtime (dev only, no extraction).
+    - css-loader             - Resolving @import/url() and converting CSS to CommonJS modules.
+    - sass-loader / less-loader / postcss-loader - Preprocessor and PostCSS pipeline chaining, loader order (right-to-left).
+
+4.3 Loader Mechanics
+    - Pitching phase vs normal phase execution order.
+    - Synchronous vs asynchronous loaders (this.async()).
+    - Loader options via query params vs rules[].use.options.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: ASSET MODULES (Webpack 5+)
+--------------------------------------------------------------------------------
+5.1 Built-in Asset Types (replacing file-loader/url-loader/raw-loader)
+    - asset/resource         - Emits a separate file, exports the URL.
+    - asset/inline            - Inlines as a data URI, no separate file emitted.
+    - asset/source             - Imports raw source content as a string.
+    - asset                    - Automatic choice via parser.dataUrlCondition.maxSize.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: PLUGINS IN-DEPTH
+--------------------------------------------------------------------------------
+6.1 Essential Plugins
+    - HtmlWebpackPlugin       - Auto-injecting <script>/<link> tags, templating.
+    - MiniCssExtractPlugin    - Extracting CSS into separate files for production (vs style-loader).
+    - DefinePlugin             - Compile-time constant replacement (process.env.NODE_ENV).
+    - ProvidePlugin             - Auto-importing/polyfilling globals (e.g. $ for jQuery, Buffer).
+    - CopyWebpackPlugin        - Copying static assets verbatim to output.
+    - BannerPlugin              - Prepending license/build metadata to emitted chunks.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: CODE SPLITTING
+--------------------------------------------------------------------------------
+7.1 Splitting Strategies
+    - Multiple entry points - Manual splitting per page/app.
+    - Dynamic import()       - On-demand async chunks, magic comments (webpackChunkName, webpackPrefetch, webpackPreload).
+    - SplitChunksPlugin       - optimization.splitChunks: chunks (all/async/initial), cacheGroups, minSize/maxSize.
+    - runtimeChunk             - Extracting the Webpack runtime/manifest into its own file for long-term caching.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: OPTIMIZATION
+--------------------------------------------------------------------------------
+8.1 Production Optimizations
+    - TerserPlugin             - JS minification, parallelization, dropping console/debugger.
+    - Tree Shaking             - usedExports, sideEffects flag in package.json, ESM static analysis requirement.
+    - Module/Chunk IDs         - deterministic vs named vs numeric, impact on long-term caching.
+    - mangleExports / concatenateModules (scope hoisting) - reducing bundle size and closure overhead.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: DEV SERVER & HMR
+--------------------------------------------------------------------------------
+9.1 webpack-dev-server
+    - devServer.proxy         - API proxying to backend during development.
+    - historyApiFallback       - SPA routing fallback to index.html.
+    - Hot Module Replacement    - module.hot.accept(), HMR runtime injection, React Fast Refresh integration.
+    - Live reload vs HMR distinction.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: CACHING STRATEGIES
+--------------------------------------------------------------------------------
+10.1 Long-Term Caching
+    - [contenthash] vs [chunkhash] vs [hash] - cache-busting granularity.
+    - cache: { type: 'filesystem' }  - persistent build caching across runs, buildDependencies invalidation.
+    - Cache groups for vendor/common chunk separation.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: MODULE FEDERATION
+--------------------------------------------------------------------------------
+11.1 Micro-Frontend Architecture
+    - remotes / exposes         - Cross-application runtime module loading.
+    - shared                     - Singleton dependency sharing (React, ReactDOM) across federated apps.
+    - eager vs lazy loading of remote entries, version negotiation.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: SOURCE MAPS
+--------------------------------------------------------------------------------
+12.1 devtool Options
+    - eval vs eval-source-map vs cheap-module-source-map vs source-map - speed/quality/production tradeoffs.
+    - hidden-source-map for production error tracking without exposing maps publicly.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: MULTI-CONFIG & ENVIRONMENT
+--------------------------------------------------------------------------------
+13.1 Config Composition
+    - webpack-merge              - Splitting common/dev/prod configs and merging them.
+    - Multi-compiler configs (array of configs) for multi-target builds (e.g. server + client).
+    - env flag via --env and exporting a config function.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: PERFORMANCE ANALYSIS
+--------------------------------------------------------------------------------
+14.1 Diagnostics
+    - webpack-bundle-analyzer     - Treemap visualization of bundle composition.
+    - stats output                 - stats.toJson(), verbose/errors-only/minimal presets.
+    - performance.hints            - Asset/entrypoint size budgets and warnings.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: ADVANCED / CUSTOM TOOLING
+--------------------------------------------------------------------------------
+15.1 Extending Webpack
+    - Writing custom loaders (this.callback, source maps passthrough, caching).
+    - Writing custom plugins (Tapable hooks: compiler.hooks.emit, compilation.hooks.optimizeChunkAssets).
+    - Compiler vs Compilation objects - lifecycle distinction and hook timing.
+================================================================================

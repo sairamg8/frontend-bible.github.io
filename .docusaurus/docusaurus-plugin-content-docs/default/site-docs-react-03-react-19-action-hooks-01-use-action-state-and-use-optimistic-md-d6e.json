@@ -1,0 +1,24 @@
+{
+  "id": "react/react19-action-hooks/use-action-state-and-use-optimistic",
+  "title": "⚛️ React 19 useActionState & useOptimistic: Modern Async Mutations",
+  "description": "1. Under-The-Hood Mechanics",
+  "source": "@site/docs/react/03-react19-action-hooks/01-use-action-state-and-use-optimistic.md",
+  "sourceDirName": "react/03-react19-action-hooks",
+  "slug": "/react/react19-action-hooks/use-action-state-and-use-optimistic",
+  "permalink": "/react/react19-action-hooks/use-action-state-and-use-optimistic",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "⚛️ useTransition & useDeferredValue: Non-Blocking Concurrent Rendering",
+    "permalink": "/react/performance-hooks/use-transition-and-use-deferred-value"
+  },
+  "next": {
+    "title": "⚛️ React 19 useFormStatus & React.use(): Modular Forms & Resource Unwrapping",
+    "permalink": "/react/react19-action-hooks/use-form-status-and-use"
+  }
+}

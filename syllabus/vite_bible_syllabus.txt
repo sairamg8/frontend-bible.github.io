@@ -1,0 +1,162 @@
+================================================================================
+                                THE ULTIMATE VITE BIBLE
+                    Complete Master Syllabus for Vite Internals & APIs
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE ARCHITECTURE
+--------------------------------------------------------------------------------
+1.1 The Dual-Engine Model
+    - Dev Server               - Native ESM serving over HTTP, no bundling required, instant server start.
+    - esbuild Pre-Bundling      - Converting CommonJS/UMD deps to ESM and flattening internal module graphs (Go-speed).
+    - Production Build          - Rollup-based bundling for optimized, tree-shaken output.
+
+1.2 Why It's Fast
+    - Browser-native import resolution during dev (no waiting for a full bundle).
+    - esbuild is 10-100x faster than JS-based bundlers for pre-bundling/transforms.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: CLI & PROJECT SCAFFOLDING
+--------------------------------------------------------------------------------
+2.1 Commands
+    - npm create vite@latest    - Template scaffolding (react, react-ts, vue, svelte, vanilla, etc).
+    - vite / vite build / vite preview / vite optimize - Core CLI commands and their purposes.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: CONFIGURATION FILE
+--------------------------------------------------------------------------------
+3.1 vite.config.ts
+    - defineConfig()             - Type-safe config helper, IntelliSense support.
+    - Conditional config           - Function form receiving { command, mode } for dev/build branching.
+    - root, base, publicDir, envDir - Project structure customization.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: DEV SERVER MECHANICS
+--------------------------------------------------------------------------------
+4.1 Native ESM Serving
+    - Browser requests modules on-demand; Vite transforms on the fly (per-file, not per-bundle).
+    - Module graph invalidation on file change - only affected modules are invalidated.
+
+4.2 Hot Module Replacement API
+    - import.meta.hot.accept()    - Manual HMR boundary acceptance.
+    - import.meta.hot.dispose()   - Cleanup before module replacement.
+    - Framework-specific HMR (React Fast Refresh via @vitejs/plugin-react, Vue SFC hot reload).
+
+4.3 Dependency Pre-Bundling (optimizeDeps)
+    - Automatic discovery of bare imports in node_modules on cold start.
+    - include/exclude options for forcing or skipping pre-bundling.
+    - Cache invalidation (.vite/deps) on lockfile/config changes.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: BUILD SYSTEM (ROLLUP)
+--------------------------------------------------------------------------------
+5.1 build Options
+    - rollupOptions               - Passing raw Rollup config (input, output, external).
+    - manualChunks                 - Custom vendor/route-based chunk splitting strategy.
+    - build.target                  - esbuild transpile target (esnext, browserslist-based).
+    - build.lib                     - Library mode for publishing packages (formats: es, cjs, umd, iife).
+    - cssCodeSplit / cssTarget       - CSS chunking behavior tied to JS chunks.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: ASSET HANDLING
+--------------------------------------------------------------------------------
+6.1 Static Asset Imports
+    - Direct import returns resolved URL string; assets under 4kb inlined as base64 by default (assetsInlineLimit).
+    - public/ directory           - Served as-is at root, not processed/hashed.
+
+6.2 Special Import Suffixes
+    - ?url                          - Force URL import even for inlineable assets.
+    - ?raw                          - Import file content as a raw string.
+    - ?worker / ?sharedworker        - Import as a Web Worker constructor.
+    - import.meta.glob() / glob(eager) - Batch-importing multiple modules matching a pattern.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: ENV VARIABLES & MODES
+--------------------------------------------------------------------------------
+7.1 Environment System
+    - .env / .env.local / .env.[mode]   - File loading priority and precedence.
+    - VITE_ prefix requirement            - Only prefixed vars are exposed to client code (security boundary).
+    - import.meta.env                      - MODE, BASE_URL, PROD, DEV, SSR built-ins.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: PLUGIN SYSTEM
+--------------------------------------------------------------------------------
+8.1 Plugin API
+    - Rollup plugin interface compatibility - Vite plugins are Rollup plugins + Vite-specific hooks.
+    - Vite-specific hooks                     - config, configResolved, transformIndexHtml, configureServer.
+    - enforce: 'pre' | 'post'                 - Controlling plugin execution order relative to core pipeline.
+    - apply: 'serve' | 'build'                 - Restricting a plugin to dev-only or build-only.
+
+8.2 Official/Common Plugins
+    - @vitejs/plugin-react            - Babel/SWC-based Fast Refresh integration.
+    - @vitejs/plugin-legacy             - Legacy browser support via differential bundling.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: CSS HANDLING
+--------------------------------------------------------------------------------
+9.1 Styling Pipeline
+    - CSS Modules                 - *.module.css automatic scoping, camelCase export option.
+    - PostCSS                       - Auto-detection of postcss.config.js, autoprefixer integration.
+    - Preprocessors                  - Sass/Less/Stylus support via optional dependencies.
+    - Lightning CSS                   - Rust-based alternative transformer (css.transformer option).
+
+
+--------------------------------------------------------------------------------
+SECTION 10: SSR SUPPORT
+--------------------------------------------------------------------------------
+10.1 Server-Side Rendering Primitives
+    - server.middlewareMode          - Using Vite as middleware in a custom Node server (Express/Fastify).
+    - ssrLoadModule()                  - Programmatically loading a module in SSR context during dev.
+    - Manifest generation (build.ssrManifest) - Mapping modules to asset chunks for preload injection.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: OPTIMIZATION & PERFORMANCE
+--------------------------------------------------------------------------------
+11.1 Build-Time Performance
+    - Tree-shaking via Rollup's static ESM analysis.
+    - Chunk size warnings (build.chunkSizeWarningLimit).
+    - Brotli/gzip size reporting during build.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: PATH RESOLUTION & ALIASES
+--------------------------------------------------------------------------------
+12.1 resolve Options
+    - alias                          - Path remapping, often paired with tsconfig paths.
+    - extensions                       - Resolution order for extensionless imports.
+    - dedupe                            - Forcing single instances of a dependency (avoiding duplicate React).
+
+
+--------------------------------------------------------------------------------
+SECTION 13: WORKER & WASM SUPPORT
+--------------------------------------------------------------------------------
+13.1 Advanced Runtime Targets
+    - Native Web Worker bundling (worker.format: 'es' | 'iife').
+    - WebAssembly imports (?init suffix for instantiation).
+
+
+--------------------------------------------------------------------------------
+SECTION 14: TESTING INTEGRATION
+--------------------------------------------------------------------------------
+14.1 Relationship to Vitest
+    - Vitest reuses vite.config.ts transform pipeline for zero-config test running.
+    - Shared plugin ecosystem between build and test environments.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: DEPLOYMENT CONSIDERATIONS
+--------------------------------------------------------------------------------
+15.1 Shipping the Build
+    - base                              - Configuring sub-path deployment (e.g. GitHub Pages).
+    - vite preview                       - Local static server for sanity-checking a production build.
+    - Asset hashing & long-term cache headers strategy.
+================================================================================

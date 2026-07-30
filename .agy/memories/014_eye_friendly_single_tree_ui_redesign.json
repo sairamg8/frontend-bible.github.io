@@ -1,0 +1,14 @@
+{
+  "id": "MEM-014",
+  "title": "Eye-Friendly Theme & Single Unified Tree Navigation UI Redesign",
+  "created_at": "2026-07-30T21:59:05+05:30",
+  "details": {
+    "ux_improvements": [
+      "Removed confusing double tabs and nested sub-lists",
+      "Created a Single Unified Document Tree Sidebar listing modules and topics directly",
+      "Switched pitch-black background to an eye-friendly warm light/slate theme (#f8fafc)",
+      "Created a continuous reading article view rendering all 4 sections (Fiber Mechanics, Scenario, Code, Edge Cases) in one seamless scrollable view"
+    ],
+    "verification": "yarn tsc -b passed with 0 errors"
+  }
+}

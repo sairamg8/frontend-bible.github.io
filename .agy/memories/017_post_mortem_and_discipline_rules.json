@@ -1,0 +1,30 @@
+{
+  "id": "MEM-017",
+  "title": "Execution Discipline, Post-Mortem & 14-Bible Strategy",
+  "created_at": "2026-07-30T22:12:35+05:30",
+  "details": {
+    "post_mortem_lessons": [
+      "1. Zero duplication: Maintain Docusaurus (docs/) as the ONLY single source of truth for documentation.",
+      "2. No scope creep: Never add unrequested marketing fluff or salary bait files.",
+      "3. Strict nav honesty: Every link in sidebar must have complete, deep-dive Markdown content behind it.",
+      "4. Complete coverage: Systematically cover all 14 technology syllabi in docs/.",
+      "5. Tooling discipline: Do not run commands (like graphify) prematurely or scan unnecessary node_modules/.pnp.cjs files."
+    ],
+    "syllabi_to_cover": [
+      "docs/react/",
+      "docs/nextjs/",
+      "docs/javascript/",
+      "docs/typescript/",
+      "docs/frontend-architecture/",
+      "docs/tanstack-query/",
+      "docs/redux-toolkit/",
+      "docs/web-vitals-performance/",
+      "docs/vite/",
+      "docs/webpack/",
+      "docs/framer-motion/",
+      "docs/storybook/",
+      "docs/jest-rtl/",
+      "docs/playwright/"
+    ]
+  }
+}

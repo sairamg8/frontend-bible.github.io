@@ -1,0 +1,17 @@
+{
+  "id": "MEM-006",
+  "title": "Core Lifecycle & State Hooks Documentation Complete",
+  "created_at": "2026-07-30T21:45:35+05:30",
+  "details": {
+    "files_created": [
+      "/home/sairam/Documents/frontend/docs/react/01-core-hooks/02-use-effect.md",
+      "/home/sairam/Documents/frontend/docs/react/01-core-hooks/03-use-reducer.md",
+      "/home/sairam/Documents/frontend/docs/react/01-core-hooks/04-use-layout-effect-and-insertion-effect.md"
+    ],
+    "key_concepts_documented": [
+      "useEffect: Post-paint passive queue, AbortController, race conditions, StrictMode double mount",
+      "useReducer: State machine reducer queue, discriminated unions, pure function rules",
+      "useLayoutEffect & useInsertionEffect: Browser paint pipeline, getBoundingClientRect, SSR isomorphism"
+    ]
+  }
+}

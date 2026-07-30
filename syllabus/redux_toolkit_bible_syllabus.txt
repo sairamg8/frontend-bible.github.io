@@ -1,0 +1,152 @@
+================================================================================
+                           THE ULTIMATE REDUX TOOLKIT BIBLE
+                Complete Master Syllabus for RTK & RTK Query Internals & APIs
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE STORE SETUP
+--------------------------------------------------------------------------------
+1.1 configureStore()
+    - Automatic combineReducers() from a `reducer` object.
+    - Default middleware stack           - redux-thunk + serializability/immutability dev checks pre-attached.
+    - devTools                              - Auto-enabled in development, trace/actionSanitizer options.
+    - preloadedState                          - Hydrating initial state (e.g. from SSR).
+
+
+--------------------------------------------------------------------------------
+SECTION 2: createSlice
+--------------------------------------------------------------------------------
+2.1 Slice Anatomy
+    - name / initialState / reducers        - Auto-generates action creators + action types (`slice/actionName`).
+    - Immer-powered "mutations"                - Writing seemingly mutative logic (state.x = y) that produces immutable updates.
+    - prepare callback                           - Customizing action payload shape before it reaches the reducer.
+    - extraReducers                                - Responding to actions defined outside the slice (e.g. thunk lifecycle, other slices).
+    - builder callback API vs map object syntax for extraReducers.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: ACTION CREATORS & TYPES
+--------------------------------------------------------------------------------
+3.1 Standalone Actions
+    - createAction()                        - Manual action creator generation outside slices.
+    - Action type string conventions and matching utilities (isAnyOf, isAllOf).
+
+
+--------------------------------------------------------------------------------
+SECTION 4: createAsyncThunk
+--------------------------------------------------------------------------------
+4.1 Async Lifecycle
+    - pending / fulfilled / rejected          - Three auto-dispatched action types per thunk call.
+    - thunkAPI                                    - dispatch, getState, rejectWithValue, fulfillWithValue, signal (AbortController), extra.
+    - rejectWithValue()                              - Returning typed error payloads instead of throwing.
+    - condition option                                 - Skipping dispatch based on current state (dedup in-flight requests).
+
+
+--------------------------------------------------------------------------------
+SECTION 5: RTK QUERY
+--------------------------------------------------------------------------------
+5.1 API Slice Definition
+    - createApi()                              - baseQuery (fetchBaseQuery), endpoints, reducerPath, tagTypes.
+    - Query endpoints                             - GET-like data fetching, auto-generated use*Query hooks.
+    - Mutation endpoints                            - POST/PUT/DELETE-like operations, auto-generated use*Mutation hooks.
+
+5.2 Cache Management
+    - providesTags / invalidatesTags               - Declarative cache invalidation graph between queries and mutations.
+    - Automatic re-fetching                           - Triggered when invalidated tags match active subscriptions.
+    - Polling (pollingInterval), skip, refetchOnMountOrArgChange, refetchOnFocus/refetchOnReconnect.
+    - Prefetching                                       - api.usePrefetch() for anticipatory data loading.
+    - transformResponse / transformErrorResponse         - Normalizing server payloads before caching.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: SELECTORS
+--------------------------------------------------------------------------------
+6.1 Memoized Selection
+    - createSelector (Reselect)                  - Memoizing derived state, input/output selector separation.
+    - createEntityAdapter                           - Normalized state shape (ids[] + entities{}), CRUD reducer helpers.
+    - selectAll / selectById / selectIds / selectEntities/ selectTotal - Generated adapter selectors.
+    - sortComparer                                     - Maintaining sorted entity order automatically.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: MIDDLEWARE
+--------------------------------------------------------------------------------
+7.1 Middleware Stack
+    - Default middleware                          - redux-thunk, immutableStateInvariantMiddleware, serializableStateInvariantMiddleware (dev-only).
+    - getDefaultMiddleware()                         - Extending/customizing the default stack.
+    - listenerMiddleware                               - Reactive side-effect handling (startListening, effect callbacks) as an alternative to sagas.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: REACT-REDUX INTEGRATION
+--------------------------------------------------------------------------------
+8.1 Hooks API
+    - <Provider store={store}>                    - Making the store available via context.
+    - useSelector()                                  - Subscribing to slices of state, reference-equality re-render triggers, shallowEqual.
+    - useDispatch()                                    - Accessing the dispatch function.
+    - useStore()                                         - Direct store access (rare, for imperative reads).
+    - Typed hooks pattern                                  - useAppSelector/useAppDispatch wrappers for TypeScript projects.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: IMMUTABILITY & IMMER INTERNALS
+--------------------------------------------------------------------------------
+9.1 Draft State Mechanics
+    - Proxy-based draft tracking                  - How Immer intercepts writes and produces a new immutable tree.
+    - Rules                                          - Either mutate the draft OR return a new value, never both.
+    - Returning undefined vs returning a new state object.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: NORMALIZATION PATTERNS
+--------------------------------------------------------------------------------
+10.1 Entity-Based State
+    - Why normalize                                - Avoiding nested/duplicated data, O(1) lookups by id.
+    - Adapter CRUD methods                            - addOne/addMany/upsertOne/removeOne/updateOne/setAll.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: TYPESCRIPT INTEGRATION
+--------------------------------------------------------------------------------
+11.1 Type Inference Patterns
+    - RootState                                    - typeof store.getState() inference.
+    - AppDispatch                                    - typeof store.dispatch inference (needed for thunk typing).
+    - PayloadAction<T>                                 - Typing slice reducer action payloads.
+    - Typed createAsyncThunk generics                    - <Returned, ThunkArg, { rejectValue: X }>.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: DEVTOOLS & DEBUGGING
+--------------------------------------------------------------------------------
+12.1 Redux DevTools Extension
+    - Time-travel debugging                        - Jumping between historical state snapshots.
+    - Action replay & state diffing.
+    - Trace mode for identifying which code dispatched an action.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: CODE SPLITTING
+--------------------------------------------------------------------------------
+13.1 Dynamic Reducer Injection
+    - combineSlices() with dynamic injection           - Lazy-loading feature slices on route/module load.
+    - injectEndpoints()                                    - Splitting RTK Query API definitions across feature files.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: TESTING REDUX LOGIC
+--------------------------------------------------------------------------------
+14.1 Isolated Testing Strategies
+    - Testing slice reducers                        - Calling the reducer directly with action objects, asserting next state.
+    - Testing thunks                                  - Mocking dispatch/getState, asserting dispatched action sequence.
+    - Mocking RTK Query                                 - MSW-backed integration tests vs mocking the generated hooks directly.
+    - Testing connected components                        - Custom render with a real/mock Provider-wrapped store.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: MIGRATION & LEGACY INTEROP
+--------------------------------------------------------------------------------
+15.1 From Classic Redux
+    - Replacing hand-written combineReducers/compose/applyMiddleware with configureStore.
+    - Migrating switch-statement reducers to createSlice.
+    - Interoperating with existing redux-saga/redux-observable middleware during incremental migration.
+================================================================================

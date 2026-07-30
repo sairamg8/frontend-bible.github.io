@@ -1,0 +1,12 @@
+{
+  "system_instructions": {
+    "memory_location": "/home/sairam/Documents/frontend/.agy/",
+    "rules": [
+      "Always maintain an index file (.agy/index.json) containing summaries of all saved memories and progress.",
+      "Save detailed full memory records inside .agy/memories/ files and register them in .agy/index.json.",
+      "When starting a session or reviewing memory, reading .agy/index.json is sufficient. Only read detailed memory files as needed based on user request or context.",
+      "Ensure Graphify query compatibility guidelines are respected.",
+      "Every React syllabus topic documented must include: (1) Concept & Under-the-Hood Mechanics, (2) Real-World Scenario, (3) Production-Grade Code Example, (4) Senior Engineer Edge Cases & Pitfalls."
+    ]
+  }
+}
