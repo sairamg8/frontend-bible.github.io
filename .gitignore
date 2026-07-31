@@ -12,6 +12,16 @@ dist
 dist-ssr
 *.local
 
+# Docusaurus
+.docusaurus
+build
+
+# Yarn / webpack disk cache
+.yarn/.cache
+
+# Graphify AST/semantic disk cache (regenerable, not meaningful output)
+graphify-out/cache
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
