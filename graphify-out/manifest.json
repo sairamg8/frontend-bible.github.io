@@ -1,73 +1,658 @@
 {
+  ".agy/index.json": {
+    "mtime": 1785430642.6866593,
+    "ast_hash": "c169b255acb02ca0ce28a54dd61a2cea",
+    "semantic_hash": "c169b255acb02ca0ce28a54dd61a2cea"
+  },
+  ".agy/instructions.json": {
+    "mtime": 1785427914.1423578,
+    "ast_hash": "126fad27c357163ad91a8e86b83a5093",
+    "semantic_hash": "126fad27c357163ad91a8e86b83a5093"
+  },
+  ".agy/memories/001_initial_setup_and_syllabus_organization.json": {
+    "mtime": 1785427919.5593767,
+    "ast_hash": "5385e05e690d670ed39b4e7091a0670f",
+    "semantic_hash": "5385e05e690d670ed39b4e7091a0670f"
+  },
+  ".agy/memories/001_syllabus_cleanup_and_single_source_plan.json": {
+    "mtime": 1785429708.3733852,
+    "ast_hash": "2549a301a8c750746dbcfa4ad0ace064",
+    "semantic_hash": "2549a301a8c750746dbcfa4ad0ace064"
+  },
+  ".agy/memories/002_react_bible_documentation_progress.json": {
+    "mtime": 1785427921.9223852,
+    "ast_hash": "c05c4fb3a9fd3d7de2cc64f5ee616fec",
+    "semantic_hash": "c05c4fb3a9fd3d7de2cc64f5ee616fec"
+  },
+  ".agy/memories/003_use_state_documentation_complete.json": {
+    "mtime": 1785427936.7514415,
+    "ast_hash": "c148aaf92ed73d16c5e4e2312baa668b",
+    "semantic_hash": "c148aaf92ed73d16c5e4e2312baa668b"
+  },
+  ".agy/memories/004_docusaurus_setup_plan.json": {
+    "mtime": 1785427990.9546912,
+    "ast_hash": "50e07ea8c501f34d77258de0c6b6681f",
+    "semantic_hash": "50e07ea8c501f34d77258de0c6b6681f"
+  },
+  ".agy/memories/005_docusaurus_config_complete.json": {
+    "mtime": 1785428065.7601397,
+    "ast_hash": "82975c88f08cea020a10dbaaa93cf057",
+    "semantic_hash": "82975c88f08cea020a10dbaaa93cf057"
+  },
+  ".agy/memories/006_core_hooks_module1_complete.json": {
+    "mtime": 1785428139.9946892,
+    "ast_hash": "d3e78154ba3d39e654f3e544d9f9ab6b",
+    "semantic_hash": "d3e78154ba3d39e654f3e544d9f9ab6b"
+  },
+  ".agy/memories/007_performance_and_action_hooks_complete.json": {
+    "mtime": 1785428238.8225577,
+    "ast_hash": "614654d963cd8e0ae08c0d2370d3cdf1",
+    "semantic_hash": "614654d963cd8e0ae08c0d2370d3cdf1"
+  },
+  ".agy/memories/008_docusaurus_server_connected.json": {
+    "mtime": 1785428397.8702214,
+    "ast_hash": "1a3a6ad352da4df3cf0b504c957b8af2",
+    "semantic_hash": "1a3a6ad352da4df3cf0b504c957b8af2"
+  },
+  ".agy/memories/009_all_react_modules_complete.json": {
+    "mtime": 1785428537.1368864,
+    "ast_hash": "27fa7471d4c7ee89db4ad77b0bb30791",
+    "semantic_hash": "27fa7471d4c7ee89db4ad77b0bb30791"
+  },
+  ".agy/memories/010_react_bible_vite_app_connected.json": {
+    "mtime": 1785428627.4300463,
+    "ast_hash": "178fffc71b930d6a6ec7b21a6652cfd1",
+    "semantic_hash": "178fffc71b930d6a6ec7b21a6652cfd1"
+  },
+  ".agy/memories/011_background_tasks_killed.json": {
+    "mtime": 1785428663.3075218,
+    "ast_hash": "ecb49f8168480cc4b2e8122f265c237e",
+    "semantic_hash": "ecb49f8168480cc4b2e8122f265c237e"
+  },
+  ".agy/memories/012_react_concept_type_import_fix.json": {
+    "mtime": 1785428740.6815724,
+    "ast_hash": "7e5b6843d68ad0467681fd81f08fef9f",
+    "semantic_hash": "7e5b6843d68ad0467681fd81f08fef9f"
+  },
+  ".agy/memories/013_tailwind_v4_vite_styling_restored.json": {
+    "mtime": 1785428818.5076597,
+    "ast_hash": "eb0886315dcfff1da17e4d1db8af785d",
+    "semantic_hash": "eb0886315dcfff1da17e4d1db8af785d"
+  },
+  ".agy/memories/014_eye_friendly_single_tree_ui_redesign.json": {
+    "mtime": 1785428949.4935467,
+    "ast_hash": "940915d29876fd80d6802cbaf10ded65",
+    "semantic_hash": "940915d29876fd80d6802cbaf10ded65"
+  },
+  ".agy/memories/015_all_25_topics_loaded_in_one_place.json": {
+    "mtime": 1785429009.620433,
+    "ast_hash": "ecb3642b3160b1048ea24cd6c637cd14",
+    "semantic_hash": "ecb3642b3160b1048ea24cd6c637cd14"
+  },
+  ".agy/memories/016_graphify_installed.json": {
+    "mtime": 1785429133.8592973,
+    "ast_hash": "bcc8910d3e4e25f752fcd21b2dbec6df",
+    "semantic_hash": "bcc8910d3e4e25f752fcd21b2dbec6df"
+  },
+  ".agy/memories/017_post_mortem_and_discipline_rules.json": {
+    "mtime": 1785429756.599321,
+    "ast_hash": "0d65764d4620e3c529ffa0fe2d086d64",
+    "semantic_hash": "0d65764d4620e3c529ffa0fe2d086d64"
+  },
+  ".agy/memories/018_all_14_bibles_authored.json": {
+    "mtime": 1785430178.9859684,
+    "ast_hash": "936c062fb4c28012388e02b8b5a0b45f",
+    "semantic_hash": "936c062fb4c28012388e02b8b5a0b45f"
+  },
+  ".agy/memories/022_individual_language_navigation_grid.json": {
+    "mtime": 1785430645.1686609,
+    "ast_hash": "5cd6d5005d0deb5a274c524bddebeae5",
+    "semantic_hash": "5cd6d5005d0deb5a274c524bddebeae5"
+  },
   ".oxlintrc.json": {
     "mtime": 1785424717.8870277,
     "ast_hash": "029f4905006c1fffd96bc863e2d98d3e",
     "semantic_hash": "029f4905006c1fffd96bc863e2d98d3e"
   },
-  ".pnp.cjs": {
-    "mtime": 1785425068.595844,
-    "ast_hash": "05dd5330c76e41ba38f3ec88cfed3690",
-    "semantic_hash": "05dd5330c76e41ba38f3ec88cfed3690"
-  },
-  ".pnp.loader.mjs": {
-    "mtime": 1785424759.635153,
-    "ast_hash": "e34230e6aed8220cb1947ae6c7103695",
-    "semantic_hash": "e34230e6aed8220cb1947ae6c7103695"
+  "docusaurus.config.ts": {
+    "mtime": 1785432589.4072826,
+    "ast_hash": "6a2a11d87f5ef2befc0998c4a5dd8529",
+    "semantic_hash": "6a2a11d87f5ef2befc0998c4a5dd8529"
   },
   "package.json": {
-    "mtime": 1785425068.0078065,
-    "ast_hash": "22fead7dd10e48990bd316cd23c5ca79",
-    "semantic_hash": "22fead7dd10e48990bd316cd23c5ca79"
+    "mtime": 1785432355.214282,
+    "ast_hash": "60cb6901623bccd738ad1f6d05387774",
+    "semantic_hash": "60cb6901623bccd738ad1f6d05387774"
   },
-  "src/App.tsx": {
-    "mtime": 1785424717.884988,
-    "ast_hash": "c5e44a49ac2a44373fba5d1a7fe35be4",
-    "semantic_hash": "c5e44a49ac2a44373fba5d1a7fe35be4"
+  "scripts/graphify.js": {
+    "mtime": 1785430438.6259594,
+    "ast_hash": "d58293da12ab825cae500f7d40ac7661",
+    "semantic_hash": "d58293da12ab825cae500f7d40ac7661"
   },
-  "src/main.tsx": {
-    "mtime": 1785424717.8859537,
-    "ast_hash": "787e5a07efeb2bf6209d5937195f2f68",
-    "semantic_hash": "787e5a07efeb2bf6209d5937195f2f68"
-  },
-  "tsconfig.app.json": {
-    "mtime": 1785424717.8873599,
-    "ast_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a",
-    "semantic_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a"
+  "sidebars.ts": {
+    "mtime": 1785428047.0588336,
+    "ast_hash": "d888c13e3b3ccf067b88ca9745cd9fff",
+    "semantic_hash": "d888c13e3b3ccf067b88ca9745cd9fff"
   },
   "tsconfig.json": {
-    "mtime": 1785424717.887615,
-    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
-    "semantic_hash": "a3d39fa780ebff65444de257f291ce6c"
+    "mtime": 1785431838.5390847,
+    "ast_hash": "4947ae728c4a217228aec95547198441",
+    "semantic_hash": "4947ae728c4a217228aec95547198441"
   },
-  "tsconfig.node.json": {
-    "mtime": 1785424717.8878756,
-    "ast_hash": "f9cb81ddcea69ffdab672fc8c48dca66",
-    "semantic_hash": "f9cb81ddcea69ffdab672fc8c48dca66"
+  ".claude/memory/001-bible-syllabus-inventory.md": {
+    "mtime": 1785429541.6966321,
+    "ast_hash": "0e03d0ae3df9678e4ae1bc587f4ef2d4",
+    "semantic_hash": "0e03d0ae3df9678e4ae1bc587f4ef2d4"
   },
-  "vite.config.ts": {
-    "mtime": 1785424717.890019,
-    "ast_hash": "d1bc84d991228ada9b2918b3425aed96",
-    "semantic_hash": "d1bc84d991228ada9b2918b3425aed96"
+  ".claude/memory/002-agy-react-docs-review.md": {
+    "mtime": 1785430276.0689495,
+    "ast_hash": "eaca94fc048503de140ba4045e2caa3d",
+    "semantic_hash": "eaca94fc048503de140ba4045e2caa3d"
+  },
+  ".claude/memory/003-graphify-status.md": {
+    "mtime": 1785430606.3906515,
+    "ast_hash": "75e20c7a3dda6d9c5448de59b55ec963",
+    "semantic_hash": "75e20c7a3dda6d9c5448de59b55ec963"
+  },
+  ".claude/memory/004-site-architecture-fixes.md": {
+    "mtime": 1785432836.0464897,
+    "ast_hash": "15fba431602780f2306a3169ddc22c70",
+    "semantic_hash": "15fba431602780f2306a3169ddc22c70"
+  },
+  ".claude/memory/005-redux-toolkit-expansion.md": {
+    "mtime": 1785434596.160195,
+    "ast_hash": "85d06358ed619cc0f23e1312c1456d4c",
+    "semantic_hash": "85d06358ed619cc0f23e1312c1456d4c"
+  },
+  ".claude/memory/006-webpack-and-web-vitals-expansion.md": {
+    "mtime": 1785434581.3202875,
+    "ast_hash": "048be91da31e5d6308520a8c0c5902fb",
+    "semantic_hash": "048be91da31e5d6308520a8c0c5902fb"
+  },
+  ".claude/memory/007-nextjs-typescript-javascript-plan.md": {
+    "mtime": 1785463634.764199,
+    "ast_hash": "46a97b9f726ce20ef8e80d33b5d0f4f8",
+    "semantic_hash": "46a97b9f726ce20ef8e80d33b5d0f4f8"
+  },
+  ".claude/memory/index.md": {
+    "mtime": 1785467589.618918,
+    "ast_hash": "7ad0dfc8c1dc5686986a9a5e8ecc8bc1",
+    "semantic_hash": "7ad0dfc8c1dc5686986a9a5e8ecc8bc1"
+  },
+  ".yarnrc.yml": {
+    "mtime": 1785431628.977024,
+    "ast_hash": "59c80d1857cbce1ec413c62bdf5210e6",
+    "semantic_hash": "59c80d1857cbce1ec413c62bdf5210e6"
+  },
+  "CLAUDE.md": {
+    "mtime": 1785429596.5665016,
+    "ast_hash": "8517a15c65bddbfb57a55daae534344a",
+    "semantic_hash": "8517a15c65bddbfb57a55daae534344a"
   },
   "README.md": {
     "mtime": 1785424717.890019,
     "ast_hash": "52a1bab912f53a2e94456ebe55783977",
     "semantic_hash": "52a1bab912f53a2e94456ebe55783977"
   },
-  "index.html": {
-    "mtime": 1785424717.885987,
-    "ast_hash": "33bd262affcefea92f1509cda449a19c",
-    "semantic_hash": "33bd262affcefea92f1509cda449a19c"
+  "docs/index.md": {
+    "mtime": 1785467044.2240229,
+    "ast_hash": "6c7232e74b62758b5e1504744adbe1ba",
+    "semantic_hash": "6c7232e74b62758b5e1504744adbe1ba"
   },
-  "syllabus/MASTER_FRONTEND_ECOSYSTEM_MAP.txt": {
-    "mtime": 1785427174.6670263,
-    "ast_hash": "14ad6e444b4793fbbf7e33ede7097ab2",
-    "semantic_hash": "14ad6e444b4793fbbf7e33ede7097ab2"
+  "docs/javascript/01-core-language-fundamentals/01-variables-types-and-coercion.md": {
+    "mtime": 1785463147.2956192,
+    "ast_hash": "f965b012221e07a019e7e3c5659341bb",
+    "semantic_hash": "f965b012221e07a019e7e3c5659341bb"
   },
-  "syllabus/capstone_projects_50_60_lpa.txt": {
-    "mtime": 1785427280.2216496,
-    "ast_hash": "f6e5292351de0fa835aef215bff6c008",
-    "semantic_hash": "f6e5292351de0fa835aef215bff6c008"
+  "docs/nextjs/01-routing-fundamentals/01-file-conventions.md": {
+    "mtime": 1785434918.9461577,
+    "ast_hash": "c5f1de3b0e6c6201cc38032f4466d711",
+    "semantic_hash": "c5f1de3b0e6c6201cc38032f4466d711"
+  },
+  "docs/nextjs/02-advanced-routing-patterns/01-dynamic-and-parallel-routes.md": {
+    "mtime": 1785434952.2211337,
+    "ast_hash": "397d27e4273696f6ad149bf17e566998",
+    "semantic_hash": "397d27e4273696f6ad149bf17e566998"
+  },
+  "docs/nextjs/03-rendering-strategies/01-server-client-components-and-rendering-modes.md": {
+    "mtime": 1785434983.8600976,
+    "ast_hash": "f97b2e8ebae164a25928592704850b5c",
+    "semantic_hash": "f97b2e8ebae164a25928592704850b5c"
+  },
+  "docs/nextjs/04-data-fetching/01-fetch-api-and-fetching-patterns.md": {
+    "mtime": 1785435009.87412,
+    "ast_hash": "b3ddb775c3d32158383de4d930fb490f",
+    "semantic_hash": "b3ddb775c3d32158383de4d930fb490f"
+  },
+  "docs/nextjs/05-server-actions-and-mutations/01-server-functions-and-optimistic-ui.md": {
+    "mtime": 1785435043.525127,
+    "ast_hash": "aecdcfab5c1fdb7908985b5d74a46f7c",
+    "semantic_hash": "aecdcfab5c1fdb7908985b5d74a46f7c"
+  },
+  "docs/nextjs/06-caching-architecture/01-the-four-layers.md": {
+    "mtime": 1785435072.325141,
+    "ast_hash": "e700e666e2e3c75bc2b12c789a160ca2",
+    "semantic_hash": "e700e666e2e3c75bc2b12c789a160ca2"
+  },
+  "docs/nextjs/07-metadata-and-seo/01-metadata-api.md": {
+    "mtime": 1785435101.5151622,
+    "ast_hash": "7f61eb6fe55f65819b46122d4039006c",
+    "semantic_hash": "7f61eb6fe55f65819b46122d4039006c"
+  },
+  "docs/nextjs/08-middleware/01-edge-middleware.md": {
+    "mtime": 1785435123.1511824,
+    "ast_hash": "db84ec5f3b53f27b9202abe91b33908f",
+    "semantic_hash": "db84ec5f3b53f27b9202abe91b33908f"
+  },
+  "docs/nextjs/09-route-handlers/01-api-routes.md": {
+    "mtime": 1785435146.3512082,
+    "ast_hash": "2242f56f70968fc6aced63d78c083070",
+    "semantic_hash": "2242f56f70968fc6aced63d78c083070"
+  },
+  "docs/nextjs/10-optimization-apis/01-image-font-script.md": {
+    "mtime": 1785435170.0042386,
+    "ast_hash": "87838c6213fe63ed1f4f04a90a2a91f1",
+    "semantic_hash": "87838c6213fe63ed1f4f04a90a2a91f1"
+  },
+  "docs/nextjs/11-legacy-pages-router/01-pages-router-reference.md": {
+    "mtime": 1785435198.4782803,
+    "ast_hash": "19468e9e7b8065f0203430e16d1f464f",
+    "semantic_hash": "19468e9e7b8065f0203430e16d1f464f"
+  },
+  "docs/nextjs/12-rendering-runtimes/01-node-vs-edge.md": {
+    "mtime": 1785435222.139319,
+    "ast_hash": "c45d377845c3fb3c8e2de705594e364a",
+    "semantic_hash": "c45d377845c3fb3c8e2de705594e364a"
+  },
+  "docs/nextjs/13-configuration/01-next-config.md": {
+    "mtime": 1785435248.1553657,
+    "ast_hash": "2d88238b01aea5594e2ee910c6833581",
+    "semantic_hash": "2d88238b01aea5594e2ee910c6833581"
+  },
+  "docs/nextjs/14-deployment-and-build/01-build-lifecycle-and-isr.md": {
+    "mtime": 1785435273.7494154,
+    "ast_hash": "186da3f07a21a4981ffccfc1c82d3432",
+    "semantic_hash": "186da3f07a21a4981ffccfc1c82d3432"
+  },
+  "docs/nextjs/15-advanced-patterns/01-composition-and-streaming.md": {
+    "mtime": 1785435301.599474,
+    "ast_hash": "6c885f238691ca93d438175128748fb0",
+    "semantic_hash": "6c885f238691ca93d438175128748fb0"
+  },
+  "docs/react/01-core-hooks/01-use-state.md": {
+    "mtime": 1785427931.8954225,
+    "ast_hash": "293d1803afe2570c0cd99fa7b21b4de3",
+    "semantic_hash": "293d1803afe2570c0cd99fa7b21b4de3"
+  },
+  "docs/react/01-core-hooks/02-use-effect.md": {
+    "mtime": 1785428124.1205637,
+    "ast_hash": "4a30ced0f8c7774ac26abd41df126cbd",
+    "semantic_hash": "4a30ced0f8c7774ac26abd41df126cbd"
+  },
+  "docs/react/01-core-hooks/03-use-reducer.md": {
+    "mtime": 1785432423.7846851,
+    "ast_hash": "fb82993a56e6d91543c0688a922a6c15",
+    "semantic_hash": "fb82993a56e6d91543c0688a922a6c15"
+  },
+  "docs/react/01-core-hooks/04-use-layout-effect-and-insertion-effect.md": {
+    "mtime": 1785428134.3736444,
+    "ast_hash": "b5d5b24ebb6e002876c4b91306416574",
+    "semantic_hash": "b5d5b24ebb6e002876c4b91306416574"
+  },
+  "docs/react/02-performance-hooks/01-use-memo-and-use-callback.md": {
+    "mtime": 1785432426.711733,
+    "ast_hash": "ba7d81f5aadd64d23fd0b5faa3537b4e",
+    "semantic_hash": "ba7d81f5aadd64d23fd0b5faa3537b4e"
+  },
+  "docs/react/02-performance-hooks/02-use-transition-and-use-deferred-value.md": {
+    "mtime": 1785428222.7374067,
+    "ast_hash": "382a93775546b387a569c5418613d9d6",
+    "semantic_hash": "382a93775546b387a569c5418613d9d6"
+  },
+  "docs/react/03-react19-action-hooks/01-use-action-state-and-use-optimistic.md": {
+    "mtime": 1785428227.9744556,
+    "ast_hash": "f866be6f1996f91272d82ed8f58c6421",
+    "semantic_hash": "f866be6f1996f91272d82ed8f58c6421"
+  },
+  "docs/react/03-react19-action-hooks/02-use-form-status-and-use.md": {
+    "mtime": 1785428233.1645043,
+    "ast_hash": "2c0f6ebb81334a47882f7c6c295ab954",
+    "semantic_hash": "2c0f6ebb81334a47882f7c6c295ab954"
+  },
+  "docs/react/04-context-and-external-stores/01-use-context-and-use-sync-external-store.md": {
+    "mtime": 1785428514.7889361,
+    "ast_hash": "144a44797882699ac2c29aad470d8963",
+    "semantic_hash": "144a44797882699ac2c29aad470d8963"
+  },
+  "docs/react/05-dom-and-refs/01-use-ref-and-use-imperative-handle.md": {
+    "mtime": 1785428519.5486672,
+    "ast_hash": "0fe177331664712c6a2fe9c486fd7491",
+    "semantic_hash": "0fe177331664712c6a2fe9c486fd7491"
+  },
+  "docs/react/06-server-components-and-actions/01-rsc-architecture-and-directives.md": {
+    "mtime": 1785428524.762732,
+    "ast_hash": "ac3fab8d3f5c11c5cc8978ee74c6a0f5",
+    "semantic_hash": "ac3fab8d3f5c11c5cc8978ee74c6a0f5"
+  },
+  "docs/react/07-react-dom-apis/01-client-server-and-resource-apis.md": {
+    "mtime": 1785432689.1028218,
+    "ast_hash": "a59957dd5600da6b776b0e902f21132d",
+    "semantic_hash": "a59957dd5600da6b776b0e902f21132d"
+  },
+  "docs/react/08-id-accessibility-debug/01-use-id-and-use-debug-value.md": {
+    "mtime": 1785429711.8672276,
+    "ast_hash": "26fa30b1be5e2f9841d30db3c49895b0",
+    "semantic_hash": "26fa30b1be5e2f9841d30db3c49895b0"
+  },
+  "docs/react/09-react-19-2-additions/01-use-effect-event-activity-cache.md": {
+    "mtime": 1785430061.9767385,
+    "ast_hash": "d9bb50d678215cc794134c09d546ce69",
+    "semantic_hash": "d9bb50d678215cc794134c09d546ce69"
+  },
+  "docs/redux-toolkit/01-store-setup/01-configure-store.md": {
+    "mtime": 1785433163.4917848,
+    "ast_hash": "375b72ee46bfc9b07181295f2fe3b092",
+    "semantic_hash": "375b72ee46bfc9b07181295f2fe3b092"
+  },
+  "docs/redux-toolkit/02-slices-and-actions/01-create-slice.md": {
+    "mtime": 1785433185.787418,
+    "ast_hash": "253f37a316df35763babd7c5459753ca",
+    "semantic_hash": "253f37a316df35763babd7c5459753ca"
+  },
+  "docs/redux-toolkit/02-slices-and-actions/02-create-action-and-matchers.md": {
+    "mtime": 1785433205.4390528,
+    "ast_hash": "76e8e315fd295dba6fd930e623d201e0",
+    "semantic_hash": "76e8e315fd295dba6fd930e623d201e0"
+  },
+  "docs/redux-toolkit/03-async-thunks/01-create-async-thunk.md": {
+    "mtime": 1785433230.9009879,
+    "ast_hash": "db8d3b5e184fa5dbee1762d31da5cd6d",
+    "semantic_hash": "db8d3b5e184fa5dbee1762d31da5cd6d"
+  },
+  "docs/redux-toolkit/04-rtk-query/01-api-slice-and-endpoints.md": {
+    "mtime": 1785433257.5313225,
+    "ast_hash": "73160687a3c7f5d7b0a6767828fd67fd",
+    "semantic_hash": "73160687a3c7f5d7b0a6767828fd67fd"
+  },
+  "docs/redux-toolkit/04-rtk-query/02-cache-management-and-invalidation.md": {
+    "mtime": 1785433283.9906535,
+    "ast_hash": "566798319644c86a469f5e9d87074552",
+    "semantic_hash": "566798319644c86a469f5e9d87074552"
+  },
+  "docs/redux-toolkit/05-selectors-and-normalization/01-create-selector-and-reselect.md": {
+    "mtime": 1785433305.8914092,
+    "ast_hash": "f4926fdd65b044ac5fdf51aa7ef98f5e",
+    "semantic_hash": "f4926fdd65b044ac5fdf51aa7ef98f5e"
+  },
+  "docs/redux-toolkit/05-selectors-and-normalization/02-create-entity-adapter.md": {
+    "mtime": 1785433331.3846247,
+    "ast_hash": "7fd838b0f7574a3bafa0cb7a196b1a18",
+    "semantic_hash": "7fd838b0f7574a3bafa0cb7a196b1a18"
+  },
+  "docs/redux-toolkit/06-middleware/01-default-middleware-and-listener-middleware.md": {
+    "mtime": 1785433354.752533,
+    "ast_hash": "54c1f4a61b359510a4aef28f19bf65f8",
+    "semantic_hash": "54c1f4a61b359510a4aef28f19bf65f8"
+  },
+  "docs/redux-toolkit/07-react-redux-integration/01-hooks-api.md": {
+    "mtime": 1785433378.4268255,
+    "ast_hash": "af32409e19d9f14af2998c5957a5ffa2",
+    "semantic_hash": "af32409e19d9f14af2998c5957a5ffa2"
+  },
+  "docs/redux-toolkit/08-immutability-and-immer/01-immer-internals.md": {
+    "mtime": 1785433402.073117,
+    "ast_hash": "8c95aff1666853465e58ca753afc701d",
+    "semantic_hash": "8c95aff1666853465e58ca753afc701d"
+  },
+  "docs/redux-toolkit/09-typescript-integration/01-type-inference-patterns.md": {
+    "mtime": 1785433425.8864095,
+    "ast_hash": "751e2698248b0a0fb6501726502e7800",
+    "semantic_hash": "751e2698248b0a0fb6501726502e7800"
+  },
+  "docs/redux-toolkit/10-devtools-and-debugging/01-redux-devtools.md": {
+    "mtime": 1785433446.4526618,
+    "ast_hash": "4a02b8b67d4ea4e268c2c2bcacbc7c11",
+    "semantic_hash": "4a02b8b67d4ea4e268c2c2bcacbc7c11"
+  },
+  "docs/redux-toolkit/11-code-splitting/01-dynamic-reducer-injection.md": {
+    "mtime": 1785433581.564306,
+    "ast_hash": "03543855ad50239a06f9f01d76ce9659",
+    "semantic_hash": "03543855ad50239a06f9f01d76ce9659"
+  },
+  "docs/redux-toolkit/12-testing/01-testing-redux-logic.md": {
+    "mtime": 1785433498.3962963,
+    "ast_hash": "01dc52a6da8599317ba33b0fa575957f",
+    "semantic_hash": "01dc52a6da8599317ba33b0fa575957f"
+  },
+  "docs/redux-toolkit/13-migration/01-from-classic-redux.md": {
+    "mtime": 1785433526.6976407,
+    "ast_hash": "29c7ffe252fa5391016bded0afc21f95",
+    "semantic_hash": "29c7ffe252fa5391016bded0afc21f95"
+  },
+  "docs/typescript/01-core-type-system/01-foundations-and-inference.md": {
+    "mtime": 1785435336.9775543,
+    "ast_hash": "e432283e86c60e502d1bd80902eda163",
+    "semantic_hash": "e432283e86c60e502d1bd80902eda163"
+  },
+  "docs/typescript/02-structural-typing/01-duck-typing-and-variance.md": {
+    "mtime": 1785435367.4376287,
+    "ast_hash": "42a2c4090594706e5b85c3c485ffe416",
+    "semantic_hash": "42a2c4090594706e5b85c3c485ffe416"
+  },
+  "docs/typescript/03-interfaces-and-type-aliases/01-object-shape-definitions.md": {
+    "mtime": 1785435397.7807071,
+    "ast_hash": "ad415b03ba7bc42899a9fcdddd2d7b19",
+    "semantic_hash": "ad415b03ba7bc42899a9fcdddd2d7b19"
+  },
+  "docs/typescript/04-functions-and-generics/01-typing-functions-and-generics.md": {
+    "mtime": 1785435423.940778,
+    "ast_hash": "b5b5d9fdc15d2fd000eb76fe2a27e959",
+    "semantic_hash": "b5b5d9fdc15d2fd000eb76fe2a27e959"
+  },
+  "docs/typescript/05-advanced-generics/01-conditional-types-and-infer.md": {
+    "mtime": 1785435448.9428487,
+    "ast_hash": "edbcc41b1c05da64279bc55376772d15",
+    "semantic_hash": "edbcc41b1c05da64279bc55376772d15"
+  },
+  "docs/typescript/06-utility-types/01-built-in-transformations.md": {
+    "mtime": 1785435475.2159255,
+    "ast_hash": "b2e11f001f0c62817a03c8c4683c5296",
+    "semantic_hash": "b2e11f001f0c62817a03c8c4683c5296"
+  },
+  "docs/typescript/07-mapped-types/01-transforming-types-programmatically.md": {
+    "mtime": 1785462881.3330238,
+    "ast_hash": "ddd0ffeba471de8d8599e9b40b7aa485",
+    "semantic_hash": "ddd0ffeba471de8d8599e9b40b7aa485"
+  },
+  "docs/typescript/08-template-literal-types/01-string-pattern-types.md": {
+    "mtime": 1785462907.2115319,
+    "ast_hash": "ba84157a0ef6b4eb78f72cd47acd2e21",
+    "semantic_hash": "ba84157a0ef6b4eb78f72cd47acd2e21"
+  },
+  "docs/typescript/09-type-narrowing-and-guards/01-refining-types-at-runtime.md": {
+    "mtime": 1785462936.6416624,
+    "ast_hash": "538adeb05ed26774363543268edbcf97",
+    "semantic_hash": "538adeb05ed26774363543268edbcf97"
+  },
+  "docs/typescript/10-classes-and-oop/01-class-based-typing.md": {
+    "mtime": 1785462964.9057887,
+    "ast_hash": "71ccc541d1219acecc47f2bbaa1d85e1",
+    "semantic_hash": "71ccc541d1219acecc47f2bbaa1d85e1"
+  },
+  "docs/typescript/11-enums-and-const-assertions/01-fixed-value-sets.md": {
+    "mtime": 1785462994.0209193,
+    "ast_hash": "2f1730a1405f57fa1911b988ff5d5a8d",
+    "semantic_hash": "2f1730a1405f57fa1911b988ff5d5a8d"
+  },
+  "docs/typescript/12-modules-and-declarations/01-cross-file-typing.md": {
+    "mtime": 1785463022.3920476,
+    "ast_hash": "37129e6375cc6470aa8e55dd7563dcfc",
+    "semantic_hash": "37129e6375cc6470aa8e55dd7563dcfc"
+  },
+  "docs/typescript/13-configuration/01-tsconfig-compiler-options.md": {
+    "mtime": 1785463051.5321643,
+    "ast_hash": "204a9217998ed4b40f613a5710b88da7",
+    "semantic_hash": "204a9217998ed4b40f613a5710b88da7"
+  },
+  "docs/typescript/14-react-typescript-integration/01-typing-component-patterns.md": {
+    "mtime": 1785463075.6039972,
+    "ast_hash": "97762b4a11fb4d429e6df8c29ada551d",
+    "semantic_hash": "97762b4a11fb4d429e6df8c29ada551d"
+  },
+  "docs/typescript/15-advanced-patterns/01-real-world-type-engineering.md": {
+    "mtime": 1785463106.1114295,
+    "ast_hash": "295386f486916fb6a695d9313e609161",
+    "semantic_hash": "295386f486916fb6a695d9313e609161"
+  },
+  "docs/web-vitals-performance/01-core-web-vitals/01-lcp-inp-cls-fundamentals.md": {
+    "mtime": 1785434295.7092092,
+    "ast_hash": "bd13fdfadba0da19da5e91010f4b33c7",
+    "semantic_hash": "bd13fdfadba0da19da5e91010f4b33c7"
+  },
+  "docs/web-vitals-performance/02-legacy-and-lab-measurement/01-legacy-metrics-and-lab-tools.md": {
+    "mtime": 1785434322.4009871,
+    "ast_hash": "5fd5caf71ef4b8d8111a8e36f27e4c7a",
+    "semantic_hash": "5fd5caf71ef4b8d8111a8e36f27e4c7a"
+  },
+  "docs/web-vitals-performance/03-real-user-monitoring/01-web-vitals-library-and-rum.md": {
+    "mtime": 1785434346.4350014,
+    "ast_hash": "b4d9f46bfc4780f926c56bedcc43db69",
+    "semantic_hash": "b4d9f46bfc4780f926c56bedcc43db69"
+  },
+  "docs/web-vitals-performance/04-lcp-optimization/01-reducing-lcp.md": {
+    "mtime": 1785434374.1531568,
+    "ast_hash": "0bc81cff96b8b71f5e0f22a2ad3a123b",
+    "semantic_hash": "0bc81cff96b8b71f5e0f22a2ad3a123b"
+  },
+  "docs/web-vitals-performance/05-inp-optimization/01-reducing-inp.md": {
+    "mtime": 1785434399.2718647,
+    "ast_hash": "84017e2aa24519c851ffa277552928e7",
+    "semantic_hash": "84017e2aa24519c851ffa277552928e7"
+  },
+  "docs/web-vitals-performance/06-cls-optimization/01-preventing-cls.md": {
+    "mtime": 1785434428.3975508,
+    "ast_hash": "e0025471c91ee104e90ea2e7144b701d",
+    "semantic_hash": "e0025471c91ee104e90ea2e7144b701d"
+  },
+  "docs/web-vitals-performance/07-loading-and-rendering-performance/01-delivery-and-runtime-rendering.md": {
+    "mtime": 1785434455.6012805,
+    "ast_hash": "4f92f59042cac3a869f773b4e689ef27",
+    "semantic_hash": "4f92f59042cac3a869f773b4e689ef27"
+  },
+  "docs/web-vitals-performance/08-bundle-and-media-optimization/01-js-bundle-and-media-optimization.md": {
+    "mtime": 1785434477.9180744,
+    "ast_hash": "4ebd56935a8efb5ee21a948b77ff9ae6",
+    "semantic_hash": "4ebd56935a8efb5ee21a948b77ff9ae6"
+  },
+  "docs/web-vitals-performance/09-caching-and-production-monitoring/01-caching-strategies-and-rum-tools.md": {
+    "mtime": 1785434506.665829,
+    "ast_hash": "93090fc5ccb7bfb67ea573b106d2a770",
+    "semantic_hash": "93090fc5ccb7bfb67ea573b106d2a770"
+  },
+  "docs/web-vitals-performance/10-budgets-and-advanced-diagnostics/01-performance-budgets-and-deep-profiling.md": {
+    "mtime": 1785434531.8636312,
+    "ast_hash": "e658fffa89992de6c8cba9708fdaa7dc",
+    "semantic_hash": "e658fffa89992de6c8cba9708fdaa7dc"
+  },
+  "docs/webpack/01-core-concepts/01-five-core-concepts-and-module-graph.md": {
+    "mtime": 1785433803.5331635,
+    "ast_hash": "bbc42d05249c98e20fa8b93b16d0c41e",
+    "semantic_hash": "bbc42d05249c98e20fa8b93b16d0c41e"
+  },
+  "docs/webpack/02-configuration/01-entry-and-output-deep-dive.md": {
+    "mtime": 1785433823.323255,
+    "ast_hash": "3df52d5c01336709514337d1783815ff",
+    "semantic_hash": "3df52d5c01336709514337d1783815ff"
+  },
+  "docs/webpack/03-module-resolution/01-the-resolve-object.md": {
+    "mtime": 1785433847.7401862,
+    "ast_hash": "e9f9c7903719233cea6cd37a2d49df38",
+    "semantic_hash": "e9f9c7903719233cea6cd37a2d49df38"
+  },
+  "docs/webpack/04-loaders/01-transpilation-and-style-loaders.md": {
+    "mtime": 1785433866.5863996,
+    "ast_hash": "98eb3ff2c210a4577bec3fb4b943c7a6",
+    "semantic_hash": "98eb3ff2c210a4577bec3fb4b943c7a6"
+  },
+  "docs/webpack/04-loaders/02-loader-mechanics-pitching-and-async.md": {
+    "mtime": 1785433890.9574292,
+    "ast_hash": "271b422013a2c9fc82fd71b2dd715ace",
+    "semantic_hash": "271b422013a2c9fc82fd71b2dd715ace"
+  },
+  "docs/webpack/05-asset-modules/01-built-in-asset-types.md": {
+    "mtime": 1785433909.4867256,
+    "ast_hash": "088298e125b84218c8dcb5eeafef076a",
+    "semantic_hash": "088298e125b84218c8dcb5eeafef076a"
+  },
+  "docs/webpack/06-plugins/01-essential-plugins.md": {
+    "mtime": 1785433932.4968908,
+    "ast_hash": "f240e11be7bb7db043326778d7c6542f",
+    "semantic_hash": "f240e11be7bb7db043326778d7c6542f"
+  },
+  "docs/webpack/07-code-splitting/01-splitting-strategies.md": {
+    "mtime": 1785433954.4871323,
+    "ast_hash": "f9dbad9805bd07c8a9037323324ecf29",
+    "semantic_hash": "f9dbad9805bd07c8a9037323324ecf29"
+  },
+  "docs/webpack/08-optimization/01-production-optimizations.md": {
+    "mtime": 1785433976.7834005,
+    "ast_hash": "b4d98768e6d1ccef3f9d70e316a91789",
+    "semantic_hash": "b4d98768e6d1ccef3f9d70e316a91789"
+  },
+  "docs/webpack/09-dev-server-and-hmr/01-dev-server-and-hot-module-replacement.md": {
+    "mtime": 1785433997.336588,
+    "ast_hash": "17e35364753c71a57fac62b32ec85cd2",
+    "semantic_hash": "17e35364753c71a57fac62b32ec85cd2"
+  },
+  "docs/webpack/10-caching-strategies/01-long-term-caching.md": {
+    "mtime": 1785434020.7610424,
+    "ast_hash": "40680e8c914174b641346d617bcc7a18",
+    "semantic_hash": "40680e8c914174b641346d617bcc7a18"
+  },
+  "docs/webpack/11-module-federation/01-fundamentals-remotes-and-exposes.md": {
+    "mtime": 1785434140.1900399,
+    "ast_hash": "a076c8fe4f89a8eb9ed0ebae5418dac9",
+    "semantic_hash": "a076c8fe4f89a8eb9ed0ebae5418dac9"
+  },
+  "docs/webpack/11-module-federation/02-shared-dependencies-and-version-negotiation.md": {
+    "mtime": 1785434169.464421,
+    "ast_hash": "b8dbf925f232083f614b4d9d6d60faf7",
+    "semantic_hash": "b8dbf925f232083f614b4d9d6d60faf7"
+  },
+  "docs/webpack/11-module-federation/03-dynamic-remotes-and-runtime-loading.md": {
+    "mtime": 1785434197.6228657,
+    "ast_hash": "201e4096da914b8c343f104e43fa76f3",
+    "semantic_hash": "201e4096da914b8c343f104e43fa76f3"
+  },
+  "docs/webpack/11-module-federation/04-architecture-patterns-and-topologies.md": {
+    "mtime": 1785434234.0072029,
+    "ast_hash": "fd3fcd7b7d5f1fb1ba223d1efe9b1820",
+    "semantic_hash": "fd3fcd7b7d5f1fb1ba223d1efe9b1820"
+  },
+  "docs/webpack/11-module-federation/05-production-ops-and-troubleshooting.md": {
+    "mtime": 1785434266.3900776,
+    "ast_hash": "004a8c83fa79fc6450660de04f6a3cda",
+    "semantic_hash": "004a8c83fa79fc6450660de04f6a3cda"
+  },
+  "docs/webpack/12-source-maps/01-devtool-options.md": {
+    "mtime": 1785434039.9265177,
+    "ast_hash": "d0cb78d3f38dd3a04700b27667571ed4",
+    "semantic_hash": "d0cb78d3f38dd3a04700b27667571ed4"
+  },
+  "docs/webpack/13-multi-config-and-environment/01-config-composition.md": {
+    "mtime": 1785434064.4958558,
+    "ast_hash": "1cf5151177ed36bb00b05d8179eeac36",
+    "semantic_hash": "1cf5151177ed36bb00b05d8179eeac36"
+  },
+  "docs/webpack/14-performance-analysis/01-diagnostics-and-bundle-analysis.md": {
+    "mtime": 1785434085.4859219,
+    "ast_hash": "c49ad4ff41d1ce53f870675d7be999fb",
+    "semantic_hash": "c49ad4ff41d1ce53f870675d7be999fb"
+  },
+  "docs/webpack/15-advanced-custom-tooling/01-custom-loaders-and-plugins.md": {
+    "mtime": 1785434110.8477056,
+    "ast_hash": "13ff7b70aa150c83a7058030a3f3eb50",
+    "semantic_hash": "13ff7b70aa150c83a7058030a3f3eb50"
   },
   "syllabus/framer_motion_bible_syllabus.txt": {
     "mtime": 1785426252.7609546,
@@ -100,9 +685,9 @@
     "semantic_hash": "0362c7119f049438fdc0dd80fda24d6f"
   },
   "syllabus/react_bible_syllabus.txt": {
-    "mtime": 1785427926.1474006,
-    "ast_hash": "007cd4c4a558ea44b8820c874769eab5",
-    "semantic_hash": "007cd4c4a558ea44b8820c874769eab5"
+    "mtime": 1785430066.1176643,
+    "ast_hash": "0e1533c7e26f87ba05380f919ed09961",
+    "semantic_hash": "0e1533c7e26f87ba05380f919ed09961"
   },
   "syllabus/redux_toolkit_bible_syllabus.txt": {
     "mtime": 1785425835.798923,
@@ -139,29 +724,644 @@
     "ast_hash": "472022b75e0e2f5da593ac182ac41555",
     "semantic_hash": "472022b75e0e2f5da593ac182ac41555"
   },
-  "public/favicon.svg": {
+  "static/img/favicon.svg": {
     "mtime": 1785424717.888364,
     "ast_hash": "7e840862161341271697daa99a40d76b",
     "semantic_hash": "7e840862161341271697daa99a40d76b"
   },
-  "public/icons.svg": {
-    "mtime": 1785424717.8889132,
-    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
-    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  ".claude/memory/008-vite-expansion.md": {
+    "mtime": 1785464126.065321,
+    "ast_hash": "637b359b5338b9be64eb2fe1c755d05f",
+    "semantic_hash": "637b359b5338b9be64eb2fe1c755d05f"
   },
-  "src/assets/hero.png": {
-    "mtime": 1785424717.883989,
-    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
-    "semantic_hash": "aead493361b27e7510691c5d7072dfc1"
+  ".claude/memory/009-jest-rtl-expansion.md": {
+    "mtime": 1785464614.4270914,
+    "ast_hash": "3e89b3d8a0dc9235d1703fcbc2d6fdeb",
+    "semantic_hash": "3e89b3d8a0dc9235d1703fcbc2d6fdeb"
   },
-  "src/assets/react.svg": {
-    "mtime": 1785424717.88493,
-    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
-    "semantic_hash": "f0402b67b6ce880f65666bb49e841696"
+  ".claude/memory/010-playwright-expansion.md": {
+    "mtime": 1785465116.1015315,
+    "ast_hash": "40f487f191ae9fe845b8249b6981a41c",
+    "semantic_hash": "40f487f191ae9fe845b8249b6981a41c"
   },
-  "src/assets/vite.svg": {
-    "mtime": 1785424717.884988,
-    "ast_hash": "9960a24288958394ac50e57ff638b036",
-    "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  ".claude/memory/011-tanstack-query-expansion.md": {
+    "mtime": 1785465596.8965223,
+    "ast_hash": "1c1d6a3f6026a3439df1f6b406251207",
+    "semantic_hash": "1c1d6a3f6026a3439df1f6b406251207"
+  },
+  ".claude/memory/012-storybook-expansion.md": {
+    "mtime": 1785466056.94574,
+    "ast_hash": "1993c154518f1b7473d210d863ae804a",
+    "semantic_hash": "1993c154518f1b7473d210d863ae804a"
+  },
+  ".claude/memory/013-framer-motion-expansion.md": {
+    "mtime": 1785466538.3149796,
+    "ast_hash": "9b9e3a9ee5e347c735fdf6b5c40a2c4d",
+    "semantic_hash": "9b9e3a9ee5e347c735fdf6b5c40a2c4d"
+  },
+  "docs/framer-motion/01-core-concepts/01-declarative-animation-philosophy.md": {
+    "mtime": 1785466104.2567303,
+    "ast_hash": "a3f752006fc2074419d02bb71fcd8f36",
+    "semantic_hash": "a3f752006fc2074419d02bb71fcd8f36"
+  },
+  "docs/framer-motion/02-basic-animation-props/01-the-core-prop-triad.md": {
+    "mtime": 1785466133.6849687,
+    "ast_hash": "d2bc6a40b213fcfbb21bb8a8ebcb562d",
+    "semantic_hash": "d2bc6a40b213fcfbb21bb8a8ebcb562d"
+  },
+  "docs/framer-motion/03-transition-types/01-timing-models.md": {
+    "mtime": 1785466162.101165,
+    "ast_hash": "79a61f0ea5c17e87dc303fdbc0ec86fa",
+    "semantic_hash": "79a61f0ea5c17e87dc303fdbc0ec86fa"
+  },
+  "docs/framer-motion/04-variants/01-reusable-named-states.md": {
+    "mtime": 1785466188.529278,
+    "ast_hash": "d75ea82b9a0ba0a96520c91b88301cf8",
+    "semantic_hash": "d75ea82b9a0ba0a96520c91b88301cf8"
+  },
+  "docs/framer-motion/05-gestures/01-interaction-driven-animation.md": {
+    "mtime": 1785466218.2401574,
+    "ast_hash": "c6d11d7c4f75dc1260340bf6e8abc670",
+    "semantic_hash": "c6d11d7c4f75dc1260340bf6e8abc670"
+  },
+  "docs/framer-motion/06-animatepresence/01-exit-animations.md": {
+    "mtime": 1785466246.430717,
+    "ast_hash": "41c25853535efcdac57f286f1b010bd7",
+    "semantic_hash": "41c25853535efcdac57f286f1b010bd7"
+  },
+  "docs/framer-motion/07-layout-animations/01-automatic-layout-transitions.md": {
+    "mtime": 1785466276.6113563,
+    "ast_hash": "a00646efa13c8734ebdc8da0ddfae5d7",
+    "semantic_hash": "a00646efa13c8734ebdc8da0ddfae5d7"
+  },
+  "docs/framer-motion/08-scroll-linked-animations/01-scroll-reactive-motion.md": {
+    "mtime": 1785466302.6740873,
+    "ast_hash": "845ba79d6838412dff38b8448b91c486",
+    "semantic_hash": "845ba79d6838412dff38b8448b91c486"
+  },
+  "docs/framer-motion/09-motion-values/01-imperative-value-tracking.md": {
+    "mtime": 1785466333.0564747,
+    "ast_hash": "197afcde9754275aec0aacb25f1c934e",
+    "semantic_hash": "197afcde9754275aec0aacb25f1c934e"
+  },
+  "docs/framer-motion/10-animation-controls/01-imperative-sequencing.md": {
+    "mtime": 1785466360.5684845,
+    "ast_hash": "f26325b8ff69e053be9ffd59bbd52122",
+    "semantic_hash": "f26325b8ff69e053be9ffd59bbd52122"
+  },
+  "docs/framer-motion/11-keyframes/01-multi-step-value-animation.md": {
+    "mtime": 1785466382.4277692,
+    "ast_hash": "9f9210d5ae79265130fb067c5deaa2df",
+    "semantic_hash": "9f9210d5ae79265130fb067c5deaa2df"
+  },
+  "docs/framer-motion/12-svg-animations/01-vector-graphic-motion.md": {
+    "mtime": 1785466412.2943714,
+    "ast_hash": "467b5ca7126a43074ffaa4118ce44f60",
+    "semantic_hash": "467b5ca7126a43074ffaa4118ce44f60"
+  },
+  "docs/framer-motion/13-orchestration-and-staggering/01-choreographed-groups.md": {
+    "mtime": 1785466436.8512733,
+    "ast_hash": "bbf9b570183bc35052f778f79171dc4c",
+    "semantic_hash": "bbf9b570183bc35052f778f79171dc4c"
+  },
+  "docs/framer-motion/14-performance-considerations/01-animating-efficiently.md": {
+    "mtime": 1785466465.0505884,
+    "ast_hash": "c58a9fe200e62fcdeddc9b44581dd4f3",
+    "semantic_hash": "c58a9fe200e62fcdeddc9b44581dd4f3"
+  },
+  "docs/framer-motion/15-advanced-patterns/01-production-grade-motion-design.md": {
+    "mtime": 1785466494.7301636,
+    "ast_hash": "ab9759597d026ca5f48143d6cf88f96b",
+    "semantic_hash": "ab9759597d026ca5f48143d6cf88f96b"
+  },
+  "docs/javascript/02-execution-context-and-scope/01-hoisting-closures-and-call-stack.md": {
+    "mtime": 1785463183.2337856,
+    "ast_hash": "b01607879b624d5c269863f90c0899de",
+    "semantic_hash": "b01607879b624d5c269863f90c0899de"
+  },
+  "docs/javascript/03-the-this-keyword/01-binding-rules.md": {
+    "mtime": 1785463211.5859919,
+    "ast_hash": "19ee5f5ecf72b9d4db175b01565d6a10",
+    "semantic_hash": "19ee5f5ecf72b9d4db175b01565d6a10"
+  },
+  "docs/javascript/04-functions-in-depth/01-function-forms-and-patterns.md": {
+    "mtime": 1785463239.746049,
+    "ast_hash": "247b346d8dc36dba82a4352b3f042553",
+    "semantic_hash": "247b346d8dc36dba82a4352b3f042553"
+  },
+  "docs/javascript/05-prototypes-and-oop/01-the-prototype-system.md": {
+    "mtime": 1785463269.2627075,
+    "ast_hash": "e2f927c421246d68635e1b10354986a4",
+    "semantic_hash": "e2f927c421246d68635e1b10354986a4"
+  },
+  "docs/javascript/06-asynchronous-javascript/01-promises-and-async-await.md": {
+    "mtime": 1785463298.2223232,
+    "ast_hash": "d1ad8b8c3d30335e43baa6462208c46f",
+    "semantic_hash": "d1ad8b8c3d30335e43baa6462208c46f"
+  },
+  "docs/javascript/07-event-loop-deep-dive/01-concurrency-model.md": {
+    "mtime": 1785463333.6614902,
+    "ast_hash": "57cc369df38972ab8b1e5113e0abf115",
+    "semantic_hash": "57cc369df38972ab8b1e5113e0abf115"
+  },
+  "docs/javascript/08-iterables-and-generators/01-custom-iteration-protocols.md": {
+    "mtime": 1785463358.4816077,
+    "ast_hash": "ed760261a6812ddab9858247686ff6c3",
+    "semantic_hash": "ed760261a6812ddab9858247686ff6c3"
+  },
+  "docs/javascript/09-memory-management/01-garbage-collection-and-weak-refs.md": {
+    "mtime": 1785463391.276763,
+    "ast_hash": "33cb66a50ba69c443e32a4e60a470189",
+    "semantic_hash": "33cb66a50ba69c443e32a4e60a470189"
+  },
+  "docs/javascript/10-modules/01-module-systems.md": {
+    "mtime": 1785463421.7529078,
+    "ast_hash": "4952bfdf56e27fedbad868db99e3bfd3",
+    "semantic_hash": "4952bfdf56e27fedbad868db99e3bfd3"
+  },
+  "docs/javascript/11-modern-es-features/01-syntax-sugar-that-matters.md": {
+    "mtime": 1785463450.6770456,
+    "ast_hash": "2691c5180fe2db9766af7b60f8f3925c",
+    "semantic_hash": "2691c5180fe2db9766af7b60f8f3925c"
+  },
+  "docs/javascript/12-collections-and-data-structures/01-built-in-structures.md": {
+    "mtime": 1785463481.1911912,
+    "ast_hash": "af4ed78092183549c4f7beaf3c4523c8",
+    "semantic_hash": "af4ed78092183549c4f7beaf3c4523c8"
+  },
+  "docs/javascript/13-browser-apis-and-dom/01-interacting-with-the-page.md": {
+    "mtime": 1785463509.8903286,
+    "ast_hash": "06640aac3a4d5802287ddbf0284c59d4",
+    "semantic_hash": "06640aac3a4d5802287ddbf0284c59d4"
+  },
+  "docs/javascript/14-error-handling/01-managing-failure.md": {
+    "mtime": 1785463540.5994756,
+    "ast_hash": "2c43c2e66b59b69e8a87f2fd860c9417",
+    "semantic_hash": "2c43c2e66b59b69e8a87f2fd860c9417"
+  },
+  "docs/javascript/15-advanced-meta-programming/01-proxy-reflect-and-symbols.md": {
+    "mtime": 1785463574.1326368,
+    "ast_hash": "6f00ba48953d1b9f30cf78b749badfc5",
+    "semantic_hash": "6f00ba48953d1b9f30cf78b749badfc5"
+  },
+  "docs/jest-rtl/01-jest-core-concepts/01-test-structure.md": {
+    "mtime": 1785464174.9285605,
+    "ast_hash": "959eaf508d7d69913b44d13aec1397ac",
+    "semantic_hash": "959eaf508d7d69913b44d13aec1397ac"
+  },
+  "docs/jest-rtl/02-assertions-and-matchers/01-the-expect-api.md": {
+    "mtime": 1785464203.971703,
+    "ast_hash": "c1a30de280850c41d4a63e0268c5596f",
+    "semantic_hash": "c1a30de280850c41d4a63e0268c5596f"
+  },
+  "docs/jest-rtl/03-mocking/01-jest-mock-functions.md": {
+    "mtime": 1785464235.91086,
+    "ast_hash": "07f86309fb922c13d678bf1b828c7e28",
+    "semantic_hash": "07f86309fb922c13d678bf1b828c7e28"
+  },
+  "docs/jest-rtl/04-async-testing/01-handling-asynchrony.md": {
+    "mtime": 1785464262.7449918,
+    "ast_hash": "0e4e3419ed717e49b91437e654fdb015",
+    "semantic_hash": "0e4e3419ed717e49b91437e654fdb015"
+  },
+  "docs/jest-rtl/05-snapshot-testing/01-snapshot-mechanics.md": {
+    "mtime": 1785464294.0291455,
+    "ast_hash": "75e9758c526bed622ed46408b4e9017b",
+    "semantic_hash": "75e9758c526bed622ed46408b4e9017b"
+  },
+  "docs/jest-rtl/06-coverage-and-configuration/01-jest-config.md": {
+    "mtime": 1785464324.2322063,
+    "ast_hash": "74e22b121be49b871ce5741c3e6e88d3",
+    "semantic_hash": "74e22b121be49b871ce5741c3e6e88d3"
+  },
+  "docs/jest-rtl/07-rtl-core-philosophy/01-guiding-principle.md": {
+    "mtime": 1785464350.015238,
+    "ast_hash": "1de9db7700c811da1ebd6412ffe1db18",
+    "semantic_hash": "1de9db7700c811da1ebd6412ffe1db18"
+  },
+  "docs/jest-rtl/08-rtl-queries/01-query-variants-and-priority.md": {
+    "mtime": 1785464378.297934,
+    "ast_hash": "9d82ea06656eb8f97c88dedd908939f1",
+    "semantic_hash": "9d82ea06656eb8f97c88dedd908939f1"
+  },
+  "docs/jest-rtl/09-user-interaction/01-simulating-input.md": {
+    "mtime": 1785464405.012853,
+    "ast_hash": "80bce0b2d3ca8e86fffb0b88e04b9050",
+    "semantic_hash": "80bce0b2d3ca8e86fffb0b88e04b9050"
+  },
+  "docs/jest-rtl/10-async-utilities/01-waiting-for-updates.md": {
+    "mtime": 1785464434.8781683,
+    "ast_hash": "c59081e6e7da65410691e21f7fc7b1f4",
+    "semantic_hash": "c59081e6e7da65410691e21f7fc7b1f4"
+  },
+  "docs/jest-rtl/11-custom-render/01-provider-wrapping.md": {
+    "mtime": 1785464461.5882537,
+    "ast_hash": "a0ba1d69b9b1e0d5afec79054977c1d0",
+    "semantic_hash": "a0ba1d69b9b1e0d5afec79054977c1d0"
+  },
+  "docs/jest-rtl/12-mocking-network-requests/01-api-level-mocking.md": {
+    "mtime": 1785464489.6291232,
+    "ast_hash": "f86015dbb9bd9c69abbdf7e201b9e087",
+    "semantic_hash": "f86015dbb9bd9c69abbdf7e201b9e087"
+  },
+  "docs/jest-rtl/13-testing-hooks/01-render-hook.md": {
+    "mtime": 1785464516.7967865,
+    "ast_hash": "a761298736f8365b195cfd61b61e165a",
+    "semantic_hash": "a761298736f8365b195cfd61b61e165a"
+  },
+  "docs/jest-rtl/14-accessibility-testing/01-a11y-assertions.md": {
+    "mtime": 1785464546.281723,
+    "ast_hash": "e07547ce7fab7bc115ad99d87c61eb90",
+    "semantic_hash": "e07547ce7fab7bc115ad99d87c61eb90"
+  },
+  "docs/jest-rtl/15-debugging-tests/01-diagnostic-tools.md": {
+    "mtime": 1785464574.3250382,
+    "ast_hash": "e3293f243da023345e4f30cd95fcd32a",
+    "semantic_hash": "e3293f243da023345e4f30cd95fcd32a"
+  },
+  "docs/playwright/01-core-architecture/01-browser-automation-model.md": {
+    "mtime": 1785464664.983653,
+    "ast_hash": "5a8da57c94fe36a77097fdc353e477a1",
+    "semantic_hash": "5a8da57c94fe36a77097fdc353e477a1"
+  },
+  "docs/playwright/02-test-runner/01-playwright-test-fixtures.md": {
+    "mtime": 1785464691.1665173,
+    "ast_hash": "07f5dd306ca32c4f49acd45ec31fa649",
+    "semantic_hash": "07f5dd306ca32c4f49acd45ec31fa649"
+  },
+  "docs/playwright/03-locators/01-locator-api.md": {
+    "mtime": 1785464720.6701365,
+    "ast_hash": "e6ae70953e7bfcf1e92fa229e79c2e77",
+    "semantic_hash": "e6ae70953e7bfcf1e92fa229e79c2e77"
+  },
+  "docs/playwright/04-actions-and-interactions/01-interaction-primitives.md": {
+    "mtime": 1785464749.152156,
+    "ast_hash": "9ba026a49983e7398c0b992bc805e443",
+    "semantic_hash": "9ba026a49983e7398c0b992bc805e443"
+  },
+  "docs/playwright/05-auto-waiting-and-assertions/01-web-first-assertions.md": {
+    "mtime": 1785464779.7419055,
+    "ast_hash": "9e8fa67ad177e46dbb0e93be5e058594",
+    "semantic_hash": "9e8fa67ad177e46dbb0e93be5e058594"
+  },
+  "docs/playwright/06-navigation-and-network/01-navigation-and-interception.md": {
+    "mtime": 1785464806.9842796,
+    "ast_hash": "3653903c1d50020badef1ee4f698669b",
+    "semantic_hash": "3653903c1d50020badef1ee4f698669b"
+  },
+  "docs/playwright/07-authentication-and-state/01-session-reuse.md": {
+    "mtime": 1785464833.5022762,
+    "ast_hash": "34fdc354a0434de6b6f3dd09363c97b1",
+    "semantic_hash": "34fdc354a0434de6b6f3dd09363c97b1"
+  },
+  "docs/playwright/08-fixtures-and-test-isolation/01-fixture-system.md": {
+    "mtime": 1785464860.9151487,
+    "ast_hash": "9bc56db604ccc2184e63e188ee082646",
+    "semantic_hash": "9bc56db604ccc2184e63e188ee082646"
+  },
+  "docs/playwright/09-visual-and-screenshot-testing/01-visual-regression.md": {
+    "mtime": 1785464888.1148672,
+    "ast_hash": "9da2ad5c774b3534a361bb3c527f3c6a",
+    "semantic_hash": "9da2ad5c774b3534a361bb3c527f3c6a"
+  },
+  "docs/playwright/10-debugging-tools/01-diagnostic-tooling.md": {
+    "mtime": 1785464916.8601718,
+    "ast_hash": "f2029c94d1c3b68f2c1b6935367d3e69",
+    "semantic_hash": "f2029c94d1c3b68f2c1b6935367d3e69"
+  },
+  "docs/playwright/11-parallelism-and-sharding/01-scaling-test-runs.md": {
+    "mtime": 1785464944.6070955,
+    "ast_hash": "be8244c84e812b9a52b26f85f9f7ed5b",
+    "semantic_hash": "be8244c84e812b9a52b26f85f9f7ed5b"
+  },
+  "docs/playwright/12-component-testing/01-experimental-ct-runner.md": {
+    "mtime": 1785464971.913468,
+    "ast_hash": "f4f6fa668d686e8d07c93253a19f4a9b",
+    "semantic_hash": "f4f6fa668d686e8d07c93253a19f4a9b"
+  },
+  "docs/playwright/13-api-testing/01-request-fixture.md": {
+    "mtime": 1785465001.2311766,
+    "ast_hash": "84e99c956fa8ab121576fd5f49592a1f",
+    "semantic_hash": "84e99c956fa8ab121576fd5f49592a1f"
+  },
+  "docs/playwright/14-ci-integration/01-playwright-config.md": {
+    "mtime": 1785465036.7012405,
+    "ast_hash": "abc9aca68bee3f9775a99ac6270cf813",
+    "semantic_hash": "abc9aca68bee3f9775a99ac6270cf813"
+  },
+  "docs/playwright/15-advanced-patterns/01-scalable-test-architecture.md": {
+    "mtime": 1785465066.4635026,
+    "ast_hash": "a2390e46e29c5a6a1cdb2578be09ae9f",
+    "semantic_hash": "a2390e46e29c5a6a1cdb2578be09ae9f"
+  },
+  "docs/storybook/01-core-concepts/01-component-driven-development.md": {
+    "mtime": 1785465646.4675722,
+    "ast_hash": "0da0990cd88bef6a7149830daee488fb",
+    "semantic_hash": "0da0990cd88bef6a7149830daee488fb"
+  },
+  "docs/storybook/02-story-anatomy/01-file-structure.md": {
+    "mtime": 1785465672.8906682,
+    "ast_hash": "c0ba5f32dbbfee7bbd5a6c9e554d0256",
+    "semantic_hash": "c0ba5f32dbbfee7bbd5a6c9e554d0256"
+  },
+  "docs/storybook/03-addons-ecosystem/01-essential-addons.md": {
+    "mtime": 1785465700.7548258,
+    "ast_hash": "8cba0f8c53f9326332e25a5ecb41bdbc",
+    "semantic_hash": "8cba0f8c53f9326332e25a5ecb41bdbc"
+  },
+  "docs/storybook/04-controls-and-args/01-dynamic-prop-editing.md": {
+    "mtime": 1785465728.991001,
+    "ast_hash": "56492d885a484e14969c9a3e6460e87b",
+    "semantic_hash": "56492d885a484e14969c9a3e6460e87b"
+  },
+  "docs/storybook/05-interaction-testing/01-play-functions.md": {
+    "mtime": 1785465752.2415166,
+    "ast_hash": "0c631b27a14a851ba85e902dc6d6df6b",
+    "semantic_hash": "0c631b27a14a851ba85e902dc6d6df6b"
+  },
+  "docs/storybook/06-visual-testing/01-chromatic-integration.md": {
+    "mtime": 1785465780.52615,
+    "ast_hash": "a3e14a746afe4151661f1850f050c7e3",
+    "semantic_hash": "a3e14a746afe4151661f1850f050c7e3"
+  },
+  "docs/storybook/07-accessibility-testing/01-a11y-addon.md": {
+    "mtime": 1785465807.8662922,
+    "ast_hash": "10b1e68e9aafa922dda62c301cbecb31",
+    "semantic_hash": "10b1e68e9aafa922dda62c301cbecb31"
+  },
+  "docs/storybook/08-documentation/01-docs-generation.md": {
+    "mtime": 1785465839.2058969,
+    "ast_hash": "ca4b418bb1e292a638c654eb569143ba",
+    "semantic_hash": "ca4b418bb1e292a638c654eb569143ba"
+  },
+  "docs/storybook/09-decorators/01-wrapping-stories.md": {
+    "mtime": 1785465862.5515802,
+    "ast_hash": "f7f795122d20b48df85f6bc84d267611",
+    "semantic_hash": "f7f795122d20b48df85f6bc84d267611"
+  },
+  "docs/storybook/10-composition-and-design-systems/01-storybook-as-a-design-system-hub.md": {
+    "mtime": 1785465891.099776,
+    "ast_hash": "feaf2d8122d42559d52c9e0d3dff8fdc",
+    "semantic_hash": "feaf2d8122d42559d52c9e0d3dff8fdc"
+  },
+  "docs/storybook/11-testing-integration/01-test-runner.md": {
+    "mtime": 1785465917.4888825,
+    "ast_hash": "a488b733a331632a392a611856a2863d",
+    "semantic_hash": "a488b733a331632a392a611856a2863d"
+  },
+  "docs/storybook/12-multi-framework-support/01-renderer-architecture.md": {
+    "mtime": 1785465939.7642353,
+    "ast_hash": "a40962229e5dfa2e6f614a847d057361",
+    "semantic_hash": "a40962229e5dfa2e6f614a847d057361"
+  },
+  "docs/storybook/13-build-and-configuration/01-storybook-main.md": {
+    "mtime": 1785465964.6658623,
+    "ast_hash": "abf7062e19375f66ff312013c50280b2",
+    "semantic_hash": "abf7062e19375f66ff312013c50280b2"
+  },
+  "docs/storybook/14-publishing-and-deployment/01-shipping-a-static-storybook.md": {
+    "mtime": 1785465990.5869508,
+    "ast_hash": "113758e93f618df7cde6413f131b8467",
+    "semantic_hash": "113758e93f618df7cde6413f131b8467"
+  },
+  "docs/storybook/15-advanced-patterns/01-component-driven-workflow.md": {
+    "mtime": 1785466016.649046,
+    "ast_hash": "af992e244a12cc9b96b3d7cb02caa5e4",
+    "semantic_hash": "af992e244a12cc9b96b3d7cb02caa5e4"
+  },
+  "docs/tanstack-query/01-core-concepts/01-the-server-state-model.md": {
+    "mtime": 1785465163.431071,
+    "ast_hash": "d0b57cdec43741cbf4a1e87a5aa83c14",
+    "semantic_hash": "d0b57cdec43741cbf4a1e87a5aa83c14"
+  },
+  "docs/tanstack-query/02-usequery-deep-dive/01-core-options.md": {
+    "mtime": 1785465195.304785,
+    "ast_hash": "a654c7b7e86ce1217beccee639732842",
+    "semantic_hash": "a654c7b7e86ce1217beccee639732842"
+  },
+  "docs/tanstack-query/03-query-states/01-status-flags.md": {
+    "mtime": 1785465222.3336875,
+    "ast_hash": "9ce36dcd6dbbe3686e05b6183b18a512",
+    "semantic_hash": "9ce36dcd6dbbe3686e05b6183b18a512"
+  },
+  "docs/tanstack-query/04-caching-and-invalidation/01-cache-management-apis.md": {
+    "mtime": 1785465251.8871183,
+    "ast_hash": "8556bcfbd141e14761c00afa580faf70",
+    "semantic_hash": "8556bcfbd141e14761c00afa580faf70"
+  },
+  "docs/tanstack-query/05-usemutation/01-mutation-lifecycle.md": {
+    "mtime": 1785465281.3518114,
+    "ast_hash": "3ee2ad3d2cb278ae3ffa1d8b5038c245",
+    "semantic_hash": "3ee2ad3d2cb278ae3ffa1d8b5038c245"
+  },
+  "docs/tanstack-query/06-background-refetching/01-automatic-freshness.md": {
+    "mtime": 1785465308.923868,
+    "ast_hash": "fd3cf9c031bf3105533b2645e3d23a5b",
+    "semantic_hash": "fd3cf9c031bf3105533b2645e3d23a5b"
+  },
+  "docs/tanstack-query/07-pagination-and-infinite-queries/01-paged-data-patterns.md": {
+    "mtime": 1785465334.1538632,
+    "ast_hash": "50c133fa68f64d4ba4d3e110438ef8b7",
+    "semantic_hash": "50c133fa68f64d4ba4d3e110438ef8b7"
+  },
+  "docs/tanstack-query/08-dependent-and-parallel-queries/01-query-composition.md": {
+    "mtime": 1785465361.210349,
+    "ast_hash": "a271f35ddaf4f902a5282cf7523dec0b",
+    "semantic_hash": "a271f35ddaf4f902a5282cf7523dec0b"
+  },
+  "docs/tanstack-query/09-prefetching-and-ssr/01-server-rendered-data-flow.md": {
+    "mtime": 1785465389.3762023,
+    "ast_hash": "a8d39846025f748260b53c4116994295",
+    "semantic_hash": "a8d39846025f748260b53c4116994295"
+  },
+  "docs/tanstack-query/10-suspense-integration/01-suspense-driven-fetching.md": {
+    "mtime": 1785465419.0154738,
+    "ast_hash": "f2095e8f01656c6b57ca5fed640ea5d1",
+    "semantic_hash": "f2095e8f01656c6b57ca5fed640ea5d1"
+  },
+  "docs/tanstack-query/11-devtools/01-react-query-devtools.md": {
+    "mtime": 1785465439.7290924,
+    "ast_hash": "17efdb2709650e9316704aeea9e961c5",
+    "semantic_hash": "17efdb2709650e9316704aeea9e961c5"
+  },
+  "docs/tanstack-query/12-query-cancellation/01-abortsignal-integration.md": {
+    "mtime": 1785465468.390255,
+    "ast_hash": "4d41af184ab306c344665afccc466e27",
+    "semantic_hash": "4d41af184ab306c344665afccc466e27"
+  },
+  "docs/tanstack-query/13-global-configuration/01-defaultoptions.md": {
+    "mtime": 1785465496.0253808,
+    "ast_hash": "191d11a92e39024bd624d5bd73a44105",
+    "semantic_hash": "191d11a92e39024bd624d5bd73a44105"
+  },
+  "docs/tanstack-query/14-optimistic-updates-patterns/01-advanced-rollback-strategies.md": {
+    "mtime": 1785465522.7314727,
+    "ast_hash": "474c789b7d5fbd1c6222a8b67f0a81bf",
+    "semantic_hash": "474c789b7d5fbd1c6222a8b67f0a81bf"
+  },
+  "docs/tanstack-query/15-testing-tanstack-query/01-isolated-and-integration-testing.md": {
+    "mtime": 1785465551.9396708,
+    "ast_hash": "2e7b96ec204716eea480d88f5b7511e3",
+    "semantic_hash": "2e7b96ec204716eea480d88f5b7511e3"
+  },
+  "docs/vite/01-core-architecture/01-dual-engine-model.md": {
+    "mtime": 1785463694.9571812,
+    "ast_hash": "7759a0f4409f2d6c094da92fac4cb30a",
+    "semantic_hash": "7759a0f4409f2d6c094da92fac4cb30a"
+  },
+  "docs/vite/02-cli-and-scaffolding/01-commands-and-templates.md": {
+    "mtime": 1785463717.0463264,
+    "ast_hash": "716a510e22d16dfce362827182f919ea",
+    "semantic_hash": "716a510e22d16dfce362827182f919ea"
+  },
+  "docs/vite/03-configuration/01-vite-config-file.md": {
+    "mtime": 1785463741.2714438,
+    "ast_hash": "0e7c3a71c55e7a5be6a834d8c6f1b062",
+    "semantic_hash": "0e7c3a71c55e7a5be6a834d8c6f1b062"
+  },
+  "docs/vite/04-dev-server-mechanics/01-native-esm-and-hmr.md": {
+    "mtime": 1785463768.4645758,
+    "ast_hash": "a08781955afd5ab13481fd1eed2fff33",
+    "semantic_hash": "a08781955afd5ab13481fd1eed2fff33"
+  },
+  "docs/vite/05-build-system-rollup/01-build-options.md": {
+    "mtime": 1785463796.6887128,
+    "ast_hash": "9edac4916bd6cefe81025a33e17ebdcb",
+    "semantic_hash": "9edac4916bd6cefe81025a33e17ebdcb"
+  },
+  "docs/vite/06-asset-handling/01-static-asset-imports.md": {
+    "mtime": 1785463823.5071373,
+    "ast_hash": "a8f22ec9b744c7fb351eb92b8667b954",
+    "semantic_hash": "a8f22ec9b744c7fb351eb92b8667b954"
+  },
+  "docs/vite/07-env-variables-and-modes/01-environment-system.md": {
+    "mtime": 1785463851.9169812,
+    "ast_hash": "a3f299078fa9dd6fa963dc7701fea32c",
+    "semantic_hash": "a3f299078fa9dd6fa963dc7701fea32c"
+  },
+  "docs/vite/08-plugin-system/01-plugin-api.md": {
+    "mtime": 1785463878.6201115,
+    "ast_hash": "026d31de4f727a556fe956c4f4a0c6e5",
+    "semantic_hash": "026d31de4f727a556fe956c4f4a0c6e5"
+  },
+  "docs/vite/09-css-handling/01-styling-pipeline.md": {
+    "mtime": 1785463903.6882336,
+    "ast_hash": "cf346b023e1c95e05a4034cdad427688",
+    "semantic_hash": "cf346b023e1c95e05a4034cdad427688"
+  },
+  "docs/vite/10-ssr-support/01-server-side-rendering-primitives.md": {
+    "mtime": 1785463932.5843744,
+    "ast_hash": "5c283184a131b5936744f0261036a076",
+    "semantic_hash": "5c283184a131b5936744f0261036a076"
+  },
+  "docs/vite/11-optimization-and-performance/01-build-time-performance.md": {
+    "mtime": 1785463960.6041737,
+    "ast_hash": "92a6a92fbd8cb172fb3775f58b360ba9",
+    "semantic_hash": "92a6a92fbd8cb172fb3775f58b360ba9"
+  },
+  "docs/vite/12-path-resolution-and-aliases/01-resolve-options.md": {
+    "mtime": 1785463985.439821,
+    "ast_hash": "45bd867c370fbbd878d79c90c56b3694",
+    "semantic_hash": "45bd867c370fbbd878d79c90c56b3694"
+  },
+  "docs/vite/13-worker-and-wasm-support/01-advanced-runtime-targets.md": {
+    "mtime": 1785464009.6548882,
+    "ast_hash": "2b86ad69c6e43bd41d2b0bd3d9c25e0a",
+    "semantic_hash": "2b86ad69c6e43bd41d2b0bd3d9c25e0a"
+  },
+  "docs/vite/14-testing-integration/01-vitest-relationship.md": {
+    "mtime": 1785464034.4498723,
+    "ast_hash": "785679df50d42470c1260f90b2babd3f",
+    "semantic_hash": "785679df50d42470c1260f90b2babd3f"
+  },
+  "docs/vite/15-deployment-considerations/01-shipping-the-build.md": {
+    "mtime": 1785464057.3039842,
+    "ast_hash": "71f0de775824e4bc5ac1e799bcbaa96d",
+    "semantic_hash": "71f0de775824e4bc5ac1e799bcbaa96d"
+  },
+  ".claude/memory/014-frontend-architecture-expansion.md": {
+    "mtime": 1785467085.5734377,
+    "ast_hash": "73e17b65a5345ebabbab801384e76f44",
+    "semantic_hash": "73e17b65a5345ebabbab801384e76f44"
+  },
+  ".claude/memory/015-long-task-workflow-preferences.md": {
+    "mtime": 1785467478.9380014,
+    "ast_hash": "b6dc92b85f39eb1d2726cacda3e2b510",
+    "semantic_hash": "b6dc92b85f39eb1d2726cacda3e2b510"
+  },
+  "docs/frontend-architecture/01-project-structure-and-organization/01-folder-strategy.md": {
+    "mtime": 1785466622.057376,
+    "ast_hash": "078d69249534831a461a041cc9709c67",
+    "semantic_hash": "078d69249534831a461a041cc9709c67"
+  },
+  "docs/frontend-architecture/02-component-architecture/01-composition-patterns.md": {
+    "mtime": 1785466655.503178,
+    "ast_hash": "73daae89e68f871a46e4d57deb99e35c",
+    "semantic_hash": "73daae89e68f871a46e4d57deb99e35c"
+  },
+  "docs/frontend-architecture/03-state-management-decision-tree/01-choosing-the-right-tool.md": {
+    "mtime": 1785466685.8890016,
+    "ast_hash": "9ed9af96c43ae7d5602eb74a66ebc4ea",
+    "semantic_hash": "9ed9af96c43ae7d5602eb74a66ebc4ea"
+  },
+  "docs/frontend-architecture/04-data-layer-and-api-architecture/01-structuring-the-data-boundary.md": {
+    "mtime": 1785466713.9350884,
+    "ast_hash": "89572e588c40a932bf4096b0c58b3661",
+    "semantic_hash": "89572e588c40a932bf4096b0c58b3661"
+  },
+  "docs/frontend-architecture/05-routing-and-navigation-architecture/01-real-world-routing-concerns.md": {
+    "mtime": 1785466743.4610384,
+    "ast_hash": "44d0ec880c015367b4ffaa30f7be899b",
+    "semantic_hash": "44d0ec880c015367b4ffaa30f7be899b"
+  },
+  "docs/frontend-architecture/06-styling-architecture/01-choosing-and-scaling-a-styling-approach.md": {
+    "mtime": 1785466774.1089094,
+    "ast_hash": "1eb20e92fa5e780bcf55a055e482daee",
+    "semantic_hash": "1eb20e92fa5e780bcf55a055e482daee"
+  },
+  "docs/frontend-architecture/07-monorepo-and-multi-app-strategy/01-scaling-beyond-one-app.md": {
+    "mtime": 1785466801.9794807,
+    "ast_hash": "5d67b3d8b9945d7ee43c770312028b37",
+    "semantic_hash": "5d67b3d8b9945d7ee43c770312028b37"
+  },
+  "docs/frontend-architecture/08-environment-and-configuration-management/01-config-across-environments.md": {
+    "mtime": 1785466831.8373842,
+    "ast_hash": "36f60bf062e9f0b0857f1f78cc43f512",
+    "semantic_hash": "36f60bf062e9f0b0857f1f78cc43f512"
+  },
+  "docs/frontend-architecture/09-authentication-and-authorization-architecture/01-real-world-auth-concerns.md": {
+    "mtime": 1785466861.643597,
+    "ast_hash": "0fe87f0a72cfd246bc352f62153f0b78",
+    "semantic_hash": "0fe87f0a72cfd246bc352f62153f0b78"
+  },
+  "docs/frontend-architecture/10-error-handling-and-resilience/01-designing-for-failure.md": {
+    "mtime": 1785466890.0688405,
+    "ast_hash": "51d268f5f4dcc2aec48444b9f869a569",
+    "semantic_hash": "51d268f5f4dcc2aec48444b9f869a569"
+  },
+  "docs/frontend-architecture/11-observability-and-monitoring/01-knowing-whats-happening-in-production.md": {
+    "mtime": 1785466919.3361306,
+    "ast_hash": "5b30d30744e2616ef10d54ba1820a421",
+    "semantic_hash": "5b30d30744e2616ef10d54ba1820a421"
+  },
+  "docs/frontend-architecture/12-ci-cd-pipeline-design/01-shipping-safely.md": {
+    "mtime": 1785466947.6863236,
+    "ast_hash": "cacea0adde46210d8e03bbdbfdc17e3a",
+    "semantic_hash": "cacea0adde46210d8e03bbdbfdc17e3a"
+  },
+  "docs/frontend-architecture/13-testing-strategy/01-the-real-world-testing-pyramid.md": {
+    "mtime": 1785466975.6737943,
+    "ast_hash": "e8e6f66a39f44ace359cb03c4e798ef8",
+    "semantic_hash": "e8e6f66a39f44ace359cb03c4e798ef8"
+  },
+  "docs/frontend-architecture/14-performance-and-scalability-patterns/01-architecting-for-scale.md": {
+    "mtime": 1785467005.0401907,
+    "ast_hash": "2bd3f5d38a521ff5582585fc6255a07c",
+    "semantic_hash": "2bd3f5d38a521ff5582585fc6255a07c"
+  },
+  "docs/frontend-architecture/15-team-and-collaboration-practices/01-process-as-architecture.md": {
+    "mtime": 1785467033.6396077,
+    "ast_hash": "2e9e3937ac8d2faa0aee2d06342267fb",
+    "semantic_hash": "2e9e3937ac8d2faa0aee2d06342267fb"
   }
 }

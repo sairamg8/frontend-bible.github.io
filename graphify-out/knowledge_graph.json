@@ -1,0 +1,661 @@
+{
+  "project": "Frontend Engineering Master Bibles",
+  "generatedAt": "2026-07-30T16:54:41.294Z",
+  "totalBibles": 15,
+  "totalFiles": 41,
+  "totalWordCount": 18861,
+  "nodes": [
+    {
+      "id": "framer-motion/01-animation-engine.md",
+      "bible": "framer-motion",
+      "filename": "01-animation-engine.md",
+      "title": "🎨 Framer Motion 60FPS UI Animation Engine Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Missing Unique Keys inside AnimatePresence"
+      ],
+      "wordCount": 176
+    },
+    {
+      "id": "frontend-architecture/01-micro-frontends-and-system-design.md",
+      "bible": "frontend-architecture",
+      "filename": "01-micro-frontends-and-system-design.md",
+      "title": "🏛️ Frontend Architecture, Micro-Frontends & System Design Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Module Federation Runtime",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Multiple React Singleton Violations in Micro-Frontends",
+        "⚠️ Pitfall 2: PostMessage Cloning Overhead in Web Workers"
+      ],
+      "wordCount": 411
+    },
+    {
+      "id": "index.md",
+      "bible": "general",
+      "filename": "index.md",
+      "title": "📚 Frontend Engineering Master Bibles",
+      "sections": [
+        "🗂️ The 14 Technical Bibles",
+        "🔬 Four-Tier Documentation Standard"
+      ],
+      "wordCount": 391
+    },
+    {
+      "id": "javascript/01-v8-engine-and-event-loop.md",
+      "bible": "javascript",
+      "filename": "01-v8-engine-and-event-loop.md",
+      "title": "⚡ JavaScript V8 Engine, Event Loop & Memory Profiling Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "V8 Engine Compilation Stages",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Monomorphic vs Polymorphic Function Inlining",
+        "⚠️ Pitfall 2: Detached DOM Node Memory Leaks"
+      ],
+      "wordCount": 418
+    },
+    {
+      "id": "javascript/02-execution-context-closures-and-scope.md",
+      "bible": "javascript",
+      "filename": "02-execution-context-closures-and-scope.md",
+      "title": "⚡ JavaScript Execution Context, Closures & Scope Chain",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "1. Creation vs Execution Phase",
+        "2. Closures Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Unintended Closure Scope Retaining Heavy Objects"
+      ],
+      "wordCount": 356
+    },
+    {
+      "id": "javascript/15-proxies-reflect-and-metaprogramming.md",
+      "bible": "javascript",
+      "filename": "15-proxies-reflect-and-metaprogramming.md",
+      "title": "⚡ JavaScript Metaprogramming: Proxy, Reflect, Symbols & `structuredClone()`",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "1. Proxy & Reflect Engine",
+        "2. Native Deep Cloning (`structuredClone()`)",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Proxy Identity Mismatch (`target !== proxy`)"
+      ],
+      "wordCount": 293
+    },
+    {
+      "id": "jest-rtl/01-unit-testing.md",
+      "bible": "jest-rtl",
+      "filename": "01-unit-testing.md",
+      "title": "🧪 Jest & React Testing Library (RTL) Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Testing Implementation Details"
+      ],
+      "wordCount": 156
+    },
+    {
+      "id": "nextjs/01-app-router-and-rsc.md",
+      "bible": "nextjs",
+      "filename": "01-app-router-and-rsc.md",
+      "title": "▲ Next.js App Router, RSC & Server Actions Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Next.js Caching Architecture",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Router Cache Stale Data",
+        "⚠️ Pitfall 2: Accidental Un-caching via Cookies/Headers"
+      ],
+      "wordCount": 426
+    },
+    {
+      "id": "nextjs/01-routing-fundamentals.md",
+      "bible": "nextjs",
+      "filename": "01-routing-fundamentals.md",
+      "title": "▲ Next.js App Router: Routing Fundamentals & File Conventions",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Next.js File Conventions Matrix",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Confusing `layout.tsx` with `template.tsx`",
+        "⚠️ Pitfall 2: Forgetting `'use client'` on `error.tsx`"
+      ],
+      "wordCount": 475
+    },
+    {
+      "id": "nextjs/02-advanced-routing-patterns.md",
+      "bible": "nextjs",
+      "filename": "02-advanced-routing-patterns.md",
+      "title": "▲ Next.js Advanced Routing: Route Groups, Parallel Routes & Intercepting Modals",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Key Routing Concepts",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Missing `default.tsx` in Parallel Routes"
+      ],
+      "wordCount": 356
+    },
+    {
+      "id": "nextjs/06-four-caching-layers.md",
+      "bible": "nextjs",
+      "filename": "06-four-caching-layers.md",
+      "title": "▲ Next.js Caching Architecture: The Four Layers Deep-Dive",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "The Four Layers Summary",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Unintentional Dynamic Opt-Out"
+      ],
+      "wordCount": 429
+    },
+    {
+      "id": "playwright/01-e2e-testing.md",
+      "bible": "playwright",
+      "filename": "01-e2e-testing.md",
+      "title": "🎭 Playwright E2E Testing & Visual Regression Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Hardcoded Sleep / Wait Timeouts"
+      ],
+      "wordCount": 150
+    },
+    {
+      "id": "playwright/02-network-interception-and-ci-cd.md",
+      "bible": "playwright",
+      "filename": "02-network-interception-and-ci-cd.md",
+      "title": "🎭 Playwright Network Interception, Mocking & CI/CD Pipelines",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Unhandled Un-routed Fetch Calls"
+      ],
+      "wordCount": 226
+    },
+    {
+      "id": "react/01-core-hooks/01-use-state.md",
+      "bible": "react",
+      "filename": "01-use-state.md",
+      "title": "⚛️ `useState`: Deep Mechanics, Real-World Use Cases & Senior Edge Cases",
+      "sections": [
+        "1. Under-The-Hood Fiber Mechanics",
+        "The Fiber Node Linked List",
+        "Automatic Batching & Functional Updates",
+        "2. Real-World Engineering Scenario",
+        "Why Lazy Initializers Matter",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Direct Object Mutation Bypassing Reconciliation",
+        "⚠️ Pitfall 2: Stale Closures in Asynchronous Callbacks",
+        "⚠️ Pitfall 3: Conditional Calling Breaking Hook Order"
+      ],
+      "wordCount": 907
+    },
+    {
+      "id": "react/01-core-hooks/02-use-effect.md",
+      "bible": "react",
+      "filename": "02-use-effect.md",
+      "title": "⚛️ `useEffect`: Deep Mechanics, Real-World Use Cases & Senior Edge Cases",
+      "sections": [
+        "1. Under-The-Hood Fiber Mechanics",
+        "The Render-Paint-Effect Execution Timeline",
+        "The Passive Effect Queue",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Infinite Render Loops via Object/Array Dependencies",
+        "⚠️ Pitfall 2: Race Conditions in Async Data Fetching",
+        "⚠️ Pitfall 3: React 18/19 Strict Mode Double-Mounting in Development"
+      ],
+      "wordCount": 792
+    },
+    {
+      "id": "react/01-core-hooks/03-use-reducer.md",
+      "bible": "react",
+      "filename": "03-use-reducer.md",
+      "title": "⚛️ `useReducer`: Deep Mechanics, Real-World Use Cases & Senior Edge Cases",
+      "sections": [
+        "1. Under-The-Hood Fiber Mechanics",
+        "Reducer Queue Processing",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Impure Reducers & Side Effects Inside Reducer Body",
+        "⚠️ Pitfall 2: Mutating State Draft directly"
+      ],
+      "wordCount": 903
+    },
+    {
+      "id": "react/01-core-hooks/04-use-layout-effect-and-insertion-effect.md",
+      "bible": "react",
+      "filename": "04-use-layout-effect-and-insertion-effect.md",
+      "title": "⚛️ `useLayoutEffect` & `useInsertionEffect`: Synchronous Render Pipeline Mechanics",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "`useLayoutEffect` vs `useEffect`",
+        "`useInsertionEffect`",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Server-Side Rendering (SSR) Warning",
+        "⚠️ Pitfall 2: Main-Thread Screen Freezing"
+      ],
+      "wordCount": 611
+    },
+    {
+      "id": "react/02-performance-hooks/01-use-memo-and-use-callback.md",
+      "bible": "react",
+      "filename": "01-use-memo-and-use-callback.md",
+      "title": "⚛️ `useMemo` & `useCallback`: Performance Tuning & Referential Equality",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Fiber Node Cache Storage",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Premature Optimization (Memoizing Trivial Operations)",
+        "⚠️ Pitfall 2: Breaking Memoization by Passing Inline Objects",
+        "⚠️ Pitfall 3: Stale Closures in `useCallback`"
+      ],
+      "wordCount": 885
+    },
+    {
+      "id": "react/02-performance-hooks/02-use-transition-and-use-deferred-value.md",
+      "bible": "react",
+      "filename": "02-use-transition-and-use-deferred-value.md",
+      "title": "⚛️ `useTransition` & `useDeferredValue`: Non-Blocking Concurrent Rendering",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Priority Categories",
+        "`useTransition` vs `useDeferredValue`",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Wrapping Controlled Inputs Directly in Transition State",
+        "⚠️ Pitfall 2: Confusing `useDeferredValue` with Debouncing",
+        "⚠️ Pitfall 3: Missing `React.memo` on Downstream Children"
+      ],
+      "wordCount": 793
+    },
+    {
+      "id": "react/03-react19-action-hooks/01-use-action-state-and-use-optimistic.md",
+      "bible": "react",
+      "filename": "01-use-action-state-and-use-optimistic.md",
+      "title": "⚛️ React 19 `useActionState` & `useOptimistic`: Modern Async Mutations",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "What is an Action?",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Out-of-Order Async Mutations (Race Conditions)",
+        "⚠️ Pitfall 2: Mutating Optimistic State Outside Transitions"
+      ],
+      "wordCount": 675
+    },
+    {
+      "id": "react/03-react19-action-hooks/02-use-form-status-and-use.md",
+      "bible": "react",
+      "filename": "02-use-form-status-and-use.md",
+      "title": "⚛️ React 19 `useFormStatus` & `React.use()`: Modular Forms & Resource Unwrapping",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "`useFormStatus` (Form Context Subscription)",
+        "`React.use()` (Conditional Resource Operator)",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Calling `useFormStatus` in the Same Component that Renders `<form>`",
+        "⚠️ Pitfall 2: Infinite Suspense Loops with `React.use()`"
+      ],
+      "wordCount": 755
+    },
+    {
+      "id": "react/04-context-and-external-stores/01-use-context-and-use-sync-external-store.md",
+      "bible": "react",
+      "filename": "01-use-context-and-use-sync-external-store.md",
+      "title": "⚛️ `useContext` & `useSyncExternalStore`: State Sharing & Tearing Prevention",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "`useContext` (React Fiber Context Propagation)",
+        "`useSyncExternalStore` (Concurrent Tearing Prevention)",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Whole-Tree Re-renders via Un-memoized Context Values",
+        "⚠️ Pitfall 2: Infinite Loops in `useSyncExternalStore` (Mutable Snapshots)"
+      ],
+      "wordCount": 776
+    },
+    {
+      "id": "react/05-dom-and-refs/01-use-ref-and-use-imperative-handle.md",
+      "bible": "react",
+      "filename": "01-use-ref-and-use-imperative-handle.md",
+      "title": "⚛️ `useRef` & `useImperativeHandle`: Escape Hatches & Imperative APIs",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "`useRef` (Persistent Mutable Container)",
+        "React 19 Ref Props & Callback Cleanups",
+        "`useImperativeHandle`",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Reading/Writing `ref.current` During Render Phase",
+        "⚠️ Pitfall 2: Overusing Imperative Escape Hatches"
+      ],
+      "wordCount": 601
+    },
+    {
+      "id": "react/06-id-accessibility-debug/01-use-id-and-use-debug-value.md",
+      "bible": "react",
+      "filename": "01-use-id-and-use-debug-value.md",
+      "title": "⚛️ `useId` & `useDebugValue`: Accessibility & DevTools Mechanics",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "`useId` (Hydration-Safe ID Generation)",
+        "`useDebugValue`",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Generating Keys in Rendered Lists"
+      ],
+      "wordCount": 334
+    },
+    {
+      "id": "react/06-server-components-and-actions/01-rsc-architecture-and-directives.md",
+      "bible": "react",
+      "filename": "01-rsc-architecture-and-directives.md",
+      "title": "⚛️ React Server Components (RSC) & Server Actions Architecture",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Directives: `'use server'` vs `'use client'`",
+        "The Flight Serialization Engine",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Passing Non-Serializable Props Across Server/Client Boundary",
+        "⚠️ Pitfall 2: Accidental Client Bundle Bloat"
+      ],
+      "wordCount": 780
+    },
+    {
+      "id": "react/07-react-dom-apis/01-client-server-and-resource-apis.md",
+      "bible": "react",
+      "filename": "01-client-server-and-resource-apis.md",
+      "title": "⚛️ React DOM Client, Streaming SSR & Asset Resource APIs",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Client Mounting: `createRoot` vs `hydrateRoot`",
+        "Streaming SSR: `renderToPipeableStream` vs `renderToReadableStream`",
+        "Resource Loading APIs (React 19 Asset Preloading)",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Hydration Mismatches",
+        "⚠️ Pitfall 2: Over-Preloading Assets"
+      ],
+      "wordCount": 581
+    },
+    {
+      "id": "react/09-react-19-2-additions/01-use-effect-event-activity-cache.md",
+      "bible": "react",
+      "filename": "01-use-effect-event-activity-cache.md",
+      "title": "⚛️ React 19.2 Additions: `useEffectEvent`, `<Activity>`, `cache()` & `cacheSignal`",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "`useEffectEvent` (Non-Reactive Event Logic)",
+        "`<Activity>` (Offscreen State-Preserving Rendering)",
+        "`cache()` & `cacheSignal` (Request-Scoped Server Memoization)",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Calling `useEffectEvent` Outside Effects",
+        "⚠️ Pitfall 2: Memory Footprint of Hidden `<Activity>` Subtrees"
+      ],
+      "wordCount": 738
+    },
+    {
+      "id": "redux-toolkit/01-rtk-core-and-query.md",
+      "bible": "redux-toolkit",
+      "filename": "01-rtk-core-and-query.md",
+      "title": "📦 Redux Toolkit (RTK) & RTK Query Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Immer.js Engine",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Mutating State Outside Immer Reducers",
+        "⚠️ Pitfall 2: Storing Non-Serializable Values"
+      ],
+      "wordCount": 318
+    },
+    {
+      "id": "storybook/01-design-systems.md",
+      "bible": "storybook",
+      "filename": "01-design-systems.md",
+      "title": "📖 Storybook & Enterprise Design System Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Un-isolated Component Context Dependencies"
+      ],
+      "wordCount": 144
+    },
+    {
+      "id": "tanstack-query/01-async-state-and-cache.md",
+      "bible": "tanstack-query",
+      "filename": "01-async-state-and-cache.md",
+      "title": "🔄 TanStack Query (React Query) Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Stale-While-Revalidate Algorithm",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Query Key Collision",
+        "⚠️ Pitfall 2: Un-memoized Query Functions"
+      ],
+      "wordCount": 409
+    },
+    {
+      "id": "tanstack-query/02-mutations-and-optimistic-updates.md",
+      "bible": "tanstack-query",
+      "filename": "02-mutations-and-optimistic-updates.md",
+      "title": "🔄 TanStack Query: Mutations, Cache Invalidation & Rollback",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Forgetting to Cancel Active Queries in `onMutate`"
+      ],
+      "wordCount": 314
+    },
+    {
+      "id": "typescript/01-core-type-system.md",
+      "bible": "typescript",
+      "filename": "01-core-type-system.md",
+      "title": "🔷 TypeScript Core Type System: Foundations & Mechanics",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Primitives vs Literal Types",
+        "`type` vs `interface`",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Over-using `any` vs `unknown`"
+      ],
+      "wordCount": 451
+    },
+    {
+      "id": "typescript/01-generics-and-type-system.md",
+      "bible": "typescript",
+      "filename": "01-generics-and-type-system.md",
+      "title": "🔷 TypeScript Advanced Generics, Metaprogramming & Type System Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Type Evaluation Engine",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Bypassing Type Distribution with Brackets",
+        "⚠️ Pitfall 2: Excessive Recursive Type Depth (`Type instantiation is excessively deep...`)"
+      ],
+      "wordCount": 338
+    },
+    {
+      "id": "typescript/05-advanced-generics.md",
+      "bible": "typescript",
+      "filename": "05-advanced-generics.md",
+      "title": "🔷 TypeScript Advanced Generics: Conditional Types & `infer` Mechanics",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "1. Conditional Types (`T extends U ? X : Y`)",
+        "2. The `infer` Keyword",
+        "3. Distributive Conditional Types",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Bypassing Union Distribution via Tuple Brackets"
+      ],
+      "wordCount": 364
+    },
+    {
+      "id": "typescript/06-utility-types.md",
+      "bible": "typescript",
+      "filename": "06-utility-types.md",
+      "title": "🔷 TypeScript Utility Types: Transformations & Mechanics",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Core Built-in Transformations",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Omit Does Not Check Key Validity"
+      ],
+      "wordCount": 356
+    },
+    {
+      "id": "typescript/07-mapped-types.md",
+      "bible": "typescript",
+      "filename": "07-mapped-types.md",
+      "title": "🔷 TypeScript Mapped Types & Key Remapping Mechanics",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Key Modifiers & `as` Clause Remapping",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Key Remapping to `never`"
+      ],
+      "wordCount": 305
+    },
+    {
+      "id": "typescript/09-type-narrowing-and-guards.md",
+      "bible": "typescript",
+      "filename": "09-type-narrowing-and-guards.md",
+      "title": "🔷 TypeScript Type Narrowing, Custom Guards & Exhaustiveness Checking",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "1. Discriminated Unions (Tagged Unions)",
+        "2. User-Defined Type Guards (`v is X`)",
+        "3. Exhaustiveness Checking with `never`",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Incorrect Asserts in Custom Type Guards"
+      ],
+      "wordCount": 392
+    },
+    {
+      "id": "typescript/15-advanced-type-engineering.md",
+      "bible": "typescript",
+      "filename": "15-advanced-type-engineering.md",
+      "title": "🔷 TypeScript Advanced Type Engineering: Branded Types, Zod & `satisfies`",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "1. Branded / Nominal Types",
+        "2. The `satisfies` Operator (TS 4.9+)",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Type Widening with `: Type` Annotation vs `satisfies`"
+      ],
+      "wordCount": 322
+    },
+    {
+      "id": "vite/01-hmr-and-build-engine.md",
+      "bible": "vite",
+      "filename": "01-hmr-and-build-engine.md",
+      "title": "⚡ Vite Build Engine & Hot Module Replacement (HMR) Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Hot Module Replacement (HMR) API",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Dynamic Imports with Variable Globs"
+      ],
+      "wordCount": 237
+    },
+    {
+      "id": "web-vitals-performance/01-lcp-inp-cls-tuning.md",
+      "bible": "web-vitals-performance",
+      "filename": "01-lcp-inp-cls-tuning.md",
+      "title": "🚀 Web Vitals & Performance Engineering Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "Critical Rendering Path Engine",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Un-sized Dynamic Images Causing CLS",
+        "⚠️ Pitfall 2: Layout Thrashing via Interleaved DOM Reads & Writes"
+      ],
+      "wordCount": 347
+    },
+    {
+      "id": "webpack/01-module-federation-and-loaders.md",
+      "bible": "webpack",
+      "filename": "01-module-federation-and-loaders.md",
+      "title": "⚙️ Webpack 5, Module Federation & Loader Pipeline Master Guide",
+      "sections": [
+        "1. Under-The-Hood Mechanics",
+        "2. Real-World Engineering Scenario",
+        "3. Production-Grade Code Example",
+        "4. Senior Engineer Edge Cases & Pitfalls",
+        "⚠️ Pitfall 1: Unshared Singleton Versions"
+      ],
+      "wordCount": 170
+    }
+  ]
+}
