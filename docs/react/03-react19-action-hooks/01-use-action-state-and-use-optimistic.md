@@ -27,8 +27,8 @@ User Click -> Action Dispatched
 ## 2. Real-World Engineering Scenario
 
 **Scenario**: Enterprise E-Commerce Cart Quantity Adjuster with 0ms Perceived Latency & Network Rollback.
-In high-concurrency e-commerce platforms (like Amazon or Shopify), when a user clicks `+` to increase item quantity from 1 to 2, waiting 1.5s for a network response makes the app feel sluggish. 
-With `useOptimistic`, item quantity updates to `2` **instantly**. If the backend API throws a 500 error or network timeout occurs, React **rolls back** the quantity back to `1` automatically and presents a toast notification.
+In high-concurrency e-commerce platforms (like Amazon or Shopify), when a user clicks `+` to increase item quantity from 1 to 2, waiting 1.5s for a network response makes the app feel sluggish.
+With `useOptimistic`, item quantity updates to `2` **instantly**. If the backend API call fails, the action **catches** the failure itself and returns an error-flagged state (rather than throwing) — `useOptimistic` then discards its optimistic projection and reverts to that real state, and the component renders an inline toast-style banner from the error field. Letting the action throw instead would hand the failure to the nearest Error Boundary, which is usually the wrong UX for a single failed cart update.
 
 ---
 
@@ -42,6 +42,7 @@ interface CartItem {
   name: string;
   quantity: number;
   price: number;
+  error?: string; // set on failure — drives the inline toast; cleared on the next successful update
 }
 
 // 1. Simulated Async Server Action (e.g., Next.js Server Action or REST endpoint)
@@ -56,12 +57,16 @@ async function updateCartQuantityAction(
 
   // Simulate 15% random network/server failure to test rollback
   if (Math.random() < 0.15) {
-    throw new Error('Server connection lost. Unable to update cart quantity.');
+    // Return an error-flagged state instead of throwing: useActionState treats a thrown
+    // error as uncaught (nearest Error Boundary), which would unmount this cart item —
+    // returning state instead keeps the item mounted and lets the UI show an inline toast
+    return { ...prevState, error: 'Server connection lost. Unable to update cart quantity.' };
   }
 
   return {
     ...prevState,
     quantity: newQty,
+    error: undefined,
   };
 }
 
@@ -129,6 +134,14 @@ export function OptimisticCartItem({ initialItem }: { initialItem: CartItem }) {
       {isPending && (
         <p className="text-[10px] text-amber-400 animate-pulse text-right">
           Syncing with cart service...
+        </p>
+      )}
+
+      {/* Inline toast: rendered from `state.error`, NOT `optimisticItem` — the optimistic
+          projection has already been discarded and reverted by the time this shows */}
+      {state.error && !isPending && (
+        <p className="text-[10px] text-red-400 text-right" role="alert">
+          {state.error}
         </p>
       )}
     </div>

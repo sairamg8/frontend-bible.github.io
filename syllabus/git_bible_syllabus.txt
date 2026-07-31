@@ -1,0 +1,118 @@
+================================================================================
+                               THE ULTIMATE GIT BIBLE
+       Complete Master Syllabus for Git Internals, Plumbing, DAG & Workflows
+================================================================================
+
+DOCUMENTATION STANDARD FOR EVERY CONCEPT:
+Each concept must be documented with 4 mandatory sections:
+  1. Concept & Under-the-Hood Mechanics (Object store, DAG, Index structures)
+  2. Real-World Engineering Scenario (Enterprise monorepos, release engineering)
+  3. Production-Grade CLI Commands & Configurations (.gitconfig, scripts, hooks)
+  4. Senior Engineer Edge Cases & Pitfalls (Detached HEAD, lost commits, reflog recovery, force-push catastrophes)
+
+PRIORITY TAGGING:
+  Tag each item as you study it:
+  [D] Daily driver        — expect to use weekly or more
+  [O] Occasional           — monthly-ish, situational but expected
+  [R] Rare-but-critical    — you'll rarely touch it, but it saves you when things break
+
+--------------------------------------------------------------------------------
+SECTION 1: CORE ARCHITECTURE & OBJECT ENGINE
+--------------------------------------------------------------------------------
+1.1 The Content-Addressable Object Store
+    - Blob Objects [R]             - Raw file payload storage without file metadata or permissions.
+    - Tree Objects [R]             - Directory structures mapping SHA hashes to filenames, modes, and child trees.
+    - Commit Objects [R]           - Immutable snapshots linking tree SHA, parent commit SHAs, author/committer, and commit message.
+    - Tag Objects [O]              - Annotated tags holding PGP signatures, tagger details, and target SHA pointers.
+    - Cryptographic Hashing [R]    - SHA-1 vs SHA-256 object address generation and object header formatting (`type bytes\0content`).
+
+1.2 Internal Topology of the `.git` Directory
+    - `HEAD` File [O]              - Symbolic reference pointing to current active branch ref or detached commit hash.
+    - `refs/` Tree [O]             - Heads (`refs/heads/`), Remotes (`refs/remotes/`), and Tags (`refs/tags/`) namespace pointers.
+    - `index` / Staging Area [D]   - Binary index file (`.git/index`) caching stat data, SHA-1 hashes, and pathnames for instant diffing.
+    - `objects/` Store [R]         - Loose object fan-out storage (`objects/xx/yyyy...`) and packed object archives.
+    - `config` & `info/exclude` [O]- Repository-level configuration overrides and localized gitignore definitions.
+
+--------------------------------------------------------------------------------
+SECTION 2: PLUMBING VS PORCELAIN COMMANDS
+--------------------------------------------------------------------------------
+2.1 Low-Level Plumbing Operations
+    - `git cat-file` [R]           - Inspecting object types (`-t`), sizes (`-s`), and raw contents (`-p`).
+    - `git hash-object` [R]        - Computing SHA hashes and manually writing blobs into `.git/objects` (`-w`).
+    - `git write-tree` [R]         - Creating a tree object directly from current staging index contents.
+    - `git commit-tree` [R]        - Constructing commit objects linking tree SHAs and parent commits manually.
+    - `git update-ref` [R]         - Atomically updating branch pointers safely in automated scripts.
+    - `git ls-files` & `git ls-tree` [O] - Inspecting staging area file modes and tree contents programmatically.
+
+2.2 High-Level Porcelain Operations
+    - `git status` / `git add` [D] - Tracking index changes, intent-to-add (`git add -N`), and interactive staging (`git add -p`).
+    - `git commit` [D]              - Finalizing index state into commit objects with commit message validation hooks.
+    - Modern Branch Switching [D]  - `git switch` (branch navigation) vs `git restore` (working tree/index resetting).
+
+--------------------------------------------------------------------------------
+SECTION 3: BRANCHING, MERGING & REBASE MECHANICS
+--------------------------------------------------------------------------------
+3.1 Directed Acyclic Graph (DAG) Traversal
+    - Commit Graph Structure [O]   - Immutable nodes with directed parent pointers enabling parallel linear histories.
+    - Merge Base Calculation [O]   - Finding lowest common ancestor (LCA) using graph traversal algorithms.
+
+3.2 Merging Strategies & Mechanics
+    - Fast-Forward Merge [D]       - Advancing branch pointers without creating a merge commit when history is linear.
+    - 3-Way Merge [D]              - Combining branch tip A, branch tip B, and common merge base with merge commit generation.
+    - Merge Engines [R]            - Recursive strategy vs modern `ort` merge engine (fast conflict resolution & rename detection).
+
+3.3 Interactive Rebase & History Editing
+    - `git rebase -i` [D]          - Linearizing history, squashing commits, rewording commit logs, and splitting commits.
+    - Rebase Onto (`--onto`) [O]   - Slicing commit ranges and transplanting branches onto new base commits.
+    - Reflog & Recovery [R]        - Reference log (`git reflog`) tracking pointer moves, recovering unreachable dangling commits via `git reset --hard`.
+
+--------------------------------------------------------------------------------
+SECTION 4: ADVANCED HISTORY REWRITING & FORENSICS
+--------------------------------------------------------------------------------
+4.1 Forensics & Automated Debugging
+    - `git bisect` [R]             - Binary search across commit graph (`git bisect run <script>`) identifying regression commits automatically.
+    - `git blame` [D]              - Inspecting line-by-line authorship with revision exclusion (`.git-blame-ignore-revs`).
+    - Pickaxe Search [O]           - Finding commits introducing or deleting specific code strings (`git log -S` / `git log -G`).
+
+4.2 History Scrubbing & Mass Transformation
+    - `git filter-repo` [R]        - High-performance Python-based history rewrite tool for purging secrets/large files.
+    - Diff Algorithms [O]          - Myers vs Patience vs Histogram diff engines for accurate code movement detection.
+
+--------------------------------------------------------------------------------
+SECTION 5: ENTERPRISE WORKFLOWS, MONOREPOS & LARGE REPOSITORIES
+--------------------------------------------------------------------------------
+5.1 Worktrees & Sparse Checkouts
+    - `git worktree` [O]           - Attaching multiple working trees to a single repository without duplicate clones.
+    - Sparse Checkout & Scalar [O] - Checking out subset directories in massive monorepos (`git sparse-checkout set`).
+    - Git LFS [O]                  - Offloading binary assets to remote object storage via pointer file replacement.
+
+5.2 Submodules, Subtrees & Hooks
+    - Git Submodules [O]           - Binding external Git repositories at specific commit SHAs (`.gitmodules`).
+    - Git Subtrees [R]             - Merging subproject commits directly into parent repository history without submodules.
+    - Git Hooks Automation [D]     - Client-side hooks (`pre-commit`, `commit-msg`, `pre-push`) and server-side verification (`update`, `pre-receive`).
+
+--------------------------------------------------------------------------------
+SECTION 6: REMOTES, NETWORKING & REPOSITORY MAINTENANCE
+--------------------------------------------------------------------------------
+6.1 Remote Operations & Force Protection
+    - `git fetch` vs `git pull` [D] - Fetching remote ref updates without mutating working tree vs fetch + merge/rebase.
+    - Force Push Safety [D]        - `git push --force-with-lease` preventing accidental overwrite of un-fetched remote commits.
+
+6.2 Maintenance & Packfile Compression
+    - Packfiles (`.pack` / `.idx`) [R] - Delta compression grouping loose objects into indexed binary archives.
+    - Garbage Collection [R]       - `git gc --prune=now` and `git repack` optimizing object storage and index performance.
+
+--------------------------------------------------------------------------------
+SECTION 7: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Unlike Sections 1-6 (organized around Git's internal mechanics), this section
+is organized around a task the engineer is trying to accomplish end-to-end — each
+item still follows the mandatory 4-part documentation standard, framed around "how
+do I actually do this" rather than "how does this work internally."
+
+7.1 Common Recipes
+    - Connecting a Local Project to a Remote [D] - `git remote add`, first `git push -u`, renaming master to main.
+    - Fork & Upstream Sync [O]      - Maintaining `origin` (your fork) + `upstream` (source repo) as two remotes, syncing without polluting your fork's PR history.
+    - Recovering from an Accidental Force-Push [R] - Reflog-based reconstruction of commits wiped by your own bad `reset --hard` + `push --force`.
+    - Resolving a Merge Conflict End-to-End [D] - Reading conflict markers, `git status` states, completing vs aborting a conflicted merge.
+    - Splitting Mixed Changes into Focused Commits [D] - `git add -p` hunk-level staging, and `git add -N` for patch-staging brand-new files.

@@ -8,7 +8,7 @@
 jest.config.js
         │
         ├── testEnvironment: 'jsdom' | 'node'   ──► simulates a DOM (component tests) vs bare Node (pure logic/backend tests)
-        ├── setupFiles / setupFilesAfterEach       ──► global test setup, e.g. importing jest-dom's custom matchers
+        ├── setupFiles / setupFilesAfterEnv       ──► global test setup, e.g. importing jest-dom's custom matchers
         ├── moduleNameMapper                          ──► mocking CSS/asset imports, resolving path aliases DURING tests
         ├── transform                                    ──► babel-jest/ts-jest/swc pipeline — how source files become
         │                                                     runnable JS for Jest specifically
@@ -46,7 +46,7 @@ A team importing `import styles from './Button.module.css'` in component source 
 module.exports = {
   testEnvironment: 'jsdom', // this project tests React components, needs document/window
 
-  setupFilesAfterEach: ['<rootDir>/src/test-setup.ts'], // imports jest-dom matchers globally
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'], // imports jest-dom matchers globally
 
   moduleNameMapper: {
     '\\.module\\.css$': 'identity-obj-proxy', // { button: 'button' } — mimics CSS Modules' shape without real CSS
@@ -66,7 +66,7 @@ module.exports = {
 ```
 
 ```typescript
-// src/test-setup.ts — global setup, imported via setupFilesAfterEach
+// src/test-setup.ts — global setup, imported via setupFilesAfterEnv
 import '@testing-library/jest-dom'; // adds toBeInTheDocument(), toHaveClass(), etc. as global matchers
 ```
 

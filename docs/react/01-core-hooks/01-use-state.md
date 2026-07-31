@@ -26,21 +26,25 @@ When you call `useState(initialValue)`:
 React 18 & 19 implement **Automatic Batching**. Multiple state updates triggered inside promises, timeouts, or native event handlers are grouped into a single re-render pass to prevent unnecessary UI recalculations.
 
 ```tsx
-// Batching Example
+// Batching Example — two SEPARATE handlers, each starting from count = 0,
+// showing direct vs functional updates in isolation
 const [count, setCount] = useState(0);
 
-const handleClick = () => {
-  // If count is 0, these 3 calls will NOT result in count becoming 3 if passed directly:
-  setCount(count + 1); // Queue: Set to 0 + 1 = 1
-  setCount(count + 1); // Queue: Set to 0 + 1 = 1
-  setCount(count + 1); // Queue: Set to 0 + 1 = 1
-  // Final state after render: 1
+// ❌ Direct updates don't stack within one batch: each call closes over the SAME
+// stale `count` from this render, so the last call just re-queues the same value
+const handleDirectClicks = () => {
+  setCount(count + 1); // queued: set to 0 + 1 = 1
+  setCount(count + 1); // queued: set to 0 + 1 = 1 (same stale `count` — overwrites, doesn't add)
+  setCount(count + 1); // queued: set to 0 + 1 = 1
+  // React batches all three into ONE re-render; final state = 1, NOT 3
+};
 
-  // Functional Updates bypass stale closure snapshots:
-  setCount((prev) => prev + 1); // Queue: prev => 0 + 1 = 1
-  setCount((prev) => prev + 1); // Queue: prev => 1 + 1 = 2
-  setCount((prev) => prev + 1); // Queue: prev => 2 + 1 = 3
-  // Final state after render: 3
+// ✅ Functional updates DO stack: each one receives the latest QUEUED value, not the stale closure
+const handleFunctionalClicks = () => {
+  setCount((prev) => prev + 1); // queued: prev => 0 + 1 = 1
+  setCount((prev) => prev + 1); // queued: prev => 1 + 1 = 2
+  setCount((prev) => prev + 1); // queued: prev => 2 + 1 = 3
+  // React batches all three into ONE re-render; final state = 3
 };
 ```
 

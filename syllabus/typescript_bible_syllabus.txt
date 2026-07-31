@@ -152,4 +152,14 @@ SECTION 15: ADVANCED PATTERNS
     - Type-safe builder patterns                  - Fluent APIs with progressively narrowing generic state.
     - Schema-inferred types                         - Deriving static types from runtime validators (zod's z.infer<typeof schema>) for a single source of truth.
     - satisfies operator                              - Validating a value against a type without widening/losing literal inference.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: MIGRATION RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-15 - each item walks a
+real end-to-end migration rather than cataloging an API surface.
+
+16.1 Adoption Strategy
+    - Incremental JS -> TS adoption [O]      - allowJs/checkJs, JSDoc bridge-typing, per-file `// @ts-check`, gradual strict rollout, one-file-at-a-time renaming.
 ================================================================================

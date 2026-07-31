@@ -145,4 +145,14 @@ SECTION 15: ADVANCED PATTERNS
     - Custom matchers                            - Extending expect with domain-specific assertions.
     - Accessibility testing integration              - @axe-core/playwright for automated a11y scans within E2E flows.
     - Test tagging & filtering                         - @smoke/@regression tag conventions with --grep.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-15 - each item walks a
+real end-to-end diagnostic workflow rather than cataloging an API surface.
+
+16.1 Debugging Recipes
+    - Diagnosing CI-only flaky tests [D]      - Reproducing CI conditions locally, trace-based root-causing, isolation/timing/environment-difference decision tree.
 ================================================================================

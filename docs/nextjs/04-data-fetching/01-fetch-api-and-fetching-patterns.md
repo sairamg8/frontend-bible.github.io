@@ -6,13 +6,15 @@ Next.js patches the global `fetch()` inside Server Components with extra, Next-s
 
 ```typescript
 fetch(url, {
-  cache: 'force-cache' | 'no-store',     // static (default) vs always-fresh, per-request data
+  cache: 'force-cache' | 'no-store',     // opt into a cached response vs always-fresh, per-request data
   next: {
     revalidate: 3600,                       // time-based ISR — re-fetch in the background after N seconds
     tags: ['product-123'],                    // on-demand invalidation via revalidateTag('product-123')
   },
 })
 ```
+
+> **Next.js 15+ default changed:** `fetch()` requests are **uncached by default** (`no-store`-equivalent semantics) — this is a reversal of the Next 13/14 behavior, where `fetch()` was cached (`force-cache`) unless told otherwise. On Next 15+, caching is now something you **opt into** explicitly via `cache: 'force-cache'` or `next: { revalidate: ... }` (setting `revalidate` also opts a request into the Data Cache). Code written against pre-15 tutorials that assumes bare `fetch()` calls are cached will silently become fully dynamic on upgrade.
 
 ### Request Memoization: Automatic, Per-Render Deduplication
 If the **exact same** `fetch()` call (same URL + options) is made from multiple components during a single render pass (e.g. both a layout and a nested page independently need the current user's profile), Next.js automatically deduplicates them into a **single** actual network request — this is why fetching the same data from multiple places in the component tree isn't a performance anti-pattern the way it would be in a client-only app; it's specifically designed to be safe.
@@ -122,4 +124,22 @@ fetch(url, { next: { tags: ['product'] } });
 fetch(url, { next: { tags: ['product'], revalidate: 3600 } }); // different options ⇒ treated as a DIFFERENT request
 
 // ✅ CORRECT: keep fetch call signatures byte-for-byte identical across components that should share one request
+```
+
+### ⚠️ Pitfall 4: Assuming Bare `fetch()` Is Still Cached by Default (Next 15+)
+```typescript
+// ❌ WRONG on Next 15+: no cache option, no next.revalidate/tags — this is a fully DYNAMIC,
+// per-request fetch now, not a cached/static one, even though it looks identical to old Next 13/14 code
+async function getProduct(id: string) {
+  const res = await fetch(`https://api.acme.com/products/${id}`);
+  return res.json();
+}
+
+// ✅ CORRECT: caching is opt-in on Next 15+ — be explicit about which behavior you want
+async function getProduct(id: string) {
+  const res = await fetch(`https://api.acme.com/products/${id}`, {
+    next: { revalidate: 3600, tags: [`product-${id}`] }, // explicitly opts into the Data Cache
+  });
+  return res.json();
+}
 ```

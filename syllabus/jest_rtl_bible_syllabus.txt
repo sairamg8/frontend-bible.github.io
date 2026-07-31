@@ -62,7 +62,7 @@ SECTION 6: COVERAGE & CONFIGURATION
 6.1 jest.config.js
     - collectCoverage / coverageThreshold        - Enforcing minimum coverage percentages (branches/lines/functions).
     - testEnvironment                               - 'jsdom' (DOM APIs) vs 'node' (backend/unit logic).
-    - setupFilesAfterEach / setupFiles               - Global test setup (e.g. importing jest-dom matchers).
+    - setupFilesAfterEnv / setupFiles               - Global test setup (e.g. importing jest-dom matchers).
     - moduleNameMapper                                 - Mocking CSS/asset imports, path alias resolution.
     - transform                                          - babel-jest/ts-jest/swc pipeline configuration.
 
@@ -154,4 +154,14 @@ SECTION 15: DEBUGGING TESTS
     - screen.debug()                        - Pretty-printing the current DOM state to the console.
     - logRoles()                               - Dumping all accessible roles in a container for query discovery.
     - Testing Playground (browser extension/URL) - Interactive query suggestion tool.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-15 - each item walks a
+real end-to-end diagnostic workflow rather than cataloging an API surface.
+
+16.1 Setup Recipes
+    - Testing environment from zero [O]      - Wiring jest.config.js + RTL + jest-dom + MSW together in an existing (previously untested) project, in the right order.
 ================================================================================

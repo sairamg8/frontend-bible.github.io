@@ -37,15 +37,17 @@ A classic limitation of `useEffect` is that reading a prop or state variable ins
 ## 3. Production-Grade Code Example
 
 ```tsx
-import React, { useState, useEffect, useEffectEvent, Activity, cache } from 'react';
+import React, { useState, useEffect, useEffectEvent, Activity, cache, cacheSignal } from 'react';
 
 // ==========================================
 // 1. React 19.2 cache() & cacheSignal Example (Server Data Fetcher)
 // ==========================================
 export const fetchUserDataCached = cache(async (userId: string) => {
-  // In React 19.2, cacheSignal automatically aborts pending fetches if request closes
   console.log(`[RSC CACHE] Querying database for user: ${userId}`);
-  const res = await fetch(`https://api.enterprise.com/users/${userId}`);
+  // cacheSignal() returns an AbortSignal tied to this request's lifecycle — wiring it into
+  // fetch is what actually gets you the auto-cancel-on-client-disconnect behavior; cache()
+  // alone only gives you per-request memoization, not abort propagation
+  const res = await fetch(`https://api.enterprise.com/users/${userId}`, { signal: cacheSignal() });
   return res.json();
 });
 

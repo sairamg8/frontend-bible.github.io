@@ -140,4 +140,14 @@ SECTION 15: TESTING TANSTACK QUERY
     - Disabling retries in test environment          - retry: false to fail fast instead of waiting on backoff.
     - MSW integration                                  - Mocking network responses at the boundary for realistic query/mutation tests.
     - Wrapping components under test in a test-scoped QueryClientProvider.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: MIGRATION RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-15 - each item walks a
+real end-to-end migration rather than cataloging an API surface.
+
+16.1 Server-State Migration
+    - RTK Query -> TanStack Query [O]      - tags/providesTags -> hierarchical queryKeys, onQueryStarted -> onMutate/onError, and the "do we still need Redux at all" question this migration surfaces.
 ================================================================================

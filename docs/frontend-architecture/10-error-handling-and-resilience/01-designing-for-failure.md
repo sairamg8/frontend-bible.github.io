@@ -53,6 +53,8 @@ function ProductPage() {
 ```
 
 ```tsx
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
+
 // Fallback UI strategy matched to the actual reliability characteristics of the data
 function ProductPrice({ productId }: { productId: string }) {
   const { data, isLoading } = useQuery({ queryKey: ['price', productId], queryFn: () => fetchPrice(productId) });

@@ -125,4 +125,14 @@ SECTION 7: INDUSTRY-READY CUSTOM HOOKS & PATTERNS
     - Error boundaries       - Class-based getDerivedStateFromError/componentDidCatch fallback UI.
     - Retry-on-error UI      - Surfacing a retry affordance instead of a dead error screen.
     - Portal-based modals/tooltips - Rendering outside the DOM parent while preserving React tree context.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-7 - each item walks a
+real end-to-end diagnostic workflow rather than cataloging an API surface.
+
+8.1 Debugging Recipes
+    - Diagnosing re-render bugs [D]      - Too-many-renders vs won't-re-render: memo/Context/mutation/stale-closure decision tree.
 ================================================================================

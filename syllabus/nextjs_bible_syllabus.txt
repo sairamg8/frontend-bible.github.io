@@ -49,7 +49,7 @@ SECTION 3: RENDERING STRATEGIES
 SECTION 4: DATA FETCHING
 --------------------------------------------------------------------------------
 4.1 The Extended fetch() API
-    - cache: 'force-cache' (default) vs 'no-store' - static vs dynamic data semantics.
+    - cache: 'force-cache' vs 'no-store' - static vs dynamic data semantics; Next.js 15+ made 'no-store'-equivalent (uncached) the DEFAULT, reversing the Next 13/14 behavior where fetch() was cached by default.
     - next: { revalidate: N }               - Time-based ISR revalidation per fetch call.
     - next: { tags: [...] }                   - Tag-based on-demand revalidation.
 
@@ -164,4 +164,14 @@ SECTION 15: ADVANCED PATTERNS
     - Streaming with loading.tsx + Suspense       - Granular per-section loading states.
     - Error boundary hierarchy                      - error.js vs global-error.js scoping.
     - Parallel data fetching across nested layouts to avoid request waterfalls.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: MIGRATION RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-15 - each item walks a
+real end-to-end migration rather than cataloging an API surface.
+
+16.1 Router Migration
+    - Pages Router -> App Router [O]         - Route-by-route incremental migration: getStaticProps/getServerSideProps -> Server Components, _app/_document -> layout.tsx, fallback -> dynamicParams.
 ================================================================================

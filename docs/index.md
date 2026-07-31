@@ -10,7 +10,7 @@ Welcome to the central technical documentation platform. This repository contain
 
 ---
 
-## 🗂️ The 14 Technical Bibles
+## 🗂️ The 15 Technical Bibles
 
 Every topic includes **Under-the-Hood Mechanics**, **Real-World Scenarios**, **Production Code**, and **Senior Engineer Edge Cases & Pitfalls**.
 
@@ -30,13 +30,15 @@ Every topic includes **Under-the-Hood Mechanics**, **Real-World Scenarios**, **P
 | 📖 **[Storybook Bible](./storybook/01-core-concepts/01-component-driven-development.md)** | Component Docs | Design Systems, Component Stories, Visual Testing, Accessibility |
 | 🧪 **[Jest & RTL Bible](./jest-rtl/01-jest-core-concepts/01-test-structure.md)** | Unit Testing | DOM Simulation, Async Testing, Mocking, User Event, Code Coverage |
 | 🎭 **[Playwright Bible](./playwright/01-core-architecture/01-browser-automation-model.md)** | E2E Testing | Cross-Browser Automation, Visual Regression, Network Interception, CI/CD |
+| 🔧 **[Git Bible](./git/01-core-architecture/01-object-store-and-git-topology.md)** | Version Control | Object Store, Plumbing vs Porcelain, DAG Traversal, Worktrees, Bisect, Real-World Recipes |
 
 ---
 
 ## 🔬 Four-Tier Documentation Standard
 
-Every single concept across all 14 Bibles is documented with:
+Every single concept across all 15 Bibles is documented with:
 1. **Under-The-Hood Mechanics**: Engine internals, data structures, and runtime execution phases.
 2. **Real-World Engineering Scenario**: Production use cases from high-scale applications.
 3. **Production-Grade Code**: Clean, type-safe code examples ready for production.
 4. **Senior Engineer Edge Cases & Pitfalls**: Memory leaks, race conditions, tearing, and performance traps.
+

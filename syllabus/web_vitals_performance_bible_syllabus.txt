@@ -141,4 +141,14 @@ SECTION 15: ADVANCED DIAGNOSTICS
     - Web Vitals attribution build                - Root-causing which element/resource is responsible for a bad LCP/CLS score.
     - Long task analysis                            - PerformanceObserver('longtask') for programmatic main-thread blocking detection.
     - Correlating field data regressions with specific deploys/feature flags.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-15 - each item walks a
+real end-to-end diagnostic workflow rather than cataloging an API surface.
+
+16.1 Regression Diagnosis
+    - Diagnosing a production LCP/INP regression [D]      - Field alert -> attribution sub-phase breakdown -> lab reproduction -> fix -> field-confirmed resolution, end-to-end.
 ================================================================================

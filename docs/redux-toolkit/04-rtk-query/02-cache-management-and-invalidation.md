@@ -27,6 +27,12 @@ Beyond tag invalidation, a cached query entry re-fetches when:
 ### Prefetching
 `api.usePrefetch('getPostById')` returns a function that, when called (e.g. on link hover), pre-warms the cache for an argument **before** the component that actually needs it mounts — turning a network-bound navigation into an instant one.
 
+### Optimistic Updates: `onQueryStarted` + `updateQueryData().undo()`
+Tag invalidation refetches **after** a mutation resolves — for a mutation the UI should reflect instantly (a toggle, a role change, a like button), that round-trip delay is exactly the latency `onQueryStarted` exists to hide. Inside a mutation's `onQueryStarted(arg, { dispatch, queryFulfilled })`:
+1. Call `dispatch(api.util.updateQueryData(endpointName, cacheKeyArg, recipe))` **before** awaiting anything — this synchronously patches the cached query data (via an Immer draft, just like a reducer) and returns a `patchResult` handle.
+2. `await queryFulfilled` — a promise that resolves when the mutation's own request succeeds, rejects when it fails.
+3. On rejection, call `patchResult.undo()` inside a `catch` — this reverts **exactly** the patch that was applied, not a blind refetch, so it composes correctly even if other patches were applied to the same cache entry in the meantime.
+
 ---
 
 ## 2. Real-World Engineering Scenario
@@ -66,8 +72,23 @@ export const usersApi = createApi({
     }),
     updateUserRole: builder.mutation<User, { id: string; role: User['role'] }>({
       query: ({ id, role }) => ({ url: `/users/${id}/role`, method: 'PATCH', body: { role } }),
-      // Only the one changed item needs refetching — the LIST membership itself didn't change
+      // Still invalidate on success — this is the source of truth reconciliation;
+      // onQueryStarted below only covers the INSTANT before that response arrives
       invalidatesTags: (result, error, { id }) => [{ type: 'User', id }],
+      async onQueryStarted({ id, role }, { dispatch, queryFulfilled }) {
+        // Patch the LIST query's cache entry immediately, before the network request resolves
+        const patchResult = dispatch(
+          usersApi.util.updateQueryData('getUsers', { page: 1 }, (draft) => {
+            const user = draft.find((u) => u.id === id);
+            if (user) user.role = role; // Immer draft — mutate directly, no spread needed
+          })
+        );
+        try {
+          await queryFulfilled; // wait for the actual PATCH request to settle
+        } catch {
+          patchResult.undo(); // server rejected it — revert the optimistic patch exactly
+        }
+      },
     }),
     deleteUser: builder.mutation<{ success: boolean }, string>({
       query: (id) => ({ url: `/users/${id}`, method: 'DELETE' }),
@@ -122,6 +143,21 @@ invalidatesTags: [{ type: 'User', id: 'LIST' }],
 
 ### ⚠️ Pitfall 2: `pollingInterval` Left Running on Unmounted/Background Tabs
 A `pollingInterval` keeps firing network requests for as long as at least one subscriber is mounted — including a component sitting inactive in a background browser tab. Combine with `skip` (e.g. driven by the Page Visibility API) for expensive polls, rather than assuming RTK Query pauses polling on tab blur automatically (it does not, unless `refetchOnFocus`/visibility logic is wired in separately).
+
+### ⚠️ Pitfall 2.5: Forgetting to `catch` and `undo()` the Optimistic Patch
+```typescript
+// ❌ WRONG: no try/catch — if the PATCH request fails, the optimistic edit stays in the
+// cache FOREVER (until the next real refetch), showing the user a role change that never happened
+async onQueryStarted({ id, role }, { dispatch, queryFulfilled }) {
+  dispatch(usersApi.util.updateQueryData('getUsers', { page: 1 }, (draft) => {
+    const user = draft.find((u) => u.id === id);
+    if (user) user.role = role;
+  }));
+  await queryFulfilled; // if this rejects, the function just throws — patch is never undone
+}
+
+// ✅ CORRECT: capture patchResult, undo() it in a catch — see the full example above
+```
 
 ### ⚠️ Pitfall 3: Expecting `transformResponse` to Run on Every Render
 `transformResponse(response, meta, arg)` runs once per actual network fetch, not once per render/subscriber — its output is what gets cached. Putting expensive but *non-deterministic* logic there (e.g. `Date.now()`-based fields) bakes a stale timestamp into the cache for the entire `keepUnusedDataFor` window, not a fresh one per read.

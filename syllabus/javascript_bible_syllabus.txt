@@ -206,4 +206,14 @@ SECTION 16: INDUSTRY-READY PATTERNS & UTILITY SNIPPETS
 16.8 Rate Limiting
     - Token bucket                           - Refilling a capped token pool over time; requests consume tokens.
     - Sliding window                            - Counting requests within a moving time window rather than fixed buckets.
+
+
+--------------------------------------------------------------------------------
+SECTION 17: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-16 - each item walks a
+real end-to-end diagnostic workflow rather than cataloging an API surface.
+
+17.1 Debugging Recipes
+    - Diagnosing a memory leak in a long-running page [D]      - Heap snapshot comparison, growing-constructor triage, retainer-chain tracing back to root cause.
 ================================================================================

@@ -165,4 +165,14 @@ SECTION 15: ADVANCED / CUSTOM TOOLING
     - Writing custom loaders (this.callback, source maps passthrough, caching).
     - Writing custom plugins (Tapable hooks: compiler.hooks.emit, compilation.hooks.optimizeChunkAssets).
     - Compiler vs Compilation objects - lifecycle distinction and hook timing.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven, like Sections 1-15 - each item walks a
+real end-to-end diagnostic workflow rather than cataloging an API surface.
+
+16.1 Bundle Diagnosis
+    - Diagnosing and shrinking a bloated bundle [D]      - Treemap-driven triage across the 4 real bloat categories: duplicate deps, missing sideEffects, barrel-import over-inclusion, legacy transpile targets.
 ================================================================================

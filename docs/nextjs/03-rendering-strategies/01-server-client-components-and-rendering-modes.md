@@ -23,7 +23,7 @@ Client Component
 A Client Component cannot `import` and render a Server Component directly (since the client bundle can't execute server-only code) — but it **can** accept one as `children` or a prop, because in that case the Server Component is rendered by its own parent (still on the server) and only the **already-rendered result** (serialized RSC output) is handed to the client boundary as a slot to place — the client component itself never needs to know how to render it.
 
 ### Static vs Dynamic Rendering
-A route renders **statically** (pre-rendered once at build time, served from the Full Route Cache) by default — until something forces it dynamic: calling `cookies()`, `headers()`, reading `searchParams`, or a `fetch()` call with `{ cache: 'no-store' }`. Any of these signal "this output genuinely depends on the incoming request," and Next.js switches that route to per-request Dynamic Rendering.
+A route renders **statically** (pre-rendered once at build time, served from the Full Route Cache) by default — until something forces it dynamic: calling `cookies()`, `headers()`, reading `searchParams`, or a `fetch()` call with `{ cache: 'no-store' }`. Any of these signal "this output genuinely depends on the incoming request," and Next.js switches that route to per-request Dynamic Rendering. On Next.js 15+, this list effectively also includes any **bare, uncached `fetch()`** — since caching is opt-in now rather than the default, an un-opted-in fetch has the same request-dependent, dynamic-forcing effect that `{ cache: 'no-store' }` had explicitly in Next 13/14.
 
 ### Streaming: Progressive HTML via Suspense
 Wrapping a slow data-dependent subtree in `<Suspense fallback={...}>` lets Next.js send the **rest** of the page's HTML immediately, with the slow subtree's HTML streamed in **later**, in the same response, once its data resolves — improving Time To First Byte for everything that *isn't* behind the slow boundary, without needing a fully client-side loading spinner pattern.
@@ -44,8 +44,9 @@ The product page's core content (title, price, images) is static and cacheable �
 import { Suspense } from 'react';
 
 async function getProduct(id: string) {
-  // default cache: 'force-cache' — static, shared across all visitors, cached at build/ISR time
-  const res = await fetch(`https://api.acme.com/products/${id}`);
+  // Next.js 15+: fetch() is UNCACHED by default — cache: 'force-cache' must be requested explicitly
+  // to get the static, shared-across-all-visitors, ISR-cached behavior described below
+  const res = await fetch(`https://api.acme.com/products/${id}`, { cache: 'force-cache' });
   return res.json();
 }
 
