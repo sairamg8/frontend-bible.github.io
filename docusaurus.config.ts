@@ -7,8 +7,11 @@ const config: Config = {
   tagline: 'Master all React APIs, Server Functions, RSC & Architecture for 50-60 LPA Opportunities',
   favicon: 'img/favicon.svg',
 
-  url: 'https://reactbible.local',
-  baseUrl: '/',
+  url: 'https://sairamg8.github.io',
+  baseUrl: '/frontend-bible.github.io/',
+
+  organizationName: 'sairamg8',
+  projectName: 'frontend-bible.github.io',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
