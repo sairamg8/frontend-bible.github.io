@@ -1,0 +1,23 @@
+{
+  "id": "MEM-018",
+  "title": "All 14 Frontend Master Bibles Authored in Docusaurus docs/",
+  "created_at": "2026-07-30T22:19:30+05:30",
+  "details": {
+    "all_14_bible_directories": [
+      "docs/react/ (Core Hooks, Performance, React 19 Actions, RSC, Streaming SSR, 19.2 Additions)",
+      "docs/nextjs/ (App Router, Caching, ISR, Server Actions)",
+      "docs/javascript/ (V8 Engine, Event Loop, Memory Profiling)",
+      "docs/typescript/ (Generics, Conditional Types, Metaprogramming)",
+      "docs/frontend-architecture/ (Micro-Frontends, Web Workers, System Design)",
+      "docs/tanstack-query/ (QueryCache, Mutations, Optimistic Updates)",
+      "docs/redux-toolkit/ (Immer Mechanics, Normalized Entities, Slices)",
+      "docs/web-vitals-performance/ (LCP, INP, CLS, Time-Slicing)",
+      "docs/vite/ (HMR Engine, Esbuild, Custom Plugins)",
+      "docs/webpack/ (Module Federation, Loaders, Tapable Hooks)",
+      "docs/framer-motion/ (60FPS Animations, FLIP Engine, AnimatePresence)",
+      "docs/storybook/ (CSF 3.0, Design Systems, Accessibility Audits)",
+      "docs/jest-rtl/ (DOM Simulation, Async Testing, User Event)",
+      "docs/playwright/ (Cross-Browser E2E, Visual Regression, CI/CD)"
+    ]
+  }
+}

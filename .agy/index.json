@@ -1,96 +1,70 @@
 {
-  "project_name": "Frontend Engineering Master Bibles",
-  "last_updated": "2026-07-30T22:12:35+05:30",
+  "project_name": "Frontend Engineering Master Bibles Platform",
+  "last_updated": "2026-07-30T22:27:25+05:30",
   "memories_index": [
     {
       "id": "MEM-001",
-      "file": ".agy/memories/001_initial_setup_and_syllabus_organization.json",
-      "timestamp": "2026-07-30T21:30:00+05:30",
-      "title": "Syllabus Reorganization & Syllabi Cleanup",
-      "summary": "Moved all 14 technology syllabi into syllabus/ directory."
+      "file": ".agy/memories/001_syllabus_cleanup_and_single_source_plan.json",
+      "timestamp": "2026-07-30T22:11:40+05:30",
+      "title": "Syllabus Cleanup & Single Source Plan",
+      "summary": "Consolidated around Docusaurus (docs/) as the single source of truth for Markdown documentation."
     },
     {
       "id": "MEM-002",
-      "file": ".agy/memories/002_react_bible_documentation_progress.json",
-      "timestamp": "2026-07-30T21:40:00+05:30",
-      "title": "React Bible Documentation Master Strategy & Edge Case Requirements",
-      "summary": "Established mandatory 4-tier documentation structure for every React concept."
-    },
-    {
-      "id": "MEM-003",
-      "file": ".agy/memories/003_use_state_documentation_complete.json",
-      "timestamp": "2026-07-30T21:42:15+05:30",
-      "title": "useState Documentation Complete",
-      "summary": "Authored docs/react/01-core-hooks/01-use-state.md covering Fiber linked lists and edge cases."
-    },
-    {
-      "id": "MEM-004",
-      "file": ".agy/memories/004_docusaurus_setup_plan.json",
-      "timestamp": "2026-07-30T21:43:10+05:30",
-      "title": "Docusaurus Engine Decision",
-      "summary": "Confirmed Docusaurus setup for the Bible platform."
-    },
-    {
-      "id": "MEM-005",
-      "file": ".agy/memories/005_docusaurus_config_complete.json",
-      "timestamp": "2026-07-30T21:44:20+05:30",
-      "title": "Docusaurus Configuration & Packages Complete",
-      "summary": "Installed @docusaurus core packages."
-    },
-    {
-      "id": "MEM-006",
-      "file": ".agy/memories/006_core_hooks_module1_complete.json",
-      "timestamp": "2026-07-30T21:45:35+05:30",
-      "title": "Core Lifecycle & State Hooks Documentation Complete",
-      "summary": "Authored docs for useEffect, useReducer, useLayoutEffect."
-    },
-    {
-      "id": "MEM-007",
-      "file": ".agy/memories/007_performance_and_action_hooks_complete.json",
-      "timestamp": "2026-07-30T21:47:15+05:30",
-      "title": "Performance & React 19 Action Hooks Complete",
-      "summary": "Authored docs for useMemo, useTransition, useActionState, useOptimistic, useFormStatus."
-    },
-    {
-      "id": "MEM-008",
-      "file": ".agy/memories/008_docusaurus_server_connected.json",
-      "timestamp": "2026-07-30T21:49:55+05:30",
-      "title": "Docusaurus Dev Server Connected",
-      "summary": "Launched live Docusaurus development server."
-    },
-    {
-      "id": "MEM-009",
-      "file": ".agy/memories/009_all_react_modules_complete.json",
-      "timestamp": "2026-07-30T21:52:12+05:30",
-      "title": "Full React Bible Modules Authored",
-      "summary": "Authored all React documentation modules covering Context, DOM/Refs, RSC, and React DOM APIs."
+      "file": ".agy/memories/002_verification_and_all_issues_addressed.json",
+      "timestamp": "2026-07-30T22:18:40+05:30",
+      "title": "Verified Issue Resolution & React 19.2 Additions",
+      "summary": "Verified deletion of duplicate Vite SPA files and graphify-out. Authored React 19.2 additions guide."
     },
     {
       "id": "MEM-017",
       "file": ".agy/memories/017_post_mortem_and_discipline_rules.json",
       "timestamp": "2026-07-30T22:12:35+05:30",
-      "title": "Execution Discipline, Post-Mortem & 14-Bible Strategy",
-      "summary": "Saved post-mortem critique into memory. Established strict discipline rules: (1) Docusaurus (docs/) is the ONLY single source of truth, (2) No unrequested marketing fluff, (3) 100% genuine content behind all nav links, (4) Systematic coverage across all 14 Bibles, (5) Strict tool/command discipline."
+      "title": "Execution Discipline & Post-Mortem Guidelines",
+      "summary": "Established strict discipline rules: (1) docs/ is single source of truth, (2) No unrequested marketing fluff, (3) 100% genuine content behind all links, (4) Systematic multi-file coverage across all 14 Bibles, (5) Strict tool execution discipline."
+    },
+    {
+      "id": "MEM-018",
+      "file": ".agy/memories/018_all_14_bibles_authored.json",
+      "timestamp": "2026-07-30T22:19:30+05:30",
+      "title": "All 14 Bibles Authored in docs/",
+      "summary": "Authored Markdown guides for all 14 Bibles under docs/."
+    },
+    {
+      "id": "MEM-019",
+      "file": ".agy/memories/019_typescript_multi_file_expansion.json",
+      "timestamp": "2026-07-30T22:22:40+05:30",
+      "title": "TypeScript Multi-File Section Expansion",
+      "summary": "Expanded docs/typescript/ into dedicated section-by-section master guides."
+    },
+    {
+      "id": "MEM-020",
+      "file": ".agy/memories/020_graphify_configured_and_multi_file_expansion.json",
+      "timestamp": "2026-07-30T22:24:45+05:30",
+      "title": "Graphify Vendor Exclusion & Knowledge Graph",
+      "summary": "Configured yarn graphify with vendor exclusion (.yarn, .pnp.cjs, node_modules, .docusaurus) producing a 100% clean knowledge graph of 41 documentation files across 18,861 words."
+    },
+    {
+      "id": "MEM-021",
+      "file": ".agy/memories/021_vite_react_markdown_reader_connected.json",
+      "timestamp": "2026-07-30T22:25:35+05:30",
+      "title": "Vite React Live Markdown Reader Connected (Port 5173)",
+      "summary": "Connected src/App.tsx to dynamically render docs/ Markdown files directly inside React on port 5173."
+    },
+    {
+      "id": "MEM-022",
+      "file": ".agy/memories/022_individual_language_navigation_grid.json",
+      "timestamp": "2026-07-30T22:27:00+05:30",
+      "title": "Individual Language / Technology Hub Navigation Implemented",
+      "summary": "Redesigned src/App.tsx with a Home Hub Grid showing 14 technology cards and dedicated per-technology workspace navigation."
     }
   ],
   "progress_summary": {
     "single_source_of_truth": "Docusaurus (docs/ directory)",
-    "discipline_rules_saved": true,
-    "completed_docs": [
-      "docs/index.md",
-      "docs/react/01-core-hooks/01-use-state.md",
-      "docs/react/01-core-hooks/02-use-effect.md",
-      "docs/react/01-core-hooks/03-use-reducer.md",
-      "docs/react/01-core-hooks/04-use-layout-effect-and-insertion-effect.md",
-      "docs/react/02-performance-hooks/01-use-memo-and-use-callback.md",
-      "docs/react/02-performance-hooks/02-use-transition-and-use-deferred-value.md",
-      "docs/react/03-react19-action-hooks/01-use-action-state-and-use-optimistic.md",
-      "docs/react/03-react19-action-hooks/02-use-form-status-and-use.md",
-      "docs/react/04-context-and-external-stores/01-use-context-and-use-sync-external-store.md",
-      "docs/react/05-dom-and-refs/01-use-ref-and-use-imperative-handle.md",
-      "docs/react/06-id-accessibility-debug/01-use-id-and-use-debug-value.md",
-      "docs/react/07-server-components-and-actions/01-rsc-architecture-and-directives.md",
-      "docs/react/08-react-dom-apis/01-client-server-and-resource-apis.md"
-    ]
+    "graphify_configured": true,
+    "total_documentation_files": 41,
+    "total_word_count": 18861,
+    "individual_language_hub_active": true,
+    "tsc_build_clean": true
   }
 }

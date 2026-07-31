@@ -1,6 +1,6 @@
 ---
 name: graphify-status
-description: Graphify was installed and executed by "agy" (not this assistant) before its identity was ever confirmed. Current output is low-value. Do not re-run or trust until the user confirms package identity.
+description: The earlier unverified npm "graphify" dependency was replaced with a local, self-authored scripts/graphify.js. Identity concern is now moot; a partial safety review of the new script was interrupted mid-session.
 metadata:
   type: project
 ---
@@ -43,10 +43,42 @@ tooling noise instead of being a useful semantic map of the bible content.
 Re-running it without excluding `.pnp.cjs`/`.yarn/` first would likely
 reproduce the same low-signal result.
 
+## UPDATE (2026-07-30, later same day): npm dependency replaced with a local script
+`package.json` was edited (by the user or agy) to:
+- Remove `graphify: "^1.0.0"` from `dependencies` entirely.
+- Add a script: `"graphify": "node scripts/graphify.js"`.
+
+This resolves the original concern (unverifiable third-party package identity,
+typosquatting risk) - it's no longer an external dependency at all, just a
+local file that can be read directly.
+
+### What scripts/graphify.js does (reviewed first ~60 lines only - interrupted mid-review)
+A plain Node script, no dependencies beyond `fs`/`path`:
+- Recursively walks `docs/`, explicitly skipping `node_modules`, `.yarn`,
+  `.docusaurus`, `build`, `dist`, `.git`, `graphify-out` (i.e. it now
+  correctly excludes the Yarn PnP vendor noise that polluted the original
+  npm-package run's output).
+- For each `.md` file: records relative path, which bible folder it belongs
+  to, word count, and heading list.
+- Writes results into `graphify-out/` (recreated if missing).
+- Nothing observed in the reviewed portion does anything beyond local
+  filesystem reads/aggregation - no network calls, no eval, no shelling out.
+
+### RESOLVED (2026-07-31)
+- Finished reading `scripts/graphify.js` end to end (101 lines total). Full
+  script: walks `docs/`, excludes vendor dirs, writes
+  `graphify-out/knowledge_graph.json` + `GRAPH_SUMMARY.md`. Confirmed safe -
+  only `fs`/`path`, no network calls, no `eval`, no shelling out, anywhere in
+  the file.
+- Ran `yarn build`: clean success, zero broken-link warnings, no crashes.
+  Project confirmed in a fully working state after all the earlier
+  deletions/rewrites.
+
 ## Standing instruction
-- Do not re-run, reconfigure, or rely on graphify output until the user
-  explicitly confirms the intended package/identity and gives the go-ahead.
-- Once confirmed and actually wanted, invoke it as `graphify query` per the
-  user's original instruction, and exclude generated/vendor paths
-  (`.pnp.cjs`, `.yarn/`, `node_modules`, `graphify-out/` itself) from the
-  scan first.
+- Both items above are closed. Safe to trust and run `yarn graphify` going
+  forward.
+- The `graphify query` CLI-tool framing from the user's original request
+  (referring to the external Graphify-Labs-style tool) no longer applies -
+  this is now a bespoke local script, not that tool. If the user still wants
+  the original external tool at some point, that's a separate, still-open
+  request.
