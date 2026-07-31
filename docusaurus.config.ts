@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config: Config = {
   title: 'React Bible & Enterprise Frontend Ecosystem',
   tagline: 'Master all React APIs, Server Functions, RSC & Architecture for 50-60 LPA Opportunities',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   url: 'https://reactbible.local',
   baseUrl: '/',
@@ -35,7 +35,7 @@ const config: Config = {
     ],
   ],
 
-  plugins: ['@docusaurus/theme-live-codeblock'],
+  plugins: [],
 
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
@@ -52,11 +52,6 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'React Masterclass',
-        },
-        {
-          to: '/syllabus-overview',
-          label: '50-60 LPA Syllabi Map',
-          position: 'left',
         },
         {
           href: 'https://github.com/facebook/react',
@@ -77,16 +72,7 @@ const config: Config = {
             },
             {
               label: 'Server Components & Actions',
-              to: '/category/06-server-components-and-actions',
-            },
-          ],
-        },
-        {
-          title: 'Career Syllabi',
-          items: [
-            {
-              label: '50-60 LPA Ecosystem Map',
-              to: '/syllabus-overview',
+              to: '/react/server-components-and-actions/rsc-architecture-and-directives',
             },
           ],
         },
@@ -97,9 +83,6 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['bash', 'json', 'typescript', 'tsx'],
-    },
-    liveCodeBlock: {
-      playgroundPosition: 'bottom',
     },
   } satisfies Preset.ThemeConfig,
 };

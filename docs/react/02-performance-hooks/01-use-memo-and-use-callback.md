@@ -15,7 +15,7 @@ Every time a parent component re-renders, all inline objects and inline function
 ### Fiber Node Cache Storage
 React stores memoized values in the Fiber node's `memoizedState` array as a tuple:
 
-$$\text{memoizedState} = [\text{CachedValue}, \text{DependencyArray}]$$
+`memoizedState = [CachedValue, DependencyArray]`
 
 During re-renders:
 1. React compares each item in the new dependency array with the previous dependency array using `Object.is(prevDep, nextDep)`.

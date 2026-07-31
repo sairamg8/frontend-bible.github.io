@@ -10,7 +10,7 @@ When you dispatch an action via `dispatch(action)`:
 2. React schedules a re-render pass for the component.
 3. During rendering, React loops through the queued actions sequentially, passing `(currentState, action)` to your reducer function:
 
-$$\text{NextState} = \text{reducer}(\text{CurrentState}, \text{Action})$$
+`NextState = reducer(CurrentState, Action)`
 
 If the reducer returns a state reference that evaluates to `Object.is(oldState, newState) === true`, React **bails out** of rendering child components early, saving CPU cycles.
 
