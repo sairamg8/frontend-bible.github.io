@@ -157,4 +157,53 @@ SECTION 15: ADVANCED / META PROGRAMMING
     - Symbol                                        - Unique, collision-free property keys; well-known symbols (Symbol.iterator, Symbol.toPrimitive).
     - structuredClone()                               - Native deep-cloning supporting complex types (unlike JSON.parse/stringify).
     - 'use strict' semantics                            - Eliminating silent errors, disallowing unsafe legacy behaviors.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: INDUSTRY-READY PATTERNS & UTILITY SNIPPETS
+--------------------------------------------------------------------------------
+16.1 Timing & Control Flow Utilities
+    - Debounce                               - Delaying execution until input goes quiet (search boxes, resize handlers).
+    - Throttle                                  - Capping execution to at most once per interval (scroll, mousemove).
+    - Sleep / delay                                - Promise-based await-friendly pause.
+    - Retry with exponential backoff                 - Re-attempting failed async work with increasing delay + jitter.
+    - Once                                             - Wrapping a function so it only ever runs a single time.
+
+16.2 Caching & Memoization
+    - Generic memoize()                      - Caching pure-function results keyed by argument signature.
+    - LRU cache                                 - Fixed-capacity cache evicting the least-recently-used entry.
+    - In-flight request dedup                      - Collapsing concurrent identical async calls into one shared Promise.
+
+16.3 Data Transformation Utilities
+    - Chunk array                            - Splitting an array into fixed-size batches for paged/rate-limited work.
+    - Flatten nested array/object               - Recursively collapsing nested structures to a single level.
+    - Deep clone                                  - Recursive/structuredClone-based copying without shared references.
+    - Deep equal                                    - Structural value comparison beyond reference equality.
+    - Deep merge                                      - Recursively combining nested objects without clobbering siblings.
+    - groupBy / uniqueBy                                - Bucketing or de-duplicating collections by a derived key.
+
+16.4 Functional Composition
+    - compose() / pipe()                     - Chaining unary functions right-to-left / left-to-right.
+    - Partial application utility                - Pre-filling some arguments of a function, deferring the rest.
+
+16.5 Async Concurrency Control
+    - Promise-pool concurrency limiter       - Running N async tasks at a time from a larger queue (like p-limit).
+    - Request batching & dedup                  - Merging multiple calls in the same tick into one network request.
+    - Cancelable async via AbortController        - Wiring cancellation into fetch/custom async work.
+
+16.6 Streaming & Chunked Data Processing
+    - Reading a ReadableStream in chunks     - Consuming a response/file stream incrementally via reader.read().
+    - Parsing chunked/SSE/NDJSON responses      - Buffering partial chunks until a full message boundary arrives.
+    - Backpressure basics                         - Why unbounded chunk buffering causes memory blowups, and how to pace consumption.
+
+16.7 Design Patterns From Scratch
+    - Custom EventEmitter / pub-sub          - on/off/emit implemented from a plain object + array of listeners.
+    - Observer pattern                          - Subjects notifying subscribed observers of state changes.
+    - Singleton                                    - Enforcing a single shared instance via module scope or a static accessor.
+    - A Promise polyfill                             - Implementing then/catch/resolve/reject state transitions manually.
+    - Array method polyfills                           - Re-implementing map/filter/reduce to understand their contracts.
+
+16.8 Rate Limiting
+    - Token bucket                           - Refilling a capped token pool over time; requests consume tokens.
+    - Sliding window                            - Counting requests within a moving time window rather than fixed buckets.
 ================================================================================

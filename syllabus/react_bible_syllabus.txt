@@ -80,4 +80,49 @@ SECTION 5: REACT SERVER COMPONENTS (RSC) & SERVER FUNCTIONS
 SECTION 6: RESOURCE LOADING & ASSET OPTIMIZATION APIS (react-dom)
 --------------------------------------------------------------------------------
 - prefetchDNS(), preconnect(), preload(), preloadModule(), preinit(), preinitModule()
+
+
+--------------------------------------------------------------------------------
+SECTION 7: INDUSTRY-READY CUSTOM HOOKS & PATTERNS
+--------------------------------------------------------------------------------
+7.1 Timing & Input Hooks
+    - useDebounce           - Deferring a fast-changing value/callback until input settles.
+    - useThrottle           - Capping how often a value/callback updates within a window.
+    - useInterval / useTimeout - Declarative, effect-safe wrappers over setInterval/setTimeout.
+
+7.2 Browser & DOM Interaction Hooks
+    - useOnClickOutside     - Detecting clicks outside a ref'd element (dropdowns, modals).
+    - useEventListener      - Attaching/cleaning up a DOM/window event listener declaratively.
+    - useWindowSize         - Reactive viewport width/height with resize-listener cleanup.
+    - useMediaQuery         - Reactive boolean binding to a CSS media query via matchMedia.
+    - useHover              - Tracking pointer-enter/leave state on a ref'd element.
+
+7.3 State & Storage Hooks
+    - useLocalStorage / useSessionStorage - State synced to Web Storage, cross-tab-safe variants.
+    - usePrevious           - Capturing a value's previous render via a ref + effect.
+    - useToggle             - Boolean state with a stable toggle callback.
+    - useUpdateEffect       - useEffect that skips the initial mount run.
+
+7.4 Data Fetching & Async Hooks
+    - useFetch / useAsync   - Encapsulated loading/data/error state around an async call.
+    - Abortable-effect pattern - Cancelling in-flight requests on dependency change/unmount via AbortController.
+    - Optimistic update with rollback - Applying a UI change immediately, reverting on server failure.
+
+7.5 Performance Patterns
+    - Virtualized list rendering - Rendering only visible rows/items for large collections (windowing).
+    - Infinite scroll       - IntersectionObserver-driven incremental data loading.
+    - React.lazy + Suspense code-splitting - Deferring component bundles until first render.
+    - Memoized selector pattern - Deriving state without recomputation/re-renders on unrelated changes.
+
+7.6 Composition Patterns
+    - Compound components   - Parent/child components sharing implicit state via context.
+    - Render props           - Passing a function-as-child/prop to control what gets rendered.
+    - Higher-Order Components (HOC) - Wrapping a component to inject props/behavior.
+    - Controlled vs uncontrolled - Owning input state via props+onChange vs. letting the DOM own it.
+    - Context + useReducer store - A lightweight app-store pattern without external state libraries.
+
+7.7 Reliability Patterns
+    - Error boundaries       - Class-based getDerivedStateFromError/componentDidCatch fallback UI.
+    - Retry-on-error UI      - Surfacing a retry affordance instead of a dead error screen.
+    - Portal-based modals/tooltips - Rendering outside the DOM parent while preserving React tree context.
 ================================================================================
