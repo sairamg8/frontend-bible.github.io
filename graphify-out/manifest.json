@@ -1,8 +1,8 @@
 {
   ".agy/index.json": {
-    "mtime": 1785430642.6866593,
-    "ast_hash": "c169b255acb02ca0ce28a54dd61a2cea",
-    "semantic_hash": "c169b255acb02ca0ce28a54dd61a2cea"
+    "mtime": 1785479841.1687274,
+    "ast_hash": "2c2caf03e037268b153ffc972e3725ed",
+    "semantic_hash": "2c2caf03e037268b153ffc972e3725ed"
   },
   ".agy/instructions.json": {
     "mtime": 1785427914.1423578,
@@ -115,9 +115,9 @@
     "semantic_hash": "029f4905006c1fffd96bc863e2d98d3e"
   },
   "docusaurus.config.ts": {
-    "mtime": 1785432589.4072826,
-    "ast_hash": "6a2a11d87f5ef2befc0998c4a5dd8529",
-    "semantic_hash": "6a2a11d87f5ef2befc0998c4a5dd8529"
+    "mtime": 1785483525.7950566,
+    "ast_hash": "06fdc110eb547f6ee3bf2b7070221a4b",
+    "semantic_hash": "06fdc110eb547f6ee3bf2b7070221a4b"
   },
   "package.json": {
     "mtime": 1785432355.214282,
@@ -150,14 +150,14 @@
     "semantic_hash": "eaca94fc048503de140ba4045e2caa3d"
   },
   ".claude/memory/003-graphify-status.md": {
-    "mtime": 1785430606.3906515,
-    "ast_hash": "75e20c7a3dda6d9c5448de59b55ec963",
-    "semantic_hash": "75e20c7a3dda6d9c5448de59b55ec963"
+    "mtime": 1785467575.1529927,
+    "ast_hash": "ac8adc9d5167cb0e265020fca885f31c",
+    "semantic_hash": "ac8adc9d5167cb0e265020fca885f31c"
   },
   ".claude/memory/004-site-architecture-fixes.md": {
-    "mtime": 1785432836.0464897,
-    "ast_hash": "15fba431602780f2306a3169ddc22c70",
-    "semantic_hash": "15fba431602780f2306a3169ddc22c70"
+    "mtime": 1785467580.4311965,
+    "ast_hash": "0d134573a256dc4f7e84cd337462d200",
+    "semantic_hash": "0d134573a256dc4f7e84cd337462d200"
   },
   ".claude/memory/005-redux-toolkit-expansion.md": {
     "mtime": 1785434596.160195,
@@ -175,9 +175,9 @@
     "semantic_hash": "46a97b9f726ce20ef8e80d33b5d0f4f8"
   },
   ".claude/memory/index.md": {
-    "mtime": 1785467589.618918,
-    "ast_hash": "7ad0dfc8c1dc5686986a9a5e8ecc8bc1",
-    "semantic_hash": "7ad0dfc8c1dc5686986a9a5e8ecc8bc1"
+    "mtime": 1785483756.3638935,
+    "ast_hash": "819b0a95c22b36be6c79e03fcb65187f",
+    "semantic_hash": "819b0a95c22b36be6c79e03fcb65187f"
   },
   ".yarnrc.yml": {
     "mtime": 1785431628.977024,
@@ -190,14 +190,14 @@
     "semantic_hash": "8517a15c65bddbfb57a55daae534344a"
   },
   "README.md": {
-    "mtime": 1785424717.890019,
-    "ast_hash": "52a1bab912f53a2e94456ebe55783977",
-    "semantic_hash": "52a1bab912f53a2e94456ebe55783977"
+    "mtime": 1785481587.5900006,
+    "ast_hash": "2eb898e44c08cc8ec83b44ce3f35860b",
+    "semantic_hash": "2eb898e44c08cc8ec83b44ce3f35860b"
   },
   "docs/index.md": {
-    "mtime": 1785467044.2240229,
-    "ast_hash": "6c7232e74b62758b5e1504744adbe1ba",
-    "semantic_hash": "6c7232e74b62758b5e1504744adbe1ba"
+    "mtime": 1785481583.841288,
+    "ast_hash": "cd0e0025b04f20520fa9d9f7f5359530",
+    "semantic_hash": "cd0e0025b04f20520fa9d9f7f5359530"
   },
   "docs/javascript/01-core-language-fundamentals/01-variables-types-and-coercion.md": {
     "mtime": 1785463147.2956192,
@@ -215,14 +215,14 @@
     "semantic_hash": "397d27e4273696f6ad149bf17e566998"
   },
   "docs/nextjs/03-rendering-strategies/01-server-client-components-and-rendering-modes.md": {
-    "mtime": 1785434983.8600976,
-    "ast_hash": "f97b2e8ebae164a25928592704850b5c",
-    "semantic_hash": "f97b2e8ebae164a25928592704850b5c"
+    "mtime": 1785480397.9124167,
+    "ast_hash": "de312600281f7aca1bcea5705c562a19",
+    "semantic_hash": "de312600281f7aca1bcea5705c562a19"
   },
   "docs/nextjs/04-data-fetching/01-fetch-api-and-fetching-patterns.md": {
-    "mtime": 1785435009.87412,
-    "ast_hash": "b3ddb775c3d32158383de4d930fb490f",
-    "semantic_hash": "b3ddb775c3d32158383de4d930fb490f"
+    "mtime": 1785480355.82085,
+    "ast_hash": "b4cd47dfe272e4517e99211b9ae1daa2",
+    "semantic_hash": "b4cd47dfe272e4517e99211b9ae1daa2"
   },
   "docs/nextjs/05-server-actions-and-mutations/01-server-functions-and-optimistic-ui.md": {
     "mtime": 1785435043.525127,
@@ -280,9 +280,9 @@
     "semantic_hash": "6c885f238691ca93d438175128748fb0"
   },
   "docs/react/01-core-hooks/01-use-state.md": {
-    "mtime": 1785427931.8954225,
-    "ast_hash": "293d1803afe2570c0cd99fa7b21b4de3",
-    "semantic_hash": "293d1803afe2570c0cd99fa7b21b4de3"
+    "mtime": 1785480424.280411,
+    "ast_hash": "a8889c3be71ce4c990b11962dd1fe8fd",
+    "semantic_hash": "a8889c3be71ce4c990b11962dd1fe8fd"
   },
   "docs/react/01-core-hooks/02-use-effect.md": {
     "mtime": 1785428124.1205637,
@@ -310,9 +310,9 @@
     "semantic_hash": "382a93775546b387a569c5418613d9d6"
   },
   "docs/react/03-react19-action-hooks/01-use-action-state-and-use-optimistic.md": {
-    "mtime": 1785428227.9744556,
-    "ast_hash": "f866be6f1996f91272d82ed8f58c6421",
-    "semantic_hash": "f866be6f1996f91272d82ed8f58c6421"
+    "mtime": 1785480472.0434437,
+    "ast_hash": "857ea089b18a25be6cf6723bf86d59ab",
+    "semantic_hash": "857ea089b18a25be6cf6723bf86d59ab"
   },
   "docs/react/03-react19-action-hooks/02-use-form-status-and-use.md": {
     "mtime": 1785428233.1645043,
@@ -345,9 +345,9 @@
     "semantic_hash": "26fa30b1be5e2f9841d30db3c49895b0"
   },
   "docs/react/09-react-19-2-additions/01-use-effect-event-activity-cache.md": {
-    "mtime": 1785430061.9767385,
-    "ast_hash": "d9bb50d678215cc794134c09d546ce69",
-    "semantic_hash": "d9bb50d678215cc794134c09d546ce69"
+    "mtime": 1785480482.7589068,
+    "ast_hash": "b4acdb8c4b2505b873e39915b94c3997",
+    "semantic_hash": "b4acdb8c4b2505b873e39915b94c3997"
   },
   "docs/redux-toolkit/01-store-setup/01-configure-store.md": {
     "mtime": 1785433163.4917848,
@@ -375,9 +375,9 @@
     "semantic_hash": "73160687a3c7f5d7b0a6767828fd67fd"
   },
   "docs/redux-toolkit/04-rtk-query/02-cache-management-and-invalidation.md": {
-    "mtime": 1785433283.9906535,
-    "ast_hash": "566798319644c86a469f5e9d87074552",
-    "semantic_hash": "566798319644c86a469f5e9d87074552"
+    "mtime": 1785480558.3613448,
+    "ast_hash": "d9f6ebf0a9e79ee1d66aeadd188e3d1b",
+    "semantic_hash": "d9f6ebf0a9e79ee1d66aeadd188e3d1b"
   },
   "docs/redux-toolkit/05-selectors-and-normalization/01-create-selector-and-reselect.md": {
     "mtime": 1785433305.8914092,
@@ -475,9 +475,9 @@
     "semantic_hash": "538adeb05ed26774363543268edbcf97"
   },
   "docs/typescript/10-classes-and-oop/01-class-based-typing.md": {
-    "mtime": 1785462964.9057887,
-    "ast_hash": "71ccc541d1219acecc47f2bbaa1d85e1",
-    "semantic_hash": "71ccc541d1219acecc47f2bbaa1d85e1"
+    "mtime": 1785480529.570551,
+    "ast_hash": "f9e95b1aef7305c76594317e13646210",
+    "semantic_hash": "f9e95b1aef7305c76594317e13646210"
   },
   "docs/typescript/11-enums-and-const-assertions/01-fixed-value-sets.md": {
     "mtime": 1785462994.0209193,
@@ -655,9 +655,9 @@
     "semantic_hash": "13ff7b70aa150c83a7058030a3f3eb50"
   },
   "syllabus/framer_motion_bible_syllabus.txt": {
-    "mtime": 1785426252.7609546,
-    "ast_hash": "d246a744fe0d38e452b242e51e333490",
-    "semantic_hash": "d246a744fe0d38e452b242e51e333490"
+    "mtime": 1785486125.0343685,
+    "ast_hash": "7021434710bec5729cd55e1917a6b351",
+    "semantic_hash": "7021434710bec5729cd55e1917a6b351"
   },
   "syllabus/frontend_architecture_bible_syllabus.txt": {
     "mtime": 1785426696.9220364,
@@ -665,29 +665,29 @@
     "semantic_hash": "e96ced14111c5ab1d630de6065366472"
   },
   "syllabus/javascript_bible_syllabus.txt": {
-    "mtime": 1785426631.2983658,
-    "ast_hash": "76b05254b6b1335ec09c9287d908d23b",
-    "semantic_hash": "76b05254b6b1335ec09c9287d908d23b"
+    "mtime": 1785486341.8203614,
+    "ast_hash": "d6f7b33542f8b732dddd88febd585c95",
+    "semantic_hash": "d6f7b33542f8b732dddd88febd585c95"
   },
   "syllabus/jest_rtl_bible_syllabus.txt": {
-    "mtime": 1785425867.0441315,
-    "ast_hash": "6ef96ca6cfe2bfaa9231b6f7fb0f3910",
-    "semantic_hash": "6ef96ca6cfe2bfaa9231b6f7fb0f3910"
+    "mtime": 1785485649.8173919,
+    "ast_hash": "c4e87531c460167069c07d89ae625db8",
+    "semantic_hash": "c4e87531c460167069c07d89ae625db8"
   },
   "syllabus/nextjs_bible_syllabus.txt": {
-    "mtime": 1785425801.841556,
-    "ast_hash": "3d7b19a6e040d96818e782190eb0b04f",
-    "semantic_hash": "3d7b19a6e040d96818e782190eb0b04f"
+    "mtime": 1785483033.2109144,
+    "ast_hash": "c7eada373d3ffa4d00cba4db21e870cc",
+    "semantic_hash": "c7eada373d3ffa4d00cba4db21e870cc"
   },
   "syllabus/playwright_bible_syllabus.txt": {
-    "mtime": 1785425898.2743616,
-    "ast_hash": "0362c7119f049438fdc0dd80fda24d6f",
-    "semantic_hash": "0362c7119f049438fdc0dd80fda24d6f"
+    "mtime": 1785484082.6040618,
+    "ast_hash": "dcd2655209c80630224d7937e78fc729",
+    "semantic_hash": "dcd2655209c80630224d7937e78fc729"
   },
   "syllabus/react_bible_syllabus.txt": {
-    "mtime": 1785430066.1176643,
-    "ast_hash": "0e1533c7e26f87ba05380f919ed09961",
-    "semantic_hash": "0e1533c7e26f87ba05380f919ed09961"
+    "mtime": 1785483958.8853533,
+    "ast_hash": "abbf44041573b37b91536cdab8d637e4",
+    "semantic_hash": "abbf44041573b37b91536cdab8d637e4"
   },
   "syllabus/redux_toolkit_bible_syllabus.txt": {
     "mtime": 1785425835.798923,
@@ -695,34 +695,34 @@
     "semantic_hash": "ff80cb2d19f06505e731813dc6ca7d26"
   },
   "syllabus/storybook_bible_syllabus.txt": {
-    "mtime": 1785426190.8072414,
-    "ast_hash": "b4d1a25290e51fd86b725e0bcb56da16",
-    "semantic_hash": "b4d1a25290e51fd86b725e0bcb56da16"
+    "mtime": 1785486008.8015254,
+    "ast_hash": "8d2ee019d7ee720953ff90b70a68a873",
+    "semantic_hash": "8d2ee019d7ee720953ff90b70a68a873"
   },
   "syllabus/tanstack_query_bible_syllabus.txt": {
-    "mtime": 1785426163.4360147,
-    "ast_hash": "bf60975cd5f559b60553b4ae95adfc66",
-    "semantic_hash": "bf60975cd5f559b60553b4ae95adfc66"
+    "mtime": 1785486239.9302511,
+    "ast_hash": "c4f4cd345c3a72cd67195161ae34cbb2",
+    "semantic_hash": "c4f4cd345c3a72cd67195161ae34cbb2"
   },
   "syllabus/typescript_bible_syllabus.txt": {
-    "mtime": 1785426133.4747596,
-    "ast_hash": "e622e26343c9ee09863a5a6dcd8823f9",
-    "semantic_hash": "e622e26343c9ee09863a5a6dcd8823f9"
+    "mtime": 1785483792.9514632,
+    "ast_hash": "75cdeee5f4915c2b5cfdee5000ff2a46",
+    "semantic_hash": "75cdeee5f4915c2b5cfdee5000ff2a46"
   },
   "syllabus/vite_bible_syllabus.txt": {
-    "mtime": 1785425767.5092084,
-    "ast_hash": "4584ad8b8a2dbb86c2048bb6f78839d3",
-    "semantic_hash": "4584ad8b8a2dbb86c2048bb6f78839d3"
+    "mtime": 1785483196.542417,
+    "ast_hash": "233d8b117c9745bb5e3162b12be3740f",
+    "semantic_hash": "233d8b117c9745bb5e3162b12be3740f"
   },
   "syllabus/web_vitals_performance_bible_syllabus.txt": {
-    "mtime": 1785426223.5799627,
-    "ast_hash": "537cd789e1f256d137bd8e7f8f677949",
-    "semantic_hash": "537cd789e1f256d137bd8e7f8f677949"
+    "mtime": 1785485776.4740436,
+    "ast_hash": "4efae57071be49e66d815f2c46191548",
+    "semantic_hash": "4efae57071be49e66d815f2c46191548"
   },
   "syllabus/webpack_bible_syllabus.txt": {
-    "mtime": 1785425734.9510374,
-    "ast_hash": "472022b75e0e2f5da593ac182ac41555",
-    "semantic_hash": "472022b75e0e2f5da593ac182ac41555"
+    "mtime": 1785485901.349801,
+    "ast_hash": "4c4e73714faee4b8d21c64d2377ead37",
+    "semantic_hash": "4c4e73714faee4b8d21c64d2377ead37"
   },
   "static/img/favicon.svg": {
     "mtime": 1785424717.888364,
@@ -930,9 +930,9 @@
     "semantic_hash": "75e9758c526bed622ed46408b4e9017b"
   },
   "docs/jest-rtl/06-coverage-and-configuration/01-jest-config.md": {
-    "mtime": 1785464324.2322063,
-    "ast_hash": "74e22b121be49b871ce5741c3e6e88d3",
-    "semantic_hash": "74e22b121be49b871ce5741c3e6e88d3"
+    "mtime": 1785485625.4782827,
+    "ast_hash": "b05e011e15479520bb78c32e89d98937",
+    "semantic_hash": "b05e011e15479520bb78c32e89d98937"
   },
   "docs/jest-rtl/07-rtl-core-philosophy/01-guiding-principle.md": {
     "mtime": 1785464350.015238,
@@ -1335,9 +1335,9 @@
     "semantic_hash": "0fe87f0a72cfd246bc352f62153f0b78"
   },
   "docs/frontend-architecture/10-error-handling-and-resilience/01-designing-for-failure.md": {
-    "mtime": 1785466890.0688405,
-    "ast_hash": "51d268f5f4dcc2aec48444b9f869a569",
-    "semantic_hash": "51d268f5f4dcc2aec48444b9f869a569"
+    "mtime": 1785480568.868663,
+    "ast_hash": "288335d149982aba2bdc8a0f750a1856",
+    "semantic_hash": "288335d149982aba2bdc8a0f750a1856"
   },
   "docs/frontend-architecture/11-observability-and-monitoring/01-knowing-whats-happening-in-production.md": {
     "mtime": 1785466919.3361306,
@@ -1363,5 +1363,350 @@
     "mtime": 1785467033.6396077,
     "ast_hash": "2e9e3937ac8d2faa0aee2d06342267fb",
     "semantic_hash": "2e9e3937ac8d2faa0aee2d06342267fb"
+  },
+  ".agy/memories/023_git_bible_created.json": {
+    "mtime": 1785479837.1278362,
+    "ast_hash": "9f4817cf51bd89d00d0ff6b0064a2b46",
+    "semantic_hash": "9f4817cf51bd89d00d0ff6b0064a2b46"
+  },
+  ".claude/memory/016-industry-ready-patterns-plan.md": {
+    "mtime": 1785468487.6865103,
+    "ast_hash": "87dfe91a2527d28af4aca951fadb6241",
+    "semantic_hash": "87dfe91a2527d28af4aca951fadb6241"
+  },
+  ".claude/memory/017-review-authentication.md": {
+    "mtime": 1785470448.4222934,
+    "ast_hash": "c3eab14803274b0d45bafdd292065809",
+    "semantic_hash": "c3eab14803274b0d45bafdd292065809"
+  },
+  ".claude/memory/018-punch-list-correctness-fixes.md": {
+    "mtime": 1785480615.7598343,
+    "ast_hash": "8ce16d4e0ab0a01874bd7ce1be13fd6c",
+    "semantic_hash": "8ce16d4e0ab0a01874bd7ce1be13fd6c"
+  },
+  ".claude/memory/019-git-bible-review.md": {
+    "mtime": 1785480956.3430521,
+    "ast_hash": "2b09dbfdaa010cdde8a04d33ba53c57c",
+    "semantic_hash": "2b09dbfdaa010cdde8a04d33ba53c57c"
+  },
+  ".claude/memory/020-git-recipes-chapter.md": {
+    "mtime": 1785481626.6122563,
+    "ast_hash": "41ebf42637de457d0e15dae4fe405fd4",
+    "semantic_hash": "41ebf42637de457d0e15dae4fe405fd4"
+  },
+  ".claude/memory/021-cross-bible-recipe-gaps-survey.md": {
+    "mtime": 1785486428.0879674,
+    "ast_hash": "c120fbad2e9632a8b61d27af4ddeb3eb",
+    "semantic_hash": "c120fbad2e9632a8b61d27af4ddeb3eb"
+  },
+  ".claude/memory/022-github-pages-jekyll-fix.md": {
+    "mtime": 1785483746.923393,
+    "ast_hash": "8492018edf9df80a5f07b81360170d48",
+    "semantic_hash": "8492018edf9df80a5f07b81360170d48"
+  },
+  ".github/workflows/deploy-docs.yml": {
+    "mtime": 1785483538.3852332,
+    "ast_hash": "7aefcef01639bd7aab7a82e2f3e1370c",
+    "semantic_hash": "7aefcef01639bd7aab7a82e2f3e1370c"
+  },
+  "docs/framer-motion/16-real-world-workflows-and-recipes/01-diagnosing-janky-animations.md": {
+    "mtime": 1785486166.8826847,
+    "ast_hash": "cf12183314a39040536b3c3ceac08bfe",
+    "semantic_hash": "cf12183314a39040536b3c3ceac08bfe"
+  },
+  "docs/git/01-core-architecture/01-object-store-and-git-topology.md": {
+    "mtime": 1785480895.4125288,
+    "ast_hash": "37645bb16000fa5c6d6b093c2349138d",
+    "semantic_hash": "37645bb16000fa5c6d6b093c2349138d"
+  },
+  "docs/git/02-plumbing-vs-porcelain/01-plumbing-commands-and-index.md": {
+    "mtime": 1785480136.7676218,
+    "ast_hash": "95861eb5a7a894e0c801c8bc55172425",
+    "semantic_hash": "95861eb5a7a894e0c801c8bc55172425"
+  },
+  "docs/git/03-branching-merging-rebase/01-dag-traversal-merging-and-rebase.md": {
+    "mtime": 1785480901.2902079,
+    "ast_hash": "050101855f869519ec5d774ffdb3b71f",
+    "semantic_hash": "050101855f869519ec5d774ffdb3b71f"
+  },
+  "docs/git/04-history-rewriting-forensics/01-bisect-blame-and-filter-repo.md": {
+    "mtime": 1785480144.8665469,
+    "ast_hash": "f011c51f927c2b57677cd7cb6372e0d8",
+    "semantic_hash": "f011c51f927c2b57677cd7cb6372e0d8"
+  },
+  "docs/git/05-enterprise-workflows-monorepos/01-worktrees-sparse-checkout-and-hooks.md": {
+    "mtime": 1785480905.0806038,
+    "ast_hash": "008d40accfa7a744f6bc967fe389176d",
+    "semantic_hash": "008d40accfa7a744f6bc967fe389176d"
+  },
+  "docs/git/06-remotes-and-maintenance/01-force-lease-packfiles-and-gc.md": {
+    "mtime": 1785480151.0494916,
+    "ast_hash": "ecb37ff932ec9096ae69cd6b90151cc7",
+    "semantic_hash": "ecb37ff932ec9096ae69cd6b90151cc7"
+  },
+  "docs/git/07-real-world-workflows-and-recipes/01-connecting-a-local-project-to-a-remote.md": {
+    "mtime": 1785481417.1185386,
+    "ast_hash": "20be65fe0dd175fd9e3cd660fd0923cf",
+    "semantic_hash": "20be65fe0dd175fd9e3cd660fd0923cf"
+  },
+  "docs/git/07-real-world-workflows-and-recipes/02-fork-and-upstream-sync.md": {
+    "mtime": 1785481444.265837,
+    "ast_hash": "b58ca5d07921f9f859cec8376691e462",
+    "semantic_hash": "b58ca5d07921f9f859cec8376691e462"
+  },
+  "docs/git/07-real-world-workflows-and-recipes/03-recovering-from-an-accidental-force-push.md": {
+    "mtime": 1785481497.6571345,
+    "ast_hash": "b8fdd45cf63ed2ef0fcf6aca26504258",
+    "semantic_hash": "b8fdd45cf63ed2ef0fcf6aca26504258"
+  },
+  "docs/git/07-real-world-workflows-and-recipes/04-resolving-a-merge-conflict-end-to-end.md": {
+    "mtime": 1785481524.1697292,
+    "ast_hash": "060078bc1c4658057163fe510c06b632",
+    "semantic_hash": "060078bc1c4658057163fe510c06b632"
+  },
+  "docs/git/07-real-world-workflows-and-recipes/05-splitting-changes-into-focused-commits.md": {
+    "mtime": 1785481550.142023,
+    "ast_hash": "2bb9d7d8e94ca94367ea3af54302d8f6",
+    "semantic_hash": "2bb9d7d8e94ca94367ea3af54302d8f6"
+  },
+  "docs/javascript/17-real-world-workflows-and-recipes/01-diagnosing-a-memory-leak.md": {
+    "mtime": 1785486387.2324383,
+    "ast_hash": "e600f98cb220a3f2dae8c9e5d0bddbcb",
+    "semantic_hash": "e600f98cb220a3f2dae8c9e5d0bddbcb"
+  },
+  "docs/jest-rtl/16-real-world-workflows-and-recipes/01-testing-setup-from-zero.md": {
+    "mtime": 1785485702.0456445,
+    "ast_hash": "5b63aa2ab69c0f6d83e1d3325346cf2c",
+    "semantic_hash": "5b63aa2ab69c0f6d83e1d3325346cf2c"
+  },
+  "docs/nextjs/16-migration-recipes/01-pages-router-to-app-router.md": {
+    "mtime": 1785483089.8553948,
+    "ast_hash": "a0bddce67ec88256bd7073a26774f22c",
+    "semantic_hash": "a0bddce67ec88256bd7073a26774f22c"
+  },
+  "docs/playwright/16-real-world-workflows-and-recipes/01-diagnosing-flaky-ci-tests.md": {
+    "mtime": 1785484134.593203,
+    "ast_hash": "9c838db432b24d6ca0b40afdb969c20c",
+    "semantic_hash": "9c838db432b24d6ca0b40afdb969c20c"
+  },
+  "docs/react/10-real-world-workflows-and-recipes/01-diagnosing-re-render-bugs.md": {
+    "mtime": 1785484006.6677544,
+    "ast_hash": "bf519c6f5e95628293c674f9f41eb6c5",
+    "semantic_hash": "bf519c6f5e95628293c674f9f41eb6c5"
+  },
+  "docs/storybook/16-real-world-workflows-and-recipes/01-bootstrapping-into-an-existing-app.md": {
+    "mtime": 1785486048.8288093,
+    "ast_hash": "017d7c85d14622219b84c38f7ec87035",
+    "semantic_hash": "017d7c85d14622219b84c38f7ec87035"
+  },
+  "docs/tanstack-query/16-migration-recipes/01-rtk-query-to-tanstack-query.md": {
+    "mtime": 1785486281.7925828,
+    "ast_hash": "ee744593150c02cce81aac7d4f5d643e",
+    "semantic_hash": "ee744593150c02cce81aac7d4f5d643e"
+  },
+  "docs/typescript/16-migration-recipes/01-incremental-js-to-ts-adoption.md": {
+    "mtime": 1785483857.5569856,
+    "ast_hash": "f9ac978942cd8c803c8ea3a6a00e594d",
+    "semantic_hash": "f9ac978942cd8c803c8ea3a6a00e594d"
+  },
+  "docs/vite/16-migration-recipes/01-cra-to-vite-migration.md": {
+    "mtime": 1785483229.8585382,
+    "ast_hash": "90edb969149dbd172040638ae24a1fcf",
+    "semantic_hash": "90edb969149dbd172040638ae24a1fcf"
+  },
+  "docs/web-vitals-performance/16-real-world-workflows-and-recipes/01-diagnosing-a-production-lcp-inp-regression.md": {
+    "mtime": 1785485826.541335,
+    "ast_hash": "de2d95de4061d6e330aff6ac7ea011ac",
+    "semantic_hash": "de2d95de4061d6e330aff6ac7ea011ac"
+  },
+  "docs/webpack/16-real-world-workflows-and-recipes/01-diagnosing-a-bloated-bundle.md": {
+    "mtime": 1785485942.486348,
+    "ast_hash": "bbe943d8dd21853df8d2bd1076c6fdd8",
+    "semantic_hash": "bbe943d8dd21853df8d2bd1076c6fdd8"
+  },
+  "review/AUTHENTICATION_REPORT.md": {
+    "mtime": 1785469619.6458995,
+    "ast_hash": "bbb7b53ddac2c99ad7efba3cb9c6b382",
+    "semantic_hash": "bbb7b53ddac2c99ad7efba3cb9c6b382"
+  },
+  "review/OVERALL_SUMMARY.md": {
+    "mtime": 1785470912.9527605,
+    "ast_hash": "4ae9e6b52c7cc31e2e318f559a71bb89",
+    "semantic_hash": "4ae9e6b52c7cc31e2e318f559a71bb89"
+  },
+  "review/content_review_prompt.txt": {
+    "mtime": 1785468687.776713,
+    "ast_hash": "47726ac85d655780e6ecd633e8aeecd4",
+    "semantic_hash": "47726ac85d655780e6ecd633e8aeecd4"
+  },
+  "review/final_review_agy.md": {
+    "mtime": 1785471032.0240078,
+    "ast_hash": "eeffa12d7cd8c1f0ef9db929256a727a",
+    "semantic_hash": "eeffa12d7cd8c1f0ef9db929256a727a"
+  },
+  "review/framer-motion/README.md": {
+    "mtime": 1785469152.6498082,
+    "ast_hash": "7c44b099667f0ca49b9e144eb476a020",
+    "semantic_hash": "7c44b099667f0ca49b9e144eb476a020"
+  },
+  "review/frontend-architecture/README.md": {
+    "mtime": 1785469161.083638,
+    "ast_hash": "45f46565bcb191f074785404a88a7d19",
+    "semantic_hash": "45f46565bcb191f074785404a88a7d19"
+  },
+  "review/grok/AUTHENTICATION_REPORT.md": {
+    "mtime": 1785470441.9166403,
+    "ast_hash": "bbb7b53ddac2c99ad7efba3cb9c6b382",
+    "semantic_hash": "bbb7b53ddac2c99ad7efba3cb9c6b382"
+  },
+  "review/grok/OVERALL_SUMMARY.md": {
+    "mtime": 1785470636.3728497,
+    "ast_hash": "59686e1f1a73cd29677e924a02370975",
+    "semantic_hash": "59686e1f1a73cd29677e924a02370975"
+  },
+  "review/grok/README.md": {
+    "mtime": 1785470636.3729317,
+    "ast_hash": "b87ff511793761cf9469b92b319bd0b4",
+    "semantic_hash": "b87ff511793761cf9469b92b319bd0b4"
+  },
+  "review/grok/final_review.md": {
+    "mtime": 1785470441.9150565,
+    "ast_hash": "bbb7b53ddac2c99ad7efba3cb9c6b382",
+    "semantic_hash": "bbb7b53ddac2c99ad7efba3cb9c6b382"
+  },
+  "review/grok/framer-motion/README.md": {
+    "mtime": 1785470636.3714056,
+    "ast_hash": "da5a5a4b79bc051874a97b4db77789a2",
+    "semantic_hash": "da5a5a4b79bc051874a97b4db77789a2"
+  },
+  "review/grok/frontend-architecture/README.md": {
+    "mtime": 1785470636.3727062,
+    "ast_hash": "fbdaa0826cee8aa4fb55e7967f6ef596",
+    "semantic_hash": "fbdaa0826cee8aa4fb55e7967f6ef596"
+  },
+  "review/grok/javascript/README.md": {
+    "mtime": 1785470636.3589237,
+    "ast_hash": "835ea5cb70d702018b0d8e39c1f78c5e",
+    "semantic_hash": "835ea5cb70d702018b0d8e39c1f78c5e"
+  },
+  "review/grok/jest-rtl/README.md": {
+    "mtime": 1785470636.3667858,
+    "ast_hash": "69c8dc33ced54ef33ea43c45320af5e1",
+    "semantic_hash": "69c8dc33ced54ef33ea43c45320af5e1"
+  },
+  "review/grok/nextjs/README.md": {
+    "mtime": 1785470636.3656414,
+    "ast_hash": "8a8deae58b4ab7e28d5cba3fdd3ec6fa",
+    "semantic_hash": "8a8deae58b4ab7e28d5cba3fdd3ec6fa"
+  },
+  "review/grok/playwright/README.md": {
+    "mtime": 1785470636.3679187,
+    "ast_hash": "10738f4b5c59817f641c0c016e3669e2",
+    "semantic_hash": "10738f4b5c59817f641c0c016e3669e2"
+  },
+  "review/grok/react/README.md": {
+    "mtime": 1785470636.3577294,
+    "ast_hash": "4e5fc268355e6df721a805ba6705a361",
+    "semantic_hash": "4e5fc268355e6df721a805ba6705a361"
+  },
+  "review/grok/redux-toolkit/README.md": {
+    "mtime": 1785470636.3611479,
+    "ast_hash": "35644873650777c9155bd0ed7bbcbb8c",
+    "semantic_hash": "35644873650777c9155bd0ed7bbcbb8c"
+  },
+  "review/grok/storybook/README.md": {
+    "mtime": 1785470636.3702853,
+    "ast_hash": "224cf3d38722e005ae1d82cb482bf18b",
+    "semantic_hash": "224cf3d38722e005ae1d82cb482bf18b"
+  },
+  "review/grok/tanstack-query/README.md": {
+    "mtime": 1785470636.3690774,
+    "ast_hash": "4d6dc69f171eec1e495c279f9fc915f1",
+    "semantic_hash": "4d6dc69f171eec1e495c279f9fc915f1"
+  },
+  "review/grok/typescript/README.md": {
+    "mtime": 1785470636.3600247,
+    "ast_hash": "69f054e675065ebe22bb973fda259ecd",
+    "semantic_hash": "69f054e675065ebe22bb973fda259ecd"
+  },
+  "review/grok/vite/README.md": {
+    "mtime": 1785470636.3636687,
+    "ast_hash": "d48f1c72f7321e3022e326c2a2f5c41f",
+    "semantic_hash": "d48f1c72f7321e3022e326c2a2f5c41f"
+  },
+  "review/grok/web-vitals-performance/README.md": {
+    "mtime": 1785470636.3644965,
+    "ast_hash": "52bab1348610b8bac6eff1e499e7aab8",
+    "semantic_hash": "52bab1348610b8bac6eff1e499e7aab8"
+  },
+  "review/grok/webpack/README.md": {
+    "mtime": 1785470636.36248,
+    "ast_hash": "0fbd8b106b1d21a14c13ad53403039c2",
+    "semantic_hash": "0fbd8b106b1d21a14c13ad53403039c2"
+  },
+  "review/javascript/README.md": {
+    "mtime": 1785470903.375658,
+    "ast_hash": "58eb19d0268de5455770567dac489344",
+    "semantic_hash": "58eb19d0268de5455770567dac489344"
+  },
+  "review/jest-rtl/README.md": {
+    "mtime": 1785469127.063349,
+    "ast_hash": "e2ead45b4fad273aca524040f84db8f4",
+    "semantic_hash": "e2ead45b4fad273aca524040f84db8f4"
+  },
+  "review/nextjs/README.md": {
+    "mtime": 1785469120.576492,
+    "ast_hash": "76331de8188f43f07d0dfc165ab0f5bf",
+    "semantic_hash": "76331de8188f43f07d0dfc165ab0f5bf"
+  },
+  "review/playwright/README.md": {
+    "mtime": 1785469133.702205,
+    "ast_hash": "c8fbf10e3968703c6cb73b3d2916e259",
+    "semantic_hash": "c8fbf10e3968703c6cb73b3d2916e259"
+  },
+  "review/react/README.md": {
+    "mtime": 1785470889.6205106,
+    "ast_hash": "819709dca1faa680fd1c971d7fd01b31",
+    "semantic_hash": "819709dca1faa680fd1c971d7fd01b31"
+  },
+  "review/redux-toolkit/README.md": {
+    "mtime": 1785469093.4961174,
+    "ast_hash": "1a9f31496c2fd36fec43edde46b15855",
+    "semantic_hash": "1a9f31496c2fd36fec43edde46b15855"
+  },
+  "review/storybook/README.md": {
+    "mtime": 1785469145.8969471,
+    "ast_hash": "f8e59aa0831d901c624bc4f079ba0e28",
+    "semantic_hash": "f8e59aa0831d901c624bc4f079ba0e28"
+  },
+  "review/tanstack-query/README.md": {
+    "mtime": 1785469139.899073,
+    "ast_hash": "0b7e55439cc1748492fbbfc05fb1e250",
+    "semantic_hash": "0b7e55439cc1748492fbbfc05fb1e250"
+  },
+  "review/typescript/README.md": {
+    "mtime": 1785470898.5446064,
+    "ast_hash": "3f61c27c1259acc47309bb95e76afefa",
+    "semantic_hash": "3f61c27c1259acc47309bb95e76afefa"
+  },
+  "review/vite/README.md": {
+    "mtime": 1785469107.4907887,
+    "ast_hash": "b4ce9c17bb1e6560dcf44bbec1f5540e",
+    "semantic_hash": "b4ce9c17bb1e6560dcf44bbec1f5540e"
+  },
+  "review/web-vitals-performance/README.md": {
+    "mtime": 1785470908.8887172,
+    "ast_hash": "8b76bb9542cebbcc1e2436736a17c258",
+    "semantic_hash": "8b76bb9542cebbcc1e2436736a17c258"
+  },
+  "review/webpack/README.md": {
+    "mtime": 1785469101.0089395,
+    "ast_hash": "3d729fe6c3d646661fcb6c3b9d4bffb8",
+    "semantic_hash": "3d729fe6c3d646661fcb6c3b9d4bffb8"
+  },
+  "syllabus/git_bible_syllabus.txt": {
+    "mtime": 1785481385.8951092,
+    "ast_hash": "9da8c098ebf3f2666214babe5b6219f4",
+    "semantic_hash": "9da8c098ebf3f2666214babe5b6219f4"
   }
 }
