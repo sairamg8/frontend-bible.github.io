@@ -1,0 +1,291 @@
+================================================================================
+                              THE ULTIMATE BABEL BIBLE
+              Complete Master Syllabus for JS/TS Compilation & Transformation
+================================================================================
+
+NOTE: Babel is increasingly hidden under framework defaults (Next.js SWC, Vite
+esbuild/SWC, Vitest esbuild). This bible covers the compiler pipeline, config,
+presets/plugins, and custom transform authoring - plus when Babel is still the
+right tool vs dead weight a migration should remove. Bundler-specific loader
+wiring cross-links `webpack_bible_syllabus.txt` SECTION 4 and `vite_bible_syllabus.txt`
+SECTION 8; test-runner transform config cross-links `jest_rtl_bible_syllabus.txt`.
+
+--------------------------------------------------------------------------------
+SECTION 1: WHY BABEL & THE COMPILER LANDSCAPE
+--------------------------------------------------------------------------------
+1.1 What Babel Does
+    - Source-to-source AST transform             - "Compiler" not "bundler"; input JS/TS/JSX -> transformed JS, no linking/bundling.
+    - Syntax support vs semantic transform             - Letting the parser understand new syntax vs actually rewriting it to older targets.
+
+1.2 Babel vs SWC vs esbuild vs tsc
+    - Why frameworks moved off Babel               - Rust/Go compiler speed (SWC, esbuild) vs Babel's JS-based traversal cost.
+    - tsc's role                                       - Type-checking only by default; not a drop-in replacement for JSX/target transforms.
+    - What Babel still uniquely offers                    - Largest plugin ecosystem, macros, arbitrary custom AST transforms, TC39 stage-X syntax.
+
+1.3 Where Babel Still Matters in 2026
+    - Custom plugin/macro pipelines             - styled-components/emotion codegen, babel-plugin-macros consumers.
+    - Framework escape hatches                     - babelrc override support in Next.js/CRA-successors when a custom plugin is required.
+    - Legacy/unusual targets                         - Browser matrices SWC/esbuild presets don't cover as granularly.
+    - Codemods & tooling                                - jscodeshift and similar tools build on Babel's parser/traversal.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: CORE COMPILATION PIPELINE
+--------------------------------------------------------------------------------
+2.1 Parse -> Transform -> Generate
+    - @babel/parser                            - Produces an ESTree-derived AST from source text.
+    - Visitor traversal                            - Plugins register node-type visitors; @babel/traverse walks and invokes them.
+    - @babel/generator                               - AST back to source string + source map.
+
+2.2 @babel/core Programmatic API
+    - transformSync / transformAsync           - Embedding Babel in custom tooling (codemods, build scripts).
+    - transformFileSync / transformFromAstSync     - File-based and pre-parsed-AST entry points.
+    - Plugin/preset resolution order                 - How @babel/core merges config files, options, and caller metadata.
+
+2.3 AST Fundamentals & Paths
+    - Node types                               - Identifier, CallExpression, JSXElement, etc.; shared mental model with ESLint's ESTree.
+    - Path objects                                - Wraps a node with traversal/mutation methods (parent, scope, context).
+    - Scope tracking                                 - Binding resolution, reference counting, avoiding accidental shadowing in generated code.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: CONFIGURATION SYSTEM
+--------------------------------------------------------------------------------
+3.1 Config File Forms
+    - babel.config.js / .json / .cjs / .mjs    - Project-wide config; required for monorepo cross-package compilation.
+    - .babelrc(.json)                             - File-relative config; package-scoped, does not apply across package boundaries by default.
+    - package.json "babel" key                      - Inline config for small/single-package repos.
+
+3.2 Config Resolution & Root (Monorepos)
+    - root / rootMode                          - upward / upward-optional for monorepo root detection.
+    - babelrcRoots                                - Opting specific packages into .babelrc resolution from a shared root.
+    - Why this differs from ESLint's nearest-config     - Explicit root-based resolution vs directory-cascading discovery.
+
+3.3 env-based Config
+    - "env" key                                - Per BABEL_ENV/NODE_ENV config blocks (test/development/production).
+    - Common test-only overrides                   - CommonJS module transform enabled only under "env.test" for Jest.
+
+3.4 overrides
+    - File-glob-scoped overrides                - Different plugins/presets for e.g. legacy/ vs src/ within one config.
+    - test / exclude / include                    - Scoping precisely without maintaining multiple config files.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: PRESETS
+--------------------------------------------------------------------------------
+4.1 @babel/preset-env
+    - browserslist targets                     - .browserslistrc driving which transforms/polyfills are actually included.
+    - useBuiltIns: usage / entry / false           - Automatic polyfill injection strategies and their bundle-size tradeoffs.
+    - corejs version pinning                         - Matching useBuiltIns to an installed core-js major version.
+    - exclude / include                                - Forcing specific transforms on/off regardless of target inference.
+
+4.2 @babel/preset-react
+    - Classic vs automatic JSX runtime         - React.createElement calls vs jsx/jsxs imports from react/jsx-runtime.
+    - development mode                            - jsx-dev-runtime, component stack warnings in dev builds.
+
+4.3 @babel/preset-typescript
+    - Type-stripping only                      - Removes type syntax; performs no type checking whatsoever.
+    - isolatedModules / verbatimModuleSyntax        - Why type-only re-exports and const enums need TS-side flags to stay Babel-safe.
+
+4.4 Framework-Bundled Presets
+    - babel-preset-next                        - What Next.js composes under its own Babel path (when not on SWC).
+    - metro-react-native-babel-preset               - React Native's Babel entry point.
+    - Recognizing a vendored preset                    - Reading a framework's default config before adding a custom babel.config.js.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: PLUGIN ECOSYSTEM
+--------------------------------------------------------------------------------
+5.1 Syntax vs Transform Plugins
+    - @babel/plugin-syntax-*                   - Enables the parser to accept syntax; produces no output change alone.
+    - @babel/plugin-transform-*                   - Actual codegen: rewrites syntax to a compatible form.
+
+5.2 Stage-X / TC39 Proposal Plugins
+    - Proposal lifecycle (stage 0-4)           - What "stage" signals about stability and spec risk.
+    - Shipping stage-1/2 syntax in production        - Why this is a deliberate risk decision, not a default.
+
+5.3 Common Ecosystem Plugins
+    - babel-plugin-styled-components           - Displayname injection, minification-safe class names, SSR support.
+    - @emotion/babel-plugin                       - Emotion's equivalent codegen plugin.
+    - babel-plugin-module-resolver                  - Path alias resolution at compile time (vs bundler-level alias config).
+    - babel-plugin-transform-imports                  - Per-import rewriting for tree-shaking legacy libraries.
+
+5.4 Macros
+    - babel-plugin-macros contract              - Compile-time code generation triggered by specially-named imports.
+    - Common macro consumers                       - graphql.macro-style codegen; understanding what a macro expands to before debugging output.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: AUTHORING CUSTOM PLUGINS
+--------------------------------------------------------------------------------
+6.1 Visitor Pattern
+    - enter / exit                             - Node-type visitor functions; traversal order and re-visiting on mutation.
+    - path.traverse / path.skip                   - Nested traversal control; avoiding infinite loops on self-generated nodes.
+
+6.2 Path & Scope APIs
+    - path.replaceWith / insertBefore / remove - Core mutation primitives.
+    - scope.generateUidIdentifier               - Collision-safe temp variable naming in generated code.
+    - Binding lookups                              - scope.getBinding, reference counting before removing "unused" declarations.
+
+6.3 @babel/types Builders
+    - t.identifier / t.callExpression etc.     - Constructing valid AST nodes instead of hand-building plain objects.
+    - Validators                                   - t.isX helpers for narrowing node types safely in a visitor.
+
+6.4 Testing Plugins
+    - babel-plugin-tester                      - Fixture-based valid/invalid transform test harness.
+    - Snapshot-based transform tests               - Asserting generated output stays stable across plugin changes.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: TYPESCRIPT & JSX HANDLING
+--------------------------------------------------------------------------------
+7.1 Type-Stripping Semantics
+    - Babel never checks types                 - tsc --noEmit (or typescript-eslint) remains mandatory alongside Babel for type safety.
+    - Why builds can "pass" with type errors        - The gap between a successful Babel build and a type-correct one.
+
+7.2 Babel-Unsupported TS Features
+    - const enums                              - Require isolatedModules-safe alternatives (regular enums or object-as-const).
+    - Legacy namespaces                              - Limited/no support; migration to ES modules.
+
+7.3 Automatic JSX Runtime
+    - jsxImportSource                          - Swapping the JSX factory (e.g. for Emotion's css prop) without touching every file.
+    - No implicit React import                    - React 17+/19 automatic runtime removing `import React` boilerplate.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: BUILD TOOL INTEGRATION
+--------------------------------------------------------------------------------
+8.1 Webpack (babel-loader)
+    - cacheDirectory / cacheCompression        - Speeding up repeated builds; disk cache invalidation on config change.
+    - exclude node_modules patterns               - Avoiding double-compiling already-published code.
+    [cross-link `webpack_bible_syllabus.txt` SECTION 4]
+
+8.2 Vite (@vitejs/plugin-react Babel path)
+    - When Vite falls back to Babel               - Custom babel plugin usage forcing off the default esbuild/SWC fast path.
+    - Fast Refresh requirements                       - Why the React plugin needs Babel-level instrumentation for HMR state preservation.
+    [cross-link `vite_bible_syllabus.txt` SECTION 8]
+
+8.3 Jest (babel-jest)
+    - Automatic babel.config detection          - Default transform when no explicit transform option is set.
+    - transformIgnorePatterns                      - Forcing transform of ESM-only packages published untranspiled.
+    [cross-link `jest_rtl_bible_syllabus.txt`]
+
+8.4 Rollup/Rolldown (@rollup/plugin-babel)
+    - Library build target matrices            - When a Rollup-based package build still needs Babel over Rolldown's native output.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: LINTER & TYPE-CHECKER INTEROP
+--------------------------------------------------------------------------------
+9.1 @babel/eslint-parser
+    - When ESLint's default parser isn't enough - Rare in 2026; mostly legacy/experimental syntax typescript-eslint/espree can't parse.
+    - Feature parity gaps                          - Losing some type-aware linting capability when swapping parsers.
+    [cross-link `eslint_oxlint_bible_syllabus.txt` SECTION 4]
+
+9.2 Coexisting with tsc
+    - Build-time division of labor             - Babel strips types and emits JS; tsc/typescript-eslint own correctness checking.
+    - CI ordering                                  - Running type-check and Babel build as separate, both-required steps.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: SOURCE MAPS & DEBUGGING
+--------------------------------------------------------------------------------
+10.1 Source Map Generation
+    - inline vs external maps                  - sourceMaps: true | 'inline' | 'both'.
+    - devtool interplay with Webpack               - Matching babel-loader source map output to Webpack's devtool setting.
+
+10.2 Debugging Transform Output
+    - @babel/cli --out-file inspection          - Producing standalone transformed output to diff against expectations.
+    - AST Explorer workflow                        - Prototyping a visitor against a pasted snippet before writing plugin code.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: PERFORMANCE & CACHING
+--------------------------------------------------------------------------------
+11.1 Compilation Cost
+    - JS traversal cost at scale                - Where Babel becomes the bottleneck in large monorepo builds/CI.
+    - Comparing to SWC/esbuild on the same tree     - Recognizing when a migration is justified by measured build time, not vibes.
+
+11.2 Caching Strategies
+    - babel-loader cacheDirectory               - Persistent on-disk cache across builds.
+    - Jest transform cache                         - Avoiding re-transforming unchanged test files.
+    - Watch-mode incremental behavior                - Why cold starts are slower than incremental rebuilds.
+
+11.3 Reducing Plugin/Preset Surface
+    - preset-env exclude                       - Only compiling syntax the target matrix actually lacks.
+    - Tightening browserslist                     - Fewer transforms/polyfills as the direct lever on compile + bundle cost.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: MONOREPO & MULTI-PACKAGE STRATEGIES
+--------------------------------------------------------------------------------
+12.1 Shared Root Config
+    - One babel.config.js at repo root          - Consistent target/preset behavior across packages.
+    - Per-package overrides                        - overrides/env blocks for packages with divergent targets (e.g. a Node CLI package vs a browser app).
+
+12.2 Cross-Package Compilation
+    - Compiling workspace dependencies           - Why root-level config (not .babelrc) is required for transforms to apply across package boundaries.
+    - Publishing pre-compiled vs source            - Tradeoffs for internal workspace packages vs published npm packages.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: CLI & PROGRAMMATIC TOOLING
+--------------------------------------------------------------------------------
+13.1 @babel/cli
+    - babel src -d lib                         - Directory-to-directory compilation for library builds.
+    - --copy-files / --extensions                  - Handling non-JS assets and custom file extensions.
+
+13.2 Codemods on Babel's Parser
+    - jscodeshift                              - Building on @babel/parser + recast for large-scale automated refactors.
+    - When a codemod beats a lint autofix           - Structural rewrites too complex for ESLint's fixer model.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: NODE.JS / BACKEND USAGE
+--------------------------------------------------------------------------------
+14.1 Runtime Registration
+    - @babel/register                          - On-the-fly require() hook compilation; dev-only, not for production servers.
+    - @babel/node                                 - CLI runner combining register + node for scripts/tooling.
+
+14.2 ESM/CJS Interop for Backend Code
+    - Dual output strategies                   - Compiling once vs separate CJS/ESM builds for a published Node package.
+    - "type": "module" implications                - How package.json's type field interacts with Babel's module transform choice.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: MIGRATION & DECISION RECIPES
+--------------------------------------------------------------------------------
+15.1 Babel -> SWC (Next.js/general)
+    - Identifying the blocker                  - A lingering custom babel.config.js forces Next off its default SWC compiler.
+    - Porting common plugins                       - styled-components and Emotion both have SWC-native equivalents.
+
+15.2 Babel -> esbuild/Vite Native Transform
+    - Dropping the Babel path                  - Removing @vitejs/plugin-react's Babel fallback once no custom plugins remain in use.
+
+15.3 Keeping Babel Deliberately
+    - Documenting the pin                      - Recording why a repo stays on Babel (macro dependency, custom codemod, legacy matrix) so it isn't "fixed" by a future migration.
+
+15.4 Auditing an Inherited Config
+    - Dead/duplicate plugin detection           - Checking an inherited babel.config.js for presets/plugins no longer doing anything.
+    - Minimal-diff verification                    - Confirming compiled output is unchanged after trimming config.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven - each item walks an end-to-end setup
+a senior engineer actually performs.
+
+16.1 Setup Recipes
+    - Bare library build (babel.config.js + preset-env + CLI)  - Publishing a package compiled for a defined browserslist/Node target.
+    - Styled-components/Emotion pipeline setup                    - Wiring the CSS-in-JS babel plugin into an existing preset-react config.
+    - Path-alias setup via babel-plugin-module-resolver               - Matching tsconfig "paths" so runtime resolution and type-checking agree.
+
+16.2 Debugging Recipes
+    - "Why didn't my transform apply?"          - Config resolution order (root/rootMode/overrides) as the first thing to check.
+    - Diagnosing a broken third-party ESM package  - transformIgnorePatterns and the "SyntaxError: Cannot use import statement" failure mode.
+
+16.3 Migration Recipes
+    - Auditing whether Babel is still needed     - Checklist: custom plugins? macros? legacy targets? If none, migrate to the framework default compiler.
+    - Trimming preset-env output                    - Before/after bundle-size check against a tightened browserslist.
+================================================================================
