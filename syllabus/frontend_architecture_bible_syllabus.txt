@@ -66,6 +66,7 @@ SECTION 6: STYLING ARCHITECTURE
     - CSS Modules                                  - Scoped by default, zero runtime cost, pairs well with design tokens; less dynamic than CSS-in-JS.
     - Design tokens                                  - Single source of truth for color/spacing/typography consumed by both code and design tools (Figma).
     - Theming strategy                                 - CSS custom properties for runtime theme switching (dark mode) vs build-time theme variants.
+    - Fullstack color strategy                         - Tokens as CSS vars + Tailwind/Modules delivery; avoid hex-in-components and runtime CSS-in-JS as the global color system.
 
 
 --------------------------------------------------------------------------------

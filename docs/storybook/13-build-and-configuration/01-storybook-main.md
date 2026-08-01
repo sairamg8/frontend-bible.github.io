@@ -1,5 +1,9 @@
 # 📖 Build & Configuration: `.storybook/main.js` Deep Dive
 
+> **In-depth customization (main + preview + manager + viteFinal + env):**  
+> [Advanced main & preview](./02-advanced-main-and-preview-customization.md) ·  
+> [Manager UI, builder hooks & env](./03-manager-ui-builder-hooks-and-env.md)
+
 ## 1. Under-The-Hood Mechanics
 
 `.storybook/main.js` (or `.ts`) is Storybook's central configuration file, controlling story discovery, addon registration, the framework/builder pairing, and static asset serving — read once at Storybook startup, before any story is ever loaded.

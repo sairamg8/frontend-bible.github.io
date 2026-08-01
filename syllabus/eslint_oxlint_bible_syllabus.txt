@@ -1,0 +1,456 @@
+================================================================================
+                      THE ULTIMATE ESLINT & OXLINT BIBLE
+     Complete Master Syllabus for JS/TS Linting - ESLint, Oxlint & Coexistence
+================================================================================
+
+DOCUMENTATION STANDARD FOR EVERY CONCEPT:
+Each concept must be documented with 4 mandatory sections:
+  1. Concept & Under-the-Hood Mechanics (parser/AST, rule pipeline, config merge)
+  2. Real-World Engineering Scenario (Production Use Case)
+  3. Production-Grade Code Example (flat config / .oxlintrc / CLI as appropriate)
+  4. Senior Engineer Edge Cases & Pitfalls (false positives, perf cliffs, monorepos)
+
+NOTE: This bible catalogs *lint tooling* (ESLint + Oxlint): architecture, config,
+rules, plugins, type-aware analysis, migration, and running both together.
+Formatting (Prettier/Oxfmt/Biome format) is mentioned only at the lint/format
+boundary - do not turn this into a formatter bible. Project-structure / CI
+decision context may cross-link `frontend_architecture_bible_syllabus.txt`
+SECTION 12 (CI/CD) and SECTION 15 (team practices) where relevant.
+
+SCOPE SNAPSHOT (as of 2026):
+  - ESLint: flat config is the only supported path for modern versions; legacy
+    `.eslintrc*` is migration history. Cover ESLint 9+ APIs (`defineConfig`,
+    `globalIgnores`, `extends` in flat config) and note major version EOL when
+    documenting upgrade paths.
+  - Oxlint: Oxc-based Rust linter, ~50-100x faster than ESLint on large trees,
+    800+ rules, native plugin reimplementations, type-aware via tsgolint/tsgo,
+    JS plugins still alpha. Primary config: `.oxlintrc.json` or `oxlint.config.ts`.
+  - Coexistence is first-class: many production monorepos run `oxlint && eslint`
+    with `eslint-plugin-oxlint` disabling overlapping rules.
+
+--------------------------------------------------------------------------------
+SECTION 1: LINTING LANDSCAPE & TOOLING DECISIONS
+--------------------------------------------------------------------------------
+1.1 Why Lint at All
+    - Static analysis vs tests vs types     - What linting catches that tsc and unit tests do not (bug patterns, a11y, hooks rules, import graphs).
+    - Signal vs noise                            - Correctness-first defaults vs style nits; why noisy rules destroy adoption.
+    - Lint in the feedback loop                     - Editor -> pre-commit -> CI ordering and the cost of slow lint on PR velocity.
+
+1.2 Choosing a Linter (Decision Tree)
+    - ESLint-only                              - Need full custom rules, obscure plugins, or edge-case plugin APIs Oxlint cannot run yet.
+    - Oxlint-only                                 - Greenfield or greenfield-like apps; ruleset covered by native plugins; CI time is a bottleneck.
+    - Oxlint + ESLint coexistence                    - Large legacy trees: fast path for most rules, ESLint retained for gaps (recommended large-repo path).
+    - Biome / other all-in-one tools                    - Integrated format+lint tradeoff; when a dedicated linter + separate formatter wins instead.
+    - Vite+ / unified toolchains                           - When the team wants Oxlint+Oxfmt inside a broader toolchain vs bare oxlint package.
+
+1.3 Lint vs Format Boundary
+    - Rules that rewrite style                 - Why stylistic ESLint rules conflict with Prettier; eslint-config-prettier / stylistic plugin split.
+    - Oxfmt / Prettier / Biome format             - Formatters own whitespace/quotes; linters own correctness and API misuse.
+    - Single source of truth for style               - Pick one formatter; disable overlapping lint style rules to end PR bikesheds.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: ESLINT CORE ARCHITECTURE
+--------------------------------------------------------------------------------
+2.1 How ESLint Works Under the Hood
+    - Source -> parse -> AST -> rules           - Pipeline: file read, parser produces ESTree (or compatible) AST, rules visit nodes, reports/fixes collected.
+    - ESTree & parser role                         - Default Espree for JS; swap parser for TypeScript/Vue/etc. via languageOptions.parser.
+    - Rule visitor pattern                            - Selectors / node-type visitors; enter/exit; why AST shape knowledge matters for custom rules.
+    - Linter vs CLI vs IDE                              - Same core engine; CLI batches files + formatters; editors lint on change with subset of options.
+    - Autofix model                                        - Fix objects with range+text; multipass fixing; conflicts when two rules fix the same span.
+
+2.2 Legacy Config Era (Historical Context)
+    - .eslintrc.* formats                      - JSON/YAML/JS cascaded configs; `extends`, `overrides`, `env`, `globals`.
+    - .eslintignore                               - Separate ignore file; superseded by flat `ignores` / `globalIgnores`.
+    - Why flat config replaced cascading             - Implicit directory cascade was hard to reason about; flat is explicit arrays of config objects.
+    - When you still see eslintrc                       - Older monorepo packages, generate-era Next templates; migrate before depending on new APIs.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: ESLINT FLAT CONFIG (MODERN DEFAULT)
+--------------------------------------------------------------------------------
+3.1 Config File Forms
+    - eslint.config.js / .mjs / .cjs           - ESM vs CJS export default; package `"type": "module"` implications.
+    - eslint.config.ts                            - Type-safe config (supported in modern ESLint); tooling/runtime requirements.
+    - defineConfig() from eslint/config              - Helper for typed configs, better IntelliSense, and evolving flat-config ergonomics.
+    - Config as an array of objects                     - Each object can set files, ignores, languageOptions, plugins, rules, settings.
+
+3.2 Core Flat-Config Object Fields
+    - files / ignores                          - Glob targeting; config objects only apply to matched files.
+    - globalIgnores()                             - Repo-wide ignores without accidentally creating a global block that disables other configs.
+    - languageOptions                              - parser, parserOptions, globals, ecmaVersion, sourceType (module/script/commonjs).
+    - plugins                                        - Map of plugin name -> plugin object (no magic string resolution like legacy).
+    - rules                                            - Rule id -> severity | [severity, ...options].
+    - settings                                          - Shared plugin settings (e.g. react.version, import resolvers).
+    - linterOptions                                    - reportUnusedDisableDirectives, noInlineConfig, etc.
+    - processor                                          - Multi-part files (e.g. Vue/Markdown code blocks) extraction before lint.
+
+3.3 Composition: extends, Cascading, and Shareable Configs
+    - extends in flat config                   - Modern ergonomic composition (configs as imported objects/arrays).
+    - Spreading recommended configs               - @eslint/js, typescript-eslint, plugin.configs.recommended patterns.
+    - Order and override semantics                   - Later array entries win for same file+rule; how to intentionally override.
+    - FlatCompat / @eslint/eslintrc                     - Bridging old `extends: 'plugin:X/recommended'` strings during migration.
+    - Config Inspector                                 - Visualizing which config object applies which rules to a file.
+
+
+--------------------------------------------------------------------------------
+SECTION 4: ESLINT LANGUAGE OPTIONS, GLOBALS & PARSING
+--------------------------------------------------------------------------------
+4.1 languageOptions Deep Dive
+    - ecmaVersion / sourceType                 - Language level and module system; mismatch symptoms (parse errors, false globals).
+    - globals package                             - Replacing legacy `env: { browser: true }` with explicit globals.browser etc.
+    - Custom globals                                 - readonly vs writable; testing frameworks and browser APIs.
+    - parserOptions.ecmaFeatures / jsx                - JSX enablement outside TypeScript parser defaults.
+    - project / projectService (TS)                      - How type-aware parsers discover tsconfig; performance implications.
+
+4.2 File-Type Targeting Patterns
+    - **/*.{js,mjs,cjs,ts,tsx,jsx}             - Standard app globs and why over-broad globs hit config/scripts noise.
+    - Separate config objects per language        - Node scripts vs browser app vs tests with different globals/rules.
+    - Ignoring build output and vendor               - dist, coverage, .next, storybook-static, generated clients.
+
+
+--------------------------------------------------------------------------------
+SECTION 5: ESLINT RULES SYSTEM
+--------------------------------------------------------------------------------
+5.1 Rule Identity & Severity
+    - Rule IDs                                 - eslint core bare names vs plugin/rule form (react-hooks/rules-of-hooks).
+    - "off" | "warn" | "error" (0/1/2)            - Severity semantics; CI fail-on-warning policies.
+    - Rule options arrays                            - ["error", { option: true }] shape; schema validation failures.
+    - Core categories mentally                           - Possible problems, suggestions, layout (layout largely migrated to formatters/stylistic).
+
+5.2 High-Value Core Rules (Catalog Mentally, Not Exhaustively)
+    - Correctness staples                      - no-undef, no-unused-vars, eqeqeq, no-async-promise-executor, require-atomic-updates.
+    - Modern ESM pitfalls                         - no-duplicate-imports, import-era replacements via plugins.
+    - When recommended is not enough                 - Turning on strict rules incrementally vs big-bang error storms.
+
+5.3 Shareable Rule Presets
+    - js.configs.recommended / all             - @eslint/js baselines and why "all" is rarely production-sane.
+    - Plugin recommended / strict / stylistic     - How plugins ship multi-preset configs in flat form.
+    - Company/shared eslint-config-* packages        - Versioning shared configs across monorepos.
+
+
+--------------------------------------------------------------------------------
+SECTION 6: ESLINT PLUGIN ECOSYSTEM
+--------------------------------------------------------------------------------
+6.1 Plugin Anatomy
+    - meta / rules / configs / processors      - What a plugin export contains in flat-config world.
+    - Registering plugins in flat config          - plugins: { react: reactPlugin } then rules: { 'react/X': ... }.
+    - settings contracts                             - How plugins read shared settings; undocumented settings as footguns.
+
+6.2 Essential Frontend Plugins (ESLint Side)
+    - eslint-plugin-react                      - Component patterns, JSX best practices, React version detection.
+    - eslint-plugin-react-hooks                   - rules-of-hooks + exhaustive-deps; React Compiler related rules where applicable.
+    - eslint-plugin-jsx-a11y                         - Accessibility anti-patterns in JSX.
+    - eslint-plugin-import / import-x                   - Import order, no-cycle, extensions, resolver setup (typescript/node).
+    - eslint-plugin-unicorn                            - Opinionated modern JS quality rules; cherry-pick vs full preset.
+    - @next/eslint-plugin-next / eslint-config-next       - App Router / Pages rules; flatConfig exports on modern Next.
+    - eslint-plugin-jest / vitest / testing-library          - Test-file overrides; relaxing prod rules in tests.
+    - @stylistic/eslint-plugin                              - Formatting-adjacent rules if not fully deferred to Prettier.
+    - eslint-plugin-prettier / config-prettier                 - Dual-run vs disable-conflicts strategies (prefer disable-conflicts).
+
+6.3 Plugin Resolution Pitfalls
+    - Peer dependency hell                     - eslint major mismatches; duplicate plugins in monorepos.
+    - Resolver misconfig for imports              - False no-unresolved; path aliases vs tsconfig paths.
+    - Flat-config only plugins                       - Legacy plugins that still need FlatCompat.
+
+6.4 Node, Backend & Security Plugins (Fullstack Repos)
+    - eslint-plugin-n                          - Node correctness: no-missing-import, no-deprecated-api, process/global misuse.
+    - eslint-plugin-security                      - Common Node/Express vuln patterns: unsafe regex, child_process, eval, timing attacks.
+    - eslint-plugin-no-secrets                       - Flags accidentally committed high-entropy keys/tokens before they hit a diff.
+    - Mixed frontend/backend monorepos                 - files-scoped config objects for browser vs node globals; sourceType per package.
+    - ESM/CJS interop rules                              - import/no-commonjs or n/no-unsupported-features for dual-published packages.
+
+
+--------------------------------------------------------------------------------
+SECTION 7: TYPESCRIPT-ESLINT
+--------------------------------------------------------------------------------
+7.1 Architecture
+    - @typescript-eslint/parser                - Produces TS-aware AST for ESLint.
+    - @typescript-eslint/eslint-plugin            - Rules that understand TypeScript syntax and (optionally) types.
+    - typescript-eslint umbrella package             - Modern recommended entry (`typescript-eslint`) for flat config.
+    - configs.recommended / strict / stylistic          - Preset ladder; type-checked variants.
+
+7.2 Type-Aware Linting
+    - parserOptions.project / projectService   - Classic project array vs modern projectService for DX/perf.
+    - Rules that need type info                   - no-floating-promises, no-misused-promises, no-unsafe-*, consistent-type-imports nuances.
+    - Performance cost                               - Type-aware lint scales with program size; isolating slow rules, caching, CI sharding.
+    - Disabling base ESLint rules that conflict         - e.g. no-unused-vars vs @typescript-eslint/no-unused-vars.
+
+7.3 TS + React + Next Production Stack
+    - Recommended flat config composition      - js + typescript-eslint + react + hooks + a11y + next layering order.
+    - Typed linting only on ts/tsx                - Avoid type-aware on plain JS unless intentional.
+    - Monorepo project references                    - Multi-tsconfig solutions; per-package eslint configs.
+
+
+--------------------------------------------------------------------------------
+SECTION 8: ESLINT CLI, OUTPUT, CACHE & FIXES
+--------------------------------------------------------------------------------
+8.1 CLI Essentials
+    - npx eslint . / paths / globs             - What gets linted; directory linting vs explicit patterns.
+    - --fix / --fix-dry-run                   - Applying autofixes safely; reviewing dry-run in PRs.
+    - --cache / --cache-location / --cache-strategy  - Content vs metadata cache; CI cache keys.
+    - -f / --format                                 - stylish, unix, json, compact; custom formatters for tooling.
+    - --max-warnings                                 - Treating warnings as CI failures past a threshold.
+    - Exit codes                                        - How scripts should chain (&& vs continuing on warn).
+
+8.2 Programmatic & Advanced Usage
+    - ESLint class API                         - Embedding lint in custom tooling (codemods, gates).
+    - Inline suppression interaction              - How CLI flags interact with disable comments.
+    - Lint on changed files only                     - PR/diff lint strategies and their false-confidence risk.
+
+
+--------------------------------------------------------------------------------
+SECTION 9: ESLINT SUPPRESSIONS, IGNORES & GOVERNANCE
+--------------------------------------------------------------------------------
+9.1 Inline Disable Comments
+    - eslint-disable / -enable                 - File-wide toggles; scoped rule lists.
+    - eslint-disable-next-line / -line            - Line-scoped suppressions; multi-rule lists.
+    - reportUnusedDisableDirectives                  - Failing on stale suppressions to keep debt visible.
+    - noInlineConfig                                - Forbidding inline disables in favor of config overrides (strict teams).
+
+9.2 Governance Patterns
+    - Overrides for generated code             - GraphQL clients, openapi, prisma: ignore or relax, never "fix" blindly.
+    - Gradual rollout                              - warn -> error; file-path based enablement for legacy dirs.
+    - Suppression budgets                             - Counting eslint-disable as tech debt in review culture.
+    - Shared ignore lists                                - Aligning ESLint ignores with prettierignore/gitignore carefully.
+
+
+--------------------------------------------------------------------------------
+SECTION 10: CUSTOM ESLINT RULES & PROCESSORS
+--------------------------------------------------------------------------------
+10.1 Authoring a Rule
+    - create(context) visitors                 - Node selectors; context.report API.
+    - meta.docs / meta.fixable / schema         - Documentation, fix capability, options schema.
+    - Fixers & suggestions                           - Automatic fixes vs user-offered suggestions.
+    - Shared utilities in plugins                       - Avoiding duplicated AST helpers across rules.
+
+10.2 Testing Rules
+    - RuleTester                               - Valid/invalid cases, output for fixes, TypeScript RuleTester variants.
+    - Fixture-based tests                         - Real-world snippets over abstract AST toys.
+
+10.3 Custom Processors & Language Plugins
+    - Extracting JS from non-JS files          - MDX, Vue SFC, Astro, Markdown fenced blocks.
+    - When a processor is the wrong tool          - Prefer dedicated plugins that already handle the framework.
+
+
+--------------------------------------------------------------------------------
+SECTION 11: ESLINT EDITOR & LOCAL WORKFLOW
+--------------------------------------------------------------------------------
+11.1 VS Code / IDE Integration
+    - Official ESLint extension                - Flat config requirements; eslint.useFlatConfig history.
+    - Working directories for monorepos           - Multi-root and package-local configs.
+    - Code Actions on save                         - source.fixAll.eslint vs formatter conflicts.
+    - Problems panel noise control                    - validate languages, ignore patterns in editor settings.
+
+11.2 Git Hooks & Local Scripts
+    - lint-staged + eslint                     - Lint only staged files; interaction with partial parses.
+    - husky / pre-commit cost                        - Keeping hooks fast enough that devs do not skip them.
+    - package.json script conventions                   - lint, lint:fix, lint:ci naming.
+
+
+--------------------------------------------------------------------------------
+SECTION 12: OXLINT CORE ARCHITECTURE
+--------------------------------------------------------------------------------
+12.1 What Oxlint Is
+    - Oxc compiler stack                       - Shared parser/semantic analysis with other Oxc tools; Rust performance.
+    - Design goals                                - Large repos, CI throughput, high-signal correctness defaults, ESLint migration path.
+    - Benchmark mental model                         - Order-of-magnitude speedups (often cited ~50-100x) and what workloads show them.
+    - Language support                                - JS/TS/JSX/TSX; framework files (Vue/Svelte/Astro) via script-block linting.
+
+12.2 Architectural Differences from ESLint
+    - Native rules vs JS plugin host           - Most rules implemented in Rust; optional JS plugin bridge (alpha).
+    - Category-based defaults                     - correctness-first enablement vs ESLint recommended packages.
+    - Config shape heritage                          - `.oxlintrc.json` aligned with ESLint v8-style schema (not ESLint flat array).
+    - Multi-file analysis as first-class            - Project module graph for import/cycle class rules without ESLint's classic cliff.
+
+
+--------------------------------------------------------------------------------
+SECTION 13: OXLINT INSTALLATION, CLI & CONFIG FILES
+--------------------------------------------------------------------------------
+13.1 Getting Started
+    - Install oxlint as devDependency          - pnpm/npm/yarn; zero-config first run on a tree.
+    - package.json scripts                        - "lint": "oxlint", "lint:fix": "oxlint --fix".
+    - CLI entry points                               - Path args, config path `-c`, common flags.
+
+13.2 Configuration Surfaces
+    - .oxlintrc.json                           - Primary JSON config + `$schema` for editor completion.
+    - oxlint.config.ts + defineConfig             - TypeScript config with imported extends objects.
+    - Nearest-config resolution                      - Hierarchical config discovery similar to familiar eslintrc mental model.
+    - extends                                       - JSON path extends vs TS object extends; merge order last-wins.
+
+13.3 Config Schema Essentials
+    - plugins                                  - Native plugin enable list (import, typescript, react, unicorn, ...).
+    - categories                                  - correctness, suspicious, pedantic, perf, style, restriction, nursery.
+    - rules                                          - Per-rule severity/options; overrides categories.
+    - overrides                                      - files / excludeFiles scoped rule and env changes.
+    - env / globals                                  - Browser/node/jest/vitest/etc. preset globals + custom globals.
+    - settings                                       - Plugin settings (e.g. react.version) and custom keys.
+    - ignorePatterns                                 - gitignore-style ignores rooted at config directory.
+    - options.typeAware / typeCheck / denyWarnings / maxWarnings / reportUnusedDisableDirectives / respectEslintDisableDirectives.
+
+
+--------------------------------------------------------------------------------
+SECTION 14: OXLINT NATIVE PLUGINS & RULE COVERAGE
+--------------------------------------------------------------------------------
+14.1 Built-in Plugin Families
+    - eslint (core)                            - Native reimplementation of ESLint core rules.
+    - typescript                                  - typescript-eslint rule coverage including type-aware subset when enabled.
+    - react (includes hooks / refresh / compiler notes) - React + hooks; experimental React Compiler analysis rule where applicable.
+    - import                                        - Import graph rules including no-cycle (pair with multi-file analysis).
+    - unicorn / jsdoc / promise / node                 - Quality, docs, async, and Node-oriented rule sets.
+    - jest / vitest                                    - Test framework rules and env globals.
+    - jsx-a11y                                         - Accessibility rules for JSX.
+    - react-perf / oxc / vue                              - Perf-oriented React rules, Oxc-specific, Vue support notes.
+    - Rule compatibility mindset                            - Not every ESLint option/rule exists; migration reports gaps.
+    - Security rule gap                                       - No native equivalent to eslint-plugin-security yet; keep ESLint dual-run for security-specific linting.
+
+14.2 Categories Strategy
+    - correctness as default path              - Why correctness-first reduces adoption friction.
+    - pedantic / style / restriction              - When to enable for stricter codebases; noise management.
+    - nursery                                        - Experimental rules; stability expectations.
+    - Category + individual rule overrides              - Categories first, surgical rules second.
+
+
+--------------------------------------------------------------------------------
+SECTION 15: OXLINT TYPE-AWARE LINTING & MULTI-FILE ANALYSIS
+--------------------------------------------------------------------------------
+15.1 Type-Aware Mode
+    - options.typeAware / --type-aware         - Enabling rules that need types.
+    - oxlint-tsgolint dependency                  - Native Go port of TypeScript (tsgo / TypeScript 7 lineage) integration.
+    - Mission-critical type rules                    - Floating promises and similar class of bugs.
+    - typeCheck experimental                            - Surfacing compiler diagnostics through the linter path.
+    - Contrast with Biome type inference                 - Compiler-aligned types vs reimplemented inference tradeoffs.
+
+15.2 Multi-File Analysis
+    - Project-wide module graph                - Shared parse/resolve across rules.
+    - import/no-cycle and friends                 - Why this is a historic ESLint performance cliff and how Oxlint approaches it.
+    - Cost model                                     - When to enable multi-file in CI always vs on-demand.
+
+
+--------------------------------------------------------------------------------
+SECTION 16: OXLINT JS PLUGINS (ALPHA) & EXTENSIBILITY
+--------------------------------------------------------------------------------
+16.1 jsPlugins Bridge
+    - Running existing ESLint plugins          - Compatibility goal: many plugins without modification.
+    - jsPlugins string vs { name, specifier }     - Aliasing when a native plugin name is reserved.
+    - Reserved native names                          - react, typescript, import, unicorn, jest, vitest, eslint, ... cannot be reused raw.
+    - TypeScript plugin files                           - Node version / Bun / Deno support constraints.
+    - Alpha expectations                                 - Not semver-stable; performance cliffs with many simultaneous JS plugins.
+
+16.2 Custom Rules Strategy
+    - Prefer native coverage first             - Check Oxlint rules before carrying ESLint-only plugins forever.
+    - Keep ESLint for irreplaceable custom rules  - Dual-run architecture until JS plugins mature.
+    - Writing custom JS rules for Oxlint             - Same mental model as ESLint rules where API surface allows.
+
+
+--------------------------------------------------------------------------------
+SECTION 17: OXLINT FIXES, IGNORES & DIAGNOSTICS
+--------------------------------------------------------------------------------
+17.1 Automatic Fixes
+    - oxlint --fix                           - Safe autofix application.
+    - Fix coverage differences                    - Not every ESLint fix parity guaranteed rule-for-rule.
+
+17.2 Ignore Comments
+    - // oxlint-disable / -enable              - Native suppressions.
+    - // oxlint-disable-next-line / -line         - Line-scoped control.
+    - eslint-disable compatibility                   - options.respectEslintDisableDirectives (default true) for migration.
+    - --replace-eslint-comments migration path          - Converting comments during @oxlint/migrate.
+    - reportUnusedDisableDirectives                    - Cleaning stale suppressions.
+
+17.3 Ignore Files & Patterns
+    - ignorePatterns in config                 - Preferred long-term ignore source.
+    - .eslintignore interim respect               - Migration convenience; plan to consolidate.
+    - Diagnostics quality                            - Spans, structured data, docs links; human + AI-friendly output.
+
+
+--------------------------------------------------------------------------------
+SECTION 18: COEXISTENCE - ESLINT + OXLINT IN ONE REPO
+--------------------------------------------------------------------------------
+18.1 Recommended Dual-Run Pattern
+    - oxlint && eslint                         - Fast fail first; ESLint for residual rules.
+    - eslint-plugin-oxlint                        - Disables ESLint rules already covered by Oxlint to avoid double work/noise.
+    - Rule ownership matrix                          - Document which tool owns which concern (hooks, import cycles, a11y, custom).
+    - Script layout                                     - lint:ox, lint:eslint, lint (aggregate); CI job structuring.
+
+18.2 Overlap & Conflict Management
+    - Duplicate diagnostics                    - Same bug reported twice confuses authors; disable overlap on one side.
+    - Severity alignment                          - error in one tool + warn in the other is worse than a single owner.
+    - Disable comment dual support                   - Prefer one comment dialect long-term; respect both during transition.
+    - IDE extensions                                 - Running both language services; performance on large files.
+
+18.3 When to Drop ESLint Entirely
+    - Coverage checklist                       - Custom rules ported or replaced; plugin gaps closed; team training done.
+    - Small/medium vs large repos                 - Official guidance nuance: full replace vs incremental.
+    - Rollback plan                                  - Keep ESLint config in git history / feature flag scripts temporarily.
+
+
+--------------------------------------------------------------------------------
+SECTION 19: MIGRATION PATHS
+--------------------------------------------------------------------------------
+19.1 ESLint Legacy -> Flat Config
+    - @eslint/migrate-config                   - Mechanical conversion from .eslintrc.
+    - FlatCompat for stubborn extends             - Temporary bridges for unmigrated shareable configs.
+    - Peer dep & plugin flat exports                 - Updating Next/React/TS ecosystems to flat-native configs.
+    - Editor + CI cutover day                           - Extension settings, cache clear, required checks.
+
+19.2 ESLint -> Oxlint
+    - @oxlint/migrate                          - Convert flat ESLint config to .oxlintrc.json; report unsupported rules.
+    - Reviewing migration output                  - Severity/options preservation; manual gap list.
+    - Moving ignores into ignorePatterns             - Stop relying on .eslintignore long-term.
+    - Replacing biome-ignore / other dialects           - Map to eslint-disable or oxlint-disable consistently.
+
+19.3 Dual-Stack Migration (Large Monorepos)
+    - Phase 1: add Oxlint correctness          - No rule deletions in ESLint yet.
+    - Phase 2: eslint-plugin-oxlint               - Turn off overlaps; measure CI time.
+    - Phase 3: expand Oxlint categories/plugins      - Delete dead ESLint plugins as coverage lands.
+    - Phase 4: optional ESLint removal                  - Only when residual rule set is empty or accepted as debt.
+
+
+--------------------------------------------------------------------------------
+SECTION 20: CI, MONOREPOS & PERFORMANCE ENGINEERING
+--------------------------------------------------------------------------------
+20.1 CI Design for Linters
+    - Fail fast with Oxlint                    - Short job before expensive test/e2e matrices.
+    - Caching strategy                            - ESLint --cache; Oxlint native speed reduces cache need but still cache deps.
+    - Sharding and path filters                      - Monorepo affected-package lint vs always-full-tree.
+    - Required checks & warning budgets                 - max-warnings, deny-warnings policies.
+    - SARIF / code scanning integration                    - eslint-formatter-sarif for GitHub Security tab; surfacing lint as scanning alerts, not just job failures.
+    - CI annotations                                          - GitHub Actions problem matchers / -f json piping so lint errors inline on the diff.
+
+20.2 Monorepo Patterns
+    - Root config + package overrides          - Shared baseline with package-level overrides for apps/libs.
+    - Per-package ESLint flat configs             - vs single root flat config with files globs.
+    - Oxlint nearest-config layout                   - Package-local .oxlintrc for divergent apps.
+    - Task runners (Turbo/Nx)                           - lint task graph, remote cache invalidation on config change.
+
+20.3 Performance Pitfalls
+    - Type-aware cost on ESLint                - projectService tuning; limiting type-aware to src not scripts.
+    - import plugin resolvers                     - Expensive resolution; prefer Oxlint multi-file for cycle checks when possible.
+    - JS plugins count in Oxlint                     - Known slowdowns with many concurrent JS plugins; keep alpha plugins few.
+    - Over-broad globs                               - Linting node_modules/dist by accident.
+
+
+--------------------------------------------------------------------------------
+SECTION 21: REAL-WORLD WORKFLOWS & RECIPES
+--------------------------------------------------------------------------------
+NOTE: Task-driven, not mechanics-driven - each item walks an end-to-end setup
+or migration a senior engineer actually performs.
+
+21.1 Bootstrap Recipes
+    - Greenfield Vite + React + TS with Oxlint-only      - Minimal .oxlintrc, scripts, VS Code extension.
+    - Greenfield ESLint flat + typescript-eslint + React    - Production eslint.config.js composition.
+    - Add Oxlint beside existing ESLint (incremental)          - eslint-plugin-oxlint + script ordering.
+
+21.2 Migration Recipes
+    - .eslintrc -> eslint.config.mjs                       - migrate-config + manual cleanup.
+    - ESLint flat -> Oxlint full replace                      - @oxlint/migrate + gap triage + CI swap.
+    - Next.js eslint-config-next -> flat + dual Oxlint           - Next flatConfig exports + coexistence.
+    - Biome lint -> Oxlint (and format decision)                    - Rule mapping and comment dialect swap.
+
+21.3 Day-to-Day Engineering Recipes
+    - Debugging "why is this rule firing?"                 - Config inspector / oxlint rule tracing mental model; nearest config.
+    - Safely deleting eslint-disable debt                     - reportUnusedDisableDirectives + override files for legacy.
+    - Designing a shared company lint preset                     - versioned config package for ESLint and/or Oxlint.
+    - Pre-commit that developers will not skip                      - lint-staged patterns with Oxlint speed advantage.
+    - Handling generated code without silencing the repo               - overrides and ignorePatterns patterns.
+================================================================================

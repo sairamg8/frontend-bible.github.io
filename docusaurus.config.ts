@@ -38,7 +38,20 @@ const config: Config = {
     ],
   ],
 
-  plugins: [],
+  plugins: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: '/',
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
 
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
@@ -62,25 +75,6 @@ const config: Config = {
           position: 'right',
         },
       ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Documentation',
-          items: [
-            {
-              label: 'React 19 & Core Hooks',
-              to: '/',
-            },
-            {
-              label: 'Server Components & Actions',
-              to: '/react/server-components-and-actions/rsc-architecture-and-directives',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} React Bible Platform. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

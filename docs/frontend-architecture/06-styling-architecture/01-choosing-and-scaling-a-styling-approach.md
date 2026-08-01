@@ -24,6 +24,26 @@ A design token system (color/spacing/typography values defined once, in a format
 ### Theming Strategy: Runtime CSS Custom Properties vs Build-Time Variants
 CSS custom properties (`--color-primary`) allow **runtime** theme switching (toggling dark mode without a page reload/rebuild) — build-time theme variants (separate compiled CSS bundles per theme) avoid any runtime switching cost but require choosing the theme at build/deploy time, unsuitable for a user-toggleable runtime preference like dark mode.
 
+### Color Strategy for Modern Fullstack Applications
+Styling approach (Tailwind vs Modules vs CSS-in-JS) is **orthogonal** to color architecture — and the industry-recommended color architecture is the same either way:
+
+```text
+Design tokens → CSS custom properties (semantic) → Tailwind utilities OR CSS Modules
+Theme / brand → reassign variables on :root / [data-theme] — never hex in feature components
+```
+
+| Layer | Role |
+|---|---|
+| **Tokens as CSS variables** | Required foundation for dark mode, white-label, and design/code sync |
+| **Tailwind / shadcn-style UI** | Most common *delivery* for product UIs — map `primary`/`background` to those variables |
+| **CSS Modules** | Strong zero-runtime alternative; still consume `var(--color-*)` |
+| **Runtime CSS-in-JS themes** | Losing ground as the *global* color system for new apps (SSR/runtime cost) |
+
+**Do not** treat “plain CSS colors” and “Tailwind” as mutually exclusive. Hard-coded hex fails at scale; Tailwind without semantic CSS variables also fails at theming. Do both: **tokens in CSS + a zero-runtime styling layer**.
+
+Canonical playbook (drop-in token file, Tailwind mapping, SSR FOUC, decision trees):  
+[CSS Bible — Global color handling §5: Color strategy for modern fullstack applications](../../css/11-color-backgrounds-and-borders/02-global-color-system-and-tokens.md#5-color-strategy-for-modern-fullstack-applications).
+
 ---
 
 ## 2. Real-World Engineering Scenario
@@ -59,9 +79,15 @@ export const tokens = {
 ```
 
 ```tsx
-// Consuming Tailwind utility classes — fast iteration, design consistency enforced via a shared config
+// Tailwind for layout/spacing — but COLORS should be semantic tokens, not raw palette/white
+// ❌ bg-white  → breaks under [data-theme=dark]
+// ✅ bg-surface (mapped to var(--color-surface) in tailwind config)
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="flex flex-col gap-4 p-4 rounded-lg bg-white shadow-md">{children}</div>;
+  return (
+    <div className="flex flex-col gap-4 p-4 rounded-lg bg-surface text-text shadow-md">
+      {children}
+    </div>
+  );
 }
 ```
 

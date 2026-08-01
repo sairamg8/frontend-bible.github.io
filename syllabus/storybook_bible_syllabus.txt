@@ -33,41 +33,59 @@ SECTION 3: ADDONS ECOSYSTEM
     - Viewport                                     - Simulating device/responsive breakpoints.
     - Backgrounds                                    - Toggling background colors/themes behind a story.
 
+3.2 Actions Panel In Depth
+    - fn() vs action() vs silent handlers  - Review-visible logs + assertable mocks for play.
+    - argTypesRegex auto-detect               - ^on[A-Z].* global wiring in preview.
+    - Actions panel UI & empty-log debugging     - Proving handlers fire during design review.
+    - handles for DOM events                        - Optional non-prop event logging.
+
 
 --------------------------------------------------------------------------------
 SECTION 4: CONTROLS & ARGS
 --------------------------------------------------------------------------------
-4.1 Dynamic Prop Editing
+4.1 Dynamic Prop Editing / Controls Panel
     - Auto-generated controls               - Inferred from TypeScript prop types / PropTypes via docgen.
     - Args composition/inheritance             - Story-level args overriding/extending meta-level args.
     - args in play functions                     - Reading current args for interaction assertions.
+    - Control types map (boolean/select/range/…)  - Explicit argTypes when inference is insufficient.
+    - parameters.controls (sort/matchers/exclude) - Global panel UX for design-system scale.
+    - Conditional controls, mapping, categories      - if/mapping/table.category production patterns.
+    - Session-only edits vs named stories               - Exploration vs Chromatic/a11y baselines.
 
 
 --------------------------------------------------------------------------------
 SECTION 5: INTERACTION TESTING
 --------------------------------------------------------------------------------
-5.1 play Functions
+5.1 play Functions / Interactions Panel
     - Simulating user behavior inside a story  - @storybook/test's userEvent + within() + expect().
     - Interaction panel                           - Step-by-step visual playback of the play function in the Storybook UI.
     - Combining play functions with assertions for behavior-level (not just visual) verification.
+    - step() groups, waitFor/findBy, portals        - Readable debugger rows; async UI; body queries.
+    - Keyboard/focus plays + test-runner CI            - a11y-aligned flows enforced in pipeline.
 
 
 --------------------------------------------------------------------------------
 SECTION 6: VISUAL TESTING
 --------------------------------------------------------------------------------
-6.1 Chromatic Integration
+6.1 Chromatic Integration / Visual Tests
     - Per-story visual snapshots               - Pixel-diffing every story on every PR.
     - UI review workflow                          - Approving/rejecting visual changes as part of code review.
     - TurboSnap                                     - Only re-snapshotting stories affected by a given diff for speed.
+    - parameters.chromatic (delay/viewports/modes) - Stabilize fonts/animations; theme matrices.
+    - disableSnapshot / ignoreSelectors               - Non-deterministic content hygiene.
+    - Named end-states vs playground stories             - Baselines need fixed args, not Controls sessions.
 
 
 --------------------------------------------------------------------------------
 SECTION 7: ACCESSIBILITY TESTING
 --------------------------------------------------------------------------------
-7.1 a11y Addon
+7.1 a11y Addon / Accessibility Panel
     - Automated axe-core scans per story        - Surfacing WCAG violations directly in the Storybook UI.
     - Highlighting violating elements visually in the canvas.
     - Combining with CI to fail builds on new a11y regressions.
+    - parameters.a11y rules (global vs per-story)  - Landmark noise vs real contrast/name failures.
+    - Incomplete vs violations; limits of axe           - Pair with keyboard play + AT sampling.
+    - Dark-theme contrast matrix                           - a11y under theme globals, not light-only.
 
 
 --------------------------------------------------------------------------------
@@ -122,6 +140,20 @@ SECTION 13: BUILD & CONFIGURATION
     - framework config                             - Selecting the renderer + builder pairing.
     - staticDirs                                     - Serving static assets (fonts, images) inside Storybook.
 
+13.2 Advanced main & preview customization
+    - Parameter inheritance (preview < meta < story) - Where to set layout, controls, a11y, docs defaults.
+    - Full main.ts map (docs, typescript, features, core, refs, env, logLevel) - Build-time customization surface.
+    - Full preview map (decorators, loaders, globalTypes, initialGlobals, storySort, viewports) - Runtime iframe customization.
+    - preview-head/body HTML hooks                    - Preload fonts, portals, FOUC theme script.
+    - PropFilter / autodocs policy                       - Keep Controls usable at design-system scale.
+
+13.3 Manager UI, builder hooks, env & CI
+    - manager.ts branding/theming              - Shell logo, colors, sidebar — separate from component theme.
+    - viteFinal / webpackFinal deep merge         - Aliases, SVG/SVGR, SCSS, monorepo fs.allow, base path.
+    - STORYBOOK_* env vs secrets                     - Client-visible flags only; never embed tokens.
+    - Host/port/CI smoke-test & static deploy           - Dev server flags, GitHub Actions artifact patterns.
+    - End-to-end "want X → edit Y" map                     - Navigation table for every common customization.
+
 
 --------------------------------------------------------------------------------
 SECTION 14: PUBLISHING & DEPLOYMENT
@@ -149,4 +181,23 @@ real end-to-end setup workflow rather than cataloging an API surface.
 
 16.1 Setup Recipes
     - Bootstrapping into an existing app [O]      - Wiring the app's REAL providers (Router/store/theme/QueryClient) into global decorators, plus keeping viteFinal/webpackFinal aliases in sync with the app's own bundler config.
+    - Wiring colors and custom fonts [D]             - staticDirs + shared tokens/fonts CSS + theme toolbar decorator end-to-end.
+
+
+--------------------------------------------------------------------------------
+SECTION 17: THEMING — COLORS & CUSTOM FONTS
+--------------------------------------------------------------------------------
+17.1 Global Colors, Themes & Tokens in Storybook
+    - Preview iframe must import app token CSS     - Same --color-* primitives/semantics as production.
+    - Toolbar globals → decorator → data-theme        - Live light/dark/brand switching without editing stories.
+    - Backgrounds addon vs real theme                    - Canvas chrome is not a substitute for CSS variables.
+    - Token documentation stories                           - Swatches resolved from live computed styles.
+    - Tailwind/CSS Modules bridge                              - Semantic utilities mapped to the same variables.
+
+17.2 Custom Fonts & Typography in Storybook
+    - staticDirs vs bundler-imported @font-face    - Serve the same files/paths as the app.
+    - Import order: fonts.css → tokens → global       - Faces registered before stacks reference them.
+    - next/font bridge via CSS variables                 - Components consume var(--font-*); Storybook defines them without next/font.
+    - Typography specimens + document.fonts.ready           - Prove custom faces loaded; stabilize Chromatic metrics.
+    - preview-head preload & licensing                      - Optional preload; self-host for CI determinism.
 ================================================================================

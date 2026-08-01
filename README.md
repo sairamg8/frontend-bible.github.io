@@ -2,7 +2,7 @@
 
 Welcome to the **Frontend Engineering Master Bibles Platform** — an enterprise-grade, single-source-of-truth documentation system designed for senior frontend engineers, staff architects, and interview preparation. 
 
-Powered by **Docusaurus 3**, **React 19.2**, and **TypeScript 6**, this platform hosts **15 comprehensive, production-level reference bibles** covering every critical domain of modern frontend engineering.
+Powered by **Docusaurus 3**, **React 19.2**, and **TypeScript 6**, this platform hosts **16 comprehensive, production-level reference bibles** covering every critical domain of modern frontend engineering.
 
 ---
 
@@ -18,7 +18,7 @@ Powered by **Docusaurus 3**, **React 19.2**, and **TypeScript 6**, this platform
 
 ---
 
-## 🗂️ The 15 Technical Bibles
+## 🗂️ The 16 Technical Bibles
 
 | Icon | Bible Name | Path | Key Focus & Content |
 | :---: | :--- | :--- | :--- |
@@ -26,6 +26,7 @@ Powered by **Docusaurus 3**, **React 19.2**, and **TypeScript 6**, this platform
 | ▲ | **Next.js Bible** | `docs/nextjs/` | App Router, Server Actions, Edge Middleware, ISR, Caching layer, Route Handlers |
 | ⚡ | **JavaScript Bible** | `docs/javascript/` | V8 engine, Event Loop & microtasks, Memory profiling, Closures, Prototypes, Generators |
 | 🔷 | **TypeScript Bible** | `docs/typescript/` | Type system mechanics, Generics, Conditional types, Template literals, Branded types |
+| 🎨 | **CSS Bible** | `docs/css/` | Cascade & `@layer`, Flexbox algorithm, Grid/subgrid, container queries, layout tricks, recipes |
 | 🏛️ | **Frontend Architecture** | `docs/frontend-architecture/` | Micro-Frontends, Monorepo strategies, Offline-first apps, State machines, Web Workers |
 | 🔄 | **TanStack Query Bible** | `docs/tanstack-query/` | QueryCache internals, Mutations, Optimistic updates, Infinite queries, SSR hydration |
 | 📦 | **Redux Toolkit Bible** | `docs/redux-toolkit/` | RTK Query, Immer mechanics, Normalized entity adapters, Custom middleware |

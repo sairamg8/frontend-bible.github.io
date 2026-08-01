@@ -20,6 +20,9 @@ Storybook Composition: combining MULTIPLE separate Storybook instances (differen
 ### Design Token Stories: Documenting the Foundation, Not Just Components
 A dedicated "Colors" or "Spacing" story rendering the actual design system's color palette/spacing scale as swatches gives the whole team (including non-engineers) a single, authoritative, always-current reference for the design system's foundational values — generated directly from the actual token source (a JS/JSON tokens file), so it can never drift from what components actually use.
 
+For **global theme switching, brand toolbars, shared CSS variables, and custom font loading** in the preview iframe, see the dedicated section:  
+[Colors & themes](../17-theming-colors-and-fonts/01-global-colors-themes-and-tokens.md) · [Custom fonts & typography](../17-theming-colors-and-fonts/02-custom-fonts-and-typography.md).
+
 ### Variant Matrices: Exhaustive, Not Sampled, Coverage
 Rather than a handful of individually-authored stories (`Primary`, `Secondary`, `Disabled`), a variant matrix systematically renders **every** combination of a component's key dimensions (size × color × state) in one grid — surfacing visual bugs that only manifest in specific, less-obvious combinations (e.g. a `small` + `disabled` + `secondary` button that nobody had thought to check individually).
 

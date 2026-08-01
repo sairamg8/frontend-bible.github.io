@@ -139,5 +139,12 @@ export const decorators = [(Story) => <Provider store={sharedStore}><Story /></P
 ### ⚠️ Pitfall 3: Forgetting the Global Stylesheet Import, Getting "It Works But Looks Wrong"
 A component using Tailwind utility classes, CSS custom properties, or any global stylesheet the app's real entry point imports (but Storybook's generated `preview.ts` never automatically does) renders **structurally correct but visually broken** — no error, just missing styles, which is a much more confusing failure mode to diagnose than an outright crash because nothing LOOKS wrong to a quick glance if you don't know the correct styled version.
 
+**Colors + custom fonts (deep dive + recipe):**  
+[Global colors, themes & tokens](../17-theming-colors-and-fonts/01-global-colors-themes-and-tokens.md) · [Custom fonts](../17-theming-colors-and-fonts/02-custom-fonts-and-typography.md) · [Wire both end-to-end](./02-wiring-colors-and-custom-fonts.md).
+
+**In-depth config / customization:**  
+[Advanced main & preview](../13-build-and-configuration/02-advanced-main-and-preview-customization.md) ·  
+[Manager UI, viteFinal, env & CI](../13-build-and-configuration/03-manager-ui-builder-hooks-and-env.md).
+
 ### ⚠️ Pitfall 4: Aliases Drifting Out of Sync Over Time, Same Failure Class as Jest's `moduleNameMapper`
 Exactly like the Jest configuration drift problem, Storybook's `viteFinal`/`webpackFinal` alias mirroring (Step 4) is a manually-maintained duplicate of the app's real bundler config — a new alias added to the app's `vite.config.ts` six months from now, with nobody remembering Storybook needs the same alias added to `.storybook/main.ts`, produces "works in the app, `Cannot resolve '@/newFeature'` only inside Storybook" with no obvious connection to the recent alias change for whoever hits it next.
